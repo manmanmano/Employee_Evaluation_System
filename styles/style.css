@@ -19,7 +19,6 @@ footer {
     content: '\2709';
 
 }
-
 #number::after {
     content: '\260f';
 }

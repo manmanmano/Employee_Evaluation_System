@@ -14,20 +14,23 @@
 	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-	<menu>
-        <a href="index.html">Back to main page</a>
-    </menu>
+	<header>
+		<p class="logo">Logo JAM</p>
+		<nav>
+			<a href="https://enos.itcollege.ee/~juprus/icd0007_project/">Main page</a>
+			<a href="#">Profile</a>
+		</nav>
+	</header>
 	<form>
-		<label for="fname">First Name</label>
-		<input type="text" id="fname" required>
+		<label for="name"><b>Name</b></label>
+		<input type="text" id="name" placeholder="Full Name" required>
 		<br>
-		<label for="lname">Last Name</label>
-		<input type="text" id="lname" required>
 		<br>
-		<label for="email">Email Address</label>
-		<input type="text" id="email" required>
+		<label for="name"><b>Email</b></label>
+		<input type="text" id="email" placeholder="Email" required>
 		<br>
-		<label>Position</label>
+		<br>
+		<label><b>Position:</b></label>
 			<ul>
 				<li>
 					<label>
@@ -43,19 +46,25 @@
 				</li>
 			</ul>
 		
-		<label for="pass">Password</label>
-		<input type="password" id="pass" required>
+		<label for="name"><b>Password</b></label>
+		<input type="password" id="pass" placeholder="Password" required>
+		<br>
+		<br>
+		<label for="name"><b>Confirm Password</b></label>
+		<input type="password" id="confPass" placeholder="Confirm Password" required>
+		<br>
 		<br>
 		<div id="haveToken" style="display:block">
-			<label for="company">Company token (token given by the employer)</label>
+			<label for="company"><b>Company token (token given by the employer)</b></label>
 			<input type="text" id="company" required>
 		</div>
 
 		<div id="companyGen"  style="display:none">
-			<label for="genToken">Company token (give this token to employees for registering)</label>
+			<label for="genToken"><b>Company token (give this token to employees for registering)</b></label>
 			<input type="text" id="genToken">
 		</div>
-		<input type="submit" value="Register">
+		<br>
+		<button class="registerButton" type="submit"><b>Register</b></button>
 		
 </body>
 </html>
