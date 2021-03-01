@@ -13,7 +13,6 @@ table {
     border-collapse: collapse;
 }
 footer {
-     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -36,10 +35,16 @@ header {
     margin-bottom: 30px;
     border-bottom: 1px solid #000000;
 }
+#floating-login {
+    float: right;
+    margin-right: 30px;
+    border-style: solid;
+    padding: 10px;
+}
 ul {
     list-style: square;
     list-style-position: inside;
-    margin-bottom: 300px
+    margin-bottom: 150px
 }
 li {
     padding-top: 20px;
