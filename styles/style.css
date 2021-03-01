@@ -44,9 +44,6 @@ ul {
 li {
     padding-top: 20px;
 }
-p {
-
-}
 a {
     text-decoration: none;
     color: rgb(207, 0, 0);
@@ -75,15 +72,6 @@ nav a{
   padding-left: 50px;
   font-size: 25px;
   font-weight: bold;
-}
-h1 {
-
-}
-h2 {
-
-}
-h3 {
-
 }
 form{
   margin-top: 50px;
