@@ -31,25 +31,13 @@ header {
     border-bottom: 1px solid #000000;
 }
 ul {
-    list-style: square;
-    list-style-position: inside;
-    margin-bottom: 300px
-}
-li {
-    padding-top: 20px;
+
 }
 p {
 
 }
 a {
-    text-decoration: none;
-    color: rgb(207, 0, 0);
-}
-img {
-    display: block;
-    margin-left: 15%;
-    margin-right: auto;
-    padding-top: 20px;
+
 }
 nav {
     display: inline;
