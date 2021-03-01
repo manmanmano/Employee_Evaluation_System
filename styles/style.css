@@ -13,7 +13,7 @@ table {
     border-collapse: collapse;
 }
 footer {
-    background-color: #64eca1;
+    background-color: #87ff9e;
     color: black;
     text-align: center;
     bottom: 0;
@@ -98,7 +98,7 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 .registerButton {
-  background-color: #4CAF50;
+  background-color: #87ff9e;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -125,6 +125,6 @@ td {
     padding-right: 10px;
 }
 table tr:hover {
-    background-color: lightgreen;
+    background-color: #87ff9e;
     border: 1px solid black;
 }
