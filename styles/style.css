@@ -11,6 +11,7 @@ table {
     margin-right: auto;
     border: 1px solid black;
     border-collapse: collapse;
+    margin-bottom: 400px;
 }
 footer {
     background-color: #87ff9e;
