@@ -12,7 +12,7 @@ table {
     border: 1px solid black;
     border-collapse: collapse;
 }
-#foot {
+footer {
     background-color: #64eca1;
     color: black;
     text-align: center;
