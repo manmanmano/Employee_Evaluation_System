@@ -1,34 +1,125 @@
 @charset "utf-8";
 body {
-
+  background-color: #f4f7f6;
+    font-family: "open sans", sans-serif;
+    font-size: large;
+    color: black;
 }
 table {
-
+  width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 footer {
+     position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #64eca1;
+    color: black;
+    text-align: center;
+    padding-top: 0px
+}
+#email::after {
+    content: '\2709';
 
+}
+#number::after {
+    content: '\260f';
 }
 header {
-
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #000000;
 }
 ul {
-
+    list-style: square;
+    list-style-position: inside;
+    margin-bottom: 300px
 }
-p {
-
+li {
+    padding-top: 20px;
 }
 a {
-
+    text-decoration: none;
+    color: rgb(207, 0, 0);
+}
+img {
+    display: block;
+    margin-left: 15%;
+    margin-right: auto;
+    padding-top: 20px;
 }
 nav {
-
+    display: inline;
+    text-align: right;
+    margin-right: 25px;
+    padding: 40px 50px;
+    padding-bottom: 10px;
 }
-h1 {
-
+nav a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  margin-right: 25px;
+  padding-bottom: 10px;
 }
-h2 {
-
+.logo{
+  padding-left: 50px;
+  font-size: 25px;
+  font-weight: bold;
 }
-h3 {
-
+form{
+  margin-top: 50px;
+  text-align: center;
+}
+form li{
+  list-style-type: none;
+}
+input[type=text], input[type=password] {
+  width: 200px;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.registerButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  opacity: 0.9;
+}
+.registerButton:hover {
+  opacity:1;
+}
+tr:nth-child(odd) {
+    background-color: white;
+}
+tr:nth-child(even) {
+    background-color: lightgrey;
+}
+th {
+    background-color: black;
+    color: white;
+}
+td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+table tr:hover {
+    background-color: lightgreen;
+    border: 1px solid black;
 }
