@@ -12,14 +12,14 @@ table {
     border: 1px solid black;
     border-collapse: collapse;
 }
-footer {
-    left: 0;
-    bottom: 0;
-    width: 100%;
+#foot {
     background-color: #64eca1;
     color: black;
     text-align: center;
-    padding-top: 0px
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 20px;
 }
 #email::after {
     content: '\2709';
