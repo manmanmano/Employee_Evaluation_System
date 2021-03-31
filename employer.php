@@ -23,7 +23,6 @@ session_start();
         <form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
             <label for="week">Week:</label>
             <input type="week" id="week" name="week">
-            <input type="submit" name="searchbyweek" value="Search by week"><br>
             <label for="name">Name:</label>
             <select id="name" name="name">
                 <?php
@@ -33,8 +32,7 @@ session_start();
                 }
                 ?>
             </select>
-            <input type="submit" name="searchbyname" value="Search by name"><br>
-            <input type="submit" name="searchbyboth" value="Search by name and week"><br>
+            <input type="submit" name="search" value="Search"><br>
         </form><br>
         <table>
             <tr>
@@ -48,7 +46,7 @@ session_start();
                 'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
                 'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
             );
-            if (isset($_POST['searchbyweek']) && intval(substr($_POST['week'], 6, 2)) != 0) {
+            if (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) != 0 && $_POST['name'] === 0) {
                 $week = intval(substr($_POST['week'], 6, 2));
                 foreach ($employees as $name => $grades) {
                     if (!empty($grades[$week])) {
@@ -59,7 +57,7 @@ session_start();
                         echo "</tr>";
                     }
                 }
-            } elseif (isset($_POST['searchbyname'])) {
+            } elseif (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) === 0 && $_POST['name'] != 0) {
                 $name = $_POST['name'];
                 foreach ($employees[$name] as $week => $grade) {
                     echo "<tr>";
@@ -68,7 +66,7 @@ session_start();
                     echo "<td><a href='grade popup'>", $grade, "</a></td>";
                     echo "</tr>";
                 }
-            } elseif (isset($_POST['searchbyboth'])) {
+            } elseif (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) != 0 && $_POST['name'] != 0) {
                 $name = $_POST['name'];
                 $week = intval(substr($_POST['week'], 6, 2));
                 echo "<tr>";
