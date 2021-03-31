@@ -47,7 +47,7 @@ session_start();
                 'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
             );
             for ($i = 0; $i < sizeof($employees); $i++) {
-                for ($j = 0; $j < sizeof($employees[$i]); $j++) {
+                for ($j = key($employees[$i]); $j < sizeof($employees[$i] + $j); $j++) {
                     echo "<tr>";
                     echo "<td>", key($employees[$i]), "</td>";
                     echo "<td>", key($employees[$i][$j]), "</td>";
