@@ -1,11 +1,6 @@
 <?php
 session_name();
 session_start();
-$employees = array(
-    'John Smith' => array(5 => 4.5, 6 => 3.9, 7 => 2.9),
-    'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
-    'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
-);
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +27,9 @@ $employees = array(
             <label for="employee"
             <select name="employee">
                 <?php
+                $names = ['John Smith', 'Mary Jane', 'James Doe'];
                 for ($i = 0; $i < sizeof($names); $i++) {
-                    printf("<option>%s</option>", key($employees[$i]));
+                    printf("<option>%s</option>", names[$i]);
                 }
                 ?>
             </select>
@@ -45,6 +41,11 @@ $employees = array(
                 <th>Evaluation</th>
             </tr>
             <?php
+            $employees = array(
+                'John Smith' => array(5 => 4.5, 6 => 3.9, 7 => 2.9),
+                'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
+                'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
+            );
             for ($i = 0; $i < sizeof($employees); $i++) {
                 for ($j = 0; $j < sizeof($employees[$i]); $j++) {
                     echo "<tr>";
