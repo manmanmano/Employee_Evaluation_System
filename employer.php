@@ -34,6 +34,7 @@ session_start();
                 ?>
             </select>
             <input type="submit" name="searchbyname" value="Search"><br>
+            <input type="submit" name="searchbyboth" value="Search"><br>
         </form><br>
         <table>
             <tr>
@@ -67,6 +68,14 @@ session_start();
                     echo "<td><a href='grade popup'>", $grade, "</a></td>";
                     echo "</tr>";
                 }
+            } elseif (isset($_POST['searchbyboth'])) {
+                $name = $_POST['name'];
+                $week = $_POST['week'];
+                echo "<tr>";
+                echo "<td>", $name, "</td>";
+                echo "<td>", $week, "</td>";
+                echo "<td><a href='grade popup'>", $employees[$name][$week], "</a></td>";
+                echo "</tr>";
             } else {
                 foreach ($employees as $name => $grades) {
                     foreach ($grades as $week => $grade) {
