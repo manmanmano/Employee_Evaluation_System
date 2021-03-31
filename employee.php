@@ -21,7 +21,8 @@ session_start();
 		<h1>My evaluation</h1>
         <form>
             <label for="week">Week:</label>
-            <input type="week" >
+            <input type="week" id="week" name="week">
+            <input type="submit" name="filter" value="Filter">
         </form>
         <table>
             <tr>
