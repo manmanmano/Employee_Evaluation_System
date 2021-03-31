@@ -31,7 +31,7 @@ session_start();
             </tr>
             <?php
             $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
-            foreach ($grade as $week => $grade) {
+            foreach ($grades as $week => $grade) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td><a href='grade popup'>", $grade, "</a></td>";
