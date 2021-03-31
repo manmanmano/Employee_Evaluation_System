@@ -1,5 +1,5 @@
 <?php
-session_name($user);
+session_name();
 session_start();
 ?>
 <!DOCTYPE html>
@@ -13,8 +13,9 @@ session_start();
 		<header>
             <img class="logo" src="img/JAMLogo.png">
 			<nav>
-				<a href="index.html">Main page</a>
-				<a href="#">Profile</a>
+				<form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
+                    <input type="submit" name="logout" value="Log out">
+<               /form>
 			</nav>
 		</header>
 		<h1>My evaluation</h1>
@@ -52,3 +53,11 @@ session_start();
 
     </body>
 </html>
+
+<?php
+if (isset($_POST['logout'])) {
+    session_unset();
+    session_destroy();
+    header("refresh:0; url=index.php");
+}
+?>
