@@ -36,7 +36,7 @@ $weeks = [5, 6, 7];
                 echo "<tr>";
                 printf("<td>Week %d</td>", weeks[$i]);
                 printf("<td>%d</td>", grades[$i]);
-                echo "</tr>"
+                echo "</tr>";
             }
             ?>
         </table>
@@ -48,7 +48,6 @@ $weeks = [5, 6, 7];
                 Call us to:<br><a href="tel: +372 5555 5555">+372 5555 5555</a>
             </p>
         </footer>
-
     </body>
 </html>
 
