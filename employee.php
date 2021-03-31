@@ -31,7 +31,7 @@ session_start();
             </tr>
             <?php
             $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
-            if (isset($_POST['search']) and intval(substr($_POST['week'], 6, 2)) != 0 {
+            if (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) != 0) {
                 $week = intval(substr($_POST['week'], 6, 2));
                 echo "<tr>";
                 echo "<td>", $week, "<td>";
