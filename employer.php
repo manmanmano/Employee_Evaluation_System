@@ -33,8 +33,8 @@ session_start();
                 }
                 ?>
             </select>
-            <input type="submit" name="searchbyname" value="Search"><br>
-        </form>
+            <input type="submit" name="searchbyname" value="Search">
+        </form><br>
         <table>
             <tr>
                 <th>Name</th>
