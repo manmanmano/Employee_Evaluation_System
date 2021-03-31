@@ -22,7 +22,7 @@ session_start();
         <form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
             <label for="week">Week:</label>
             <input type="week" id="week" name="week">
-            <input type="submit" name="search">
+            <input type="submit" name="search" value="Search">
         </form><br>
         <table>
             <tr>
@@ -31,9 +31,8 @@ session_start();
             </tr>
             <?php
             $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
-            echo $_POST['search'];
             if (isset($_POST['search'])) {
-                $week = $_POST['search'];
+                $week = $_POST['week'];
                 echo "<tr>";
                 echo "<td>", $week, "<td>";
                 echo "<td>", $grades[$week], "</td>";
