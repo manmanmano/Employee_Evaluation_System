@@ -16,10 +16,21 @@ session_start();
             <nav>
                 <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
                     <input type="submit" name="logout" value="Log out">
+                    <input type="submit" name="newevaluation" value="Add new evaluation">
                 </form>
-                <a href="employerinput.php">Add new evaluation</a>
             </nav>
         </header>
+        <form>
+            <label for="week">Week:</label>
+            <input type="week" id="week" name="week">
+            <input type="submit" name="filter" value="Filter">
+            <label for="employee"
+            <select name="employee">
+                <option>John Smith</option>
+                <option>Mary Jane</option>
+                <option>James Doe</option>
+            </select>
+        </form>
         <table>
             <tr>
                 <th>Name</th>
@@ -88,5 +99,8 @@ if (isset($_POST['logout'])) {
     session_unset();
     session_destroy();
     header("refresh:0; url=index.php");
+}
+if (isset($_POST['newevaluation'])) {
+    header("refresh:0; url=employerinput.php");
 }
 ?>
