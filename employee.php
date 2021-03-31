@@ -35,7 +35,7 @@ $weeks = [5, 6, 7];
             for ($i = 0; $i < sizeof($grades); $i++) {
                 echo "<tr>";
                 printf("<td>Week %d</td>", weeks[$i]);
-                printf("<td>%d</td>", grades[$i]);
+                printf("<td><a href='grade popup'>%d</a></td>", grades[$i]);
                 echo "</tr>";
             }
             ?>
