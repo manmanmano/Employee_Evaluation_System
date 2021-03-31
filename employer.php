@@ -29,7 +29,7 @@ session_start();
                 <?php
                 $names = ['John Smith', 'Mary Jane', 'James Doe'];
                 for ($i = 0; $i < sizeof($names); $i++) {
-                    printf("<option>%s</option>", names[$i]);
+                    printf("<option>%s</option>", $names[$i]);
                 }
                 ?>
             </select>
@@ -49,9 +49,9 @@ session_start();
             for ($i = 0; $i < sizeof($employees); $i++) {
                 for ($j = 0; $j < sizeof($employees[$i]); $j++) {
                     echo "<tr>";
-                    printf("<td>%s</td>", key($employees[$i]));
-                    printf("<td>Week %d</td>", key($employees[$i][$j]));
-                    printf("<td><a href='grade popup'>%d</a></td>", $employees[$i][$j]);
+                    echo "<td>", key($employees[$i], "</td>";
+                    echo "<td>", key($employees[$i][$j], "</td>";
+                    echo "<td><a href='grade popup'>", $employees[$i][$j], "</a></td>";
                     echo "</tr>";
                 }
             }
