@@ -24,7 +24,7 @@ session_start();
             <label for="week">Week:</label>
             <input type="week" id="week" name="week">
             <input type="submit" name="filter" value="Filter">
-            <label for="employee"
+            <label for="employee">
             <select name="employee">
                 <?php
                 $names = ['John Smith', 'Mary Jane', 'James Doe'];
