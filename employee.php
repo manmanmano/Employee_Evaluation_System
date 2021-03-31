@@ -31,6 +31,7 @@ session_start();
             </tr>
             <?php
             $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
+            echo $_POST['search'];
             if (isset($_POST['search'])) {
                 $week = $_POST['search'];
                 echo "<tr>";
