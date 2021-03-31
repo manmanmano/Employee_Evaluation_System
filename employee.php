@@ -37,6 +37,7 @@ session_start();
                 echo "<td>", $week, "<td>";
                 echo "<td><a href='grade popup'>", $grades[$week], "</a></td>";
                 echo "</tr>";
+                header("refresh:0; url=employee.php");
             } else {
                 foreach ($grades as $week => $grade) {
                     echo "<tr>";
