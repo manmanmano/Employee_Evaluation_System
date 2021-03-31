@@ -34,7 +34,7 @@ session_start();
             $weeks = [5, 6, 7];
             for ($i = 0; $i < sizeof($grades); $i++) {
                 echo "<tr>";
-                echo "<td>", weeks[$i], "</td>";
+                echo "<td>", $weeks[$i], "</td>";
                 echo "<td><a href='grade popup'>", $grades[$i], "</a></td>";
                 echo "</tr>";
             }
