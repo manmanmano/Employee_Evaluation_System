@@ -35,7 +35,7 @@ session_start();
             for ($i = 0; $i < sizeof($grades); $i++) {
                 echo "<tr>";
                 echo "<td>", weeks[$i], "</td>";
-                echo "<td><a href='grade popup'>", grades[$i], "</a></td>";
+                echo "<td><a href='grade popup'>", $grades[$i], "</a></td>";
                 echo "</tr>";
             }
             ?>
