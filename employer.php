@@ -46,12 +46,12 @@ session_start();
                 'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
                 'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
             );
-            for ($i = 0; $i < sizeof($employees); $i++) {
-                for ($j = key($employees[$i]); $j < sizeof($employees[$i] + $j); $j++) {
+            foreach ($employees as $name => $grades) {
+                foreach ($grades as $week => $grade) {
                     echo "<tr>";
-                    echo "<td>", key($employees[$i]), "</td>";
-                    echo "<td>", key($employees[$i][$j]), "</td>";
-                    echo "<td><a href='grade popup'>", $employees[$i][$j], "</a></td>";
+                    echo "<td>", $name, "</td>";
+                    echo "<td>", $week, "</td>";
+                    echo "<td><a href='grade popup'>", $grade, "</a></td>";
                     echo "</tr>";
                 }
             }
