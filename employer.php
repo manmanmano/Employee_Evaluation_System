@@ -49,8 +49,8 @@ session_start();
             for ($i = 0; $i < sizeof($employees); $i++) {
                 for ($j = 0; $j < sizeof($employees[$i]); $j++) {
                     echo "<tr>";
-                    echo "<td>", key($employees[$i], "</td>";
-                    echo "<td>", key($employees[$i][$j], "</td>";
+                    echo "<td>", key($employees[$i]), "</td>";
+                    echo "<td>", key($employees[$i][$j]), "</td>";
                     echo "<td><a href='grade popup'>", $employees[$i][$j], "</a></td>";
                     echo "</tr>";
                 }
