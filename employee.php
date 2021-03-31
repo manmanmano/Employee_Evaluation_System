@@ -30,12 +30,11 @@ session_start();
                 <th>Evaluation</th>
             </tr>
             <?php
-            $grades = [4.5, 3.9, 2.9];
-            $weeks = [5, 6, 7];
-            for ($i = 0; $i < sizeof($grades); $i++) {
+            $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
+            foreach ($grade as $week => $grade) {
                 echo "<tr>";
-                echo "<td>", $weeks[$i], "</td>";
-                echo "<td><a href='grade popup'>", $grades[$i], "</a></td>";
+                echo "<td>", $week, "</td>";
+                echo "<td><a href='grade popup'>", $grade, "</a></td>";
                 echo "</tr>";
             }
             ?>
