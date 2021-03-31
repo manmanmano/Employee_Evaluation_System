@@ -1,6 +1,11 @@
 <?php
 session_name();
 session_start();
+$employees = array(
+    'John Smith' => array(5 => 4.5, 6 => 3.9, 7 => 2.9),
+    'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
+    'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
+);
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +31,11 @@ session_start();
             <input type="submit" name="filter" value="Filter">
             <label for="employee"
             <select name="employee">
-                <option>John Smith</option>
-                <option>Mary Jane</option>
-                <option>James Doe</option>
+                <?php
+                for ($i = 0; $i < sizeof($names); $i++) {
+                    printf("<option>%s</option>", key($employees[$i]));
+                }
+                ?>
             </select>
         </form>
         <table>
@@ -37,51 +44,17 @@ session_start();
                 <th>Week</th>
                 <th>Evaluation</th>
             </tr>
-            <tr>
-                <td>John Smith</td>
-                <td>01.02.21-07.02.21</td>
-                <td><a href="grade popup">4.5</a></td>
-            </tr>
-            <tr>
-                <td>Mary Jane</td>
-                <td>01.02.21-07.02.21</td>
-                <td><a href="grade popup">3.7</a></td>
-            </tr>
-            <tr>
-                <td>James Doe</td>
-                <td>01.02.21-07.02.21</td>
-                <td><a href="grade popup">2.5</a></td>
-            </tr>
-            <tr>
-                <td>John Smith</td>
-                <td>08.02.21-14.02.21</td>
-                <td><a href="grade popup">3.9</a></td>
-            </tr>
-            <tr>
-                <td>Mary Jane</td>
-                <td>08.02.21-14.02.21</td>
-                <td><a href="grade popup">4.3</a></td>
-            </tr>
-            <tr>
-                <td>James Doe</td>
-                <td>08.02.21-14.02.21</td>
-                <td><a href="grade popup">3.5</a></td>
-            </tr>
-            <tr>
-                <td>John Smith</td>
-                <td>15.02.21-21.02.21</td>
-                <td><a href="grade popup">2.9</a></td>
-            </tr>
-            <tr>
-                <td>Mary Jane</td>
-                <td>15.02.21-21.02.21</td>
-                <td><a href="grade popup">4.4</a></td>
-            </tr>
-            <tr>
-                <td>James Doe</td>
-                <td>15.02.21-21.02.21</td>
-                <td><a href="grade popup">4.9</a></td>
-            </tr>
+            <?php
+            for ($i = 0; $i < sizeof($employees); $i++) {
+                for ($j = 0; $j < sizeof($employees[$i]); $j++) {
+                    echo "<tr>";
+                    printf("<td>%s</td>", key($employees[$i]));
+                    printf("<td>Week %d</td>", key($employees[$i][$j]));
+                    printf("<td><a href='grade popup'>%d</a></td>", $employees[$i][$j]);
+                    echo "</tr>";
+                }
+            }
+            ?>
         </table>
         <footer>
             <h3>Contact JAM</h3>
