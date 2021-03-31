@@ -20,7 +20,7 @@ session_start();
                 </form>
             </nav>
         </header>
-        <form>
+        <form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
             <label for="week">Week:</label>
             <input type="week" id="week" name="week">
             <input type="submit" name="searchbyweek" value="Search"><br>
