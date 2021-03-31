@@ -58,7 +58,7 @@ session_start();
                         echo "</tr>";
                     }
                 }
-            } elseif (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) == 0 && $_POST['name'] != 0) {
+            } elseif (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) == 0 && !empty($_POST['name'])) {
                 $name = $_POST['name'];
                 foreach ($employees[$name] as $week => $grade) {
                     echo "<tr>";
