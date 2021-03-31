@@ -24,8 +24,8 @@ session_start();
             <label for="week">Week:</label>
             <input type="week" id="week" name="week">
             <input type="submit" name="searchbyweek" value="Search"><br>
-            <label for="employee">
-            <select name="employee">
+            <label for="name">Name:</label>
+            <select id="name" name="name">
                 <?php
                 $names = ['John Smith', 'Mary Jane', 'James Doe'];
                 for ($i = 0; $i < sizeof($names); $i++) {
@@ -57,6 +57,15 @@ session_start();
                         echo "<td><a href='grade popup'>", $grades[$week], "</a></td>";
                         echo "</tr>";
                     }
+                }
+            } elseif (isset($_POST['searchbyname'])) {
+                $name = $_POST['name'];
+                foreach ($grades[$name] as $week => $grade) {
+                    echo "<tr>";
+                    echo "<td>", $name, "</td>";
+                    echo "<td>", $week, "</td>";
+                    echo "<td><a href='grade popup'>", $grade, "</a></td>";
+                    echo "</tr>";
                 }
             } else {
                 foreach ($employees as $name => $grades) {
