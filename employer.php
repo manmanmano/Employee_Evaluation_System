@@ -70,7 +70,7 @@ session_start();
                 }
             } elseif (isset($_POST['searchbyboth'])) {
                 $name = $_POST['name'];
-                $week = $_POST['week'];
+                $week = intval(substr($_POST['week'], 6, 2));
                 echo "<tr>";
                 echo "<td>", $name, "</td>";
                 echo "<td>", $week, "</td>";
