@@ -22,8 +22,8 @@ session_start();
         <form>
             <label for="week">Week:</label>
             <input type="week" id="week" name="week">
-            <input type="submit" name="filter" value="Filter">
-        </form>
+            <input type="submit" name="filter" value="Search">
+        </form><br>
         <table>
             <tr>
                 <th>Week</th>
