@@ -1,6 +1,8 @@
 <?php
 session_name();
 session_start();
+$grades = [4.5, 3.9, 2.9];
+$weeks = [5, 6, 7];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,21 +31,16 @@ session_start();
                 <th>Week</th>
                 <th>Evaluation</th>
             </tr>
-            <tr>
-                <td>01.02.21-07.02.21</td>
-                <td><a href="grade popup">4.5</a></td>
-            </tr>
-            <tr>
-                <td>08.02.21-14.02.21</td>
-                <td><a href="grade popup">3.9</a></td>
-            </tr>
-            <tr>
-                <td>15.02.21-21.02.21</td>
-                <td><a href="grade popup">2.9</a></td>
-            </tr>
-            <tr>
+            <?php
+            for ($i = 0; $i < sizeof($grades); $i++) {
+                echo "<tr>";
+                printf("<td>Week %d</td>", weeks[$i]);
+                printf("<td>%d</td>", grades[$i]);
+                echo "</tr>"
+            }
+            ?>
         </table>
-         <footer>
+        <footer>
             <h3>Contact JAM</h3>
             <p>
                 Send us an email to:<br><a href="mailto: fake@mail.com">info@JAM.com</a>
