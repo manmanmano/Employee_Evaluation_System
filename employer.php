@@ -25,6 +25,7 @@ session_start();
             <input type="week" id="week" name="week"><br>
             <label for="name">Name:</label>
             <select id="name" name="name">
+                <option value=0>Please select an employee</option>
                 <?php
                 $names = ['John Smith', 'Mary Jane', 'James Doe'];
                 for ($i = 0; $i < sizeof($names); $i++) {
