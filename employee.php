@@ -15,7 +15,7 @@ session_start();
 			<nav>
 				<form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
                     <input type="submit" name="logout" value="Log out">
-<               /form>
+<               </form>
 			</nav>
 		</header>
 		<h1>My evaluation</h1>
