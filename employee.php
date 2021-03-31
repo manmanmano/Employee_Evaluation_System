@@ -37,7 +37,6 @@ session_start();
                 echo "<td>", $week, "<td>";
                 echo "<td>", $grades[$week], "</td>";
                 echo "</tr>";
-            }
             } else {
                 foreach ($grades as $week => $grade) {
                     echo "<tr>";
