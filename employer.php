@@ -47,13 +47,26 @@ session_start();
                 'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
                 'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
             );
-            foreach ($employees as $name => $grades) {
-                foreach ($grades as $week => $grade) {
-                    echo "<tr>";
-                    echo "<td>", $name, "</td>";
-                    echo "<td>", $week, "</td>";
-                    echo "<td><a href='grade popup'>", $grade, "</a></td>";
-                    echo "</tr>";
+            if (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) != 0) {
+                $week = intval(substr($_POST['week'], 6, 2));
+                foreach ($employees as $name => $grades) {
+                    if (!empty($grades[$week])) {
+                        echo "<tr>";
+                        echo "<td>", $name, "</td>";
+                        echo "<td>", $week, "</td>";
+                        echo "<td><a href='grade popup'>", $grades[$week], "</a></td>";
+                        echo "</tr>";
+                    }
+                }
+            } else {
+                foreach ($employees as $name => $grades) {
+                    foreach ($grades as $week => $grade) {
+                        echo "<tr>";
+                        echo "<td>", $name, "</td>";
+                        echo "<td>", $week, "</td>";
+                        echo "<td><a href='grade popup'>", $grade, "</a></td>";
+                        echo "</tr>";
+                    }
                 }
             }
             ?>
