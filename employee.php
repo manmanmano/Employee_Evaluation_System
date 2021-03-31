@@ -35,7 +35,7 @@ session_start();
                 $week = intval(substr($_POST['week'], 6, 2));
                 echo "<tr>";
                 echo "<td>", $week, "<td>";
-                echo "<td>", $grades[$week], "</td>";
+                echo "<td><a href='grade popup'>", $grades[$week], "</a></td>";
                 echo "</tr>";
             } else {
                 foreach ($grades as $week => $grade) {
