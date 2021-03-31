@@ -23,7 +23,7 @@ session_start();
         <form>
             <label for="week">Week:</label>
             <input type="week" id="week" name="week">
-            <input type="submit" name="filter" value="Filter">
+            <input type="submit" name="searchbyweek" value="Search"><br>
             <label for="employee">
             <select name="employee">
                 <?php
@@ -33,6 +33,7 @@ session_start();
                 }
                 ?>
             </select>
+            <input type="submit" name="searchbyname" value="Search"><br>
         </form>
         <table>
             <tr>
