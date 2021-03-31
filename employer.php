@@ -29,7 +29,7 @@ session_start();
                 <?php
                 $names = ['John Smith', 'Mary Jane', 'James Doe'];
                 for ($i = 0; $i < sizeof($names); $i++) {
-                    echo "<option value='", $names[$i], "'>", $names[$i], "</option>";
+                    echo "<option value=", $names[$i], ">", $names[$i], "</option>";
                 }
                 ?>
             </select>
