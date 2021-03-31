@@ -22,7 +22,7 @@ session_start();
         </header>
         <form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
             <label for="week">Week:</label>
-            <input type="week" id="week" name="week">
+            <input type="week" id="week" name="week"><br>
             <label for="name">Name:</label>
             <select id="name" name="name">
                 <?php
@@ -31,7 +31,7 @@ session_start();
                     printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
                 }
                 ?>
-            </select>
+            </select><br>
             <input type="submit" name="search" value="Search"><br>
         </form><br>
         <table>
