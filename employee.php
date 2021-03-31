@@ -1,8 +1,6 @@
 <?php
 session_name();
 session_start();
-$grades = [4.5, 3.9, 2.9];
-$weeks = [5, 6, 7];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +30,12 @@ $weeks = [5, 6, 7];
                 <th>Evaluation</th>
             </tr>
             <?php
+            $grades = [4.5, 3.9, 2.9];
+            $weeks = [5, 6, 7];
             for ($i = 0; $i < sizeof($grades); $i++) {
                 echo "<tr>";
                 printf("<td>Week %d</td>", weeks[$i]);
-                printf("<td><a href='grade popup'>%d</a></td>", grades[$i]);
+                printf("<td><a href='grade popup'>%f</a></td>", grades[$i]);
                 echo "</tr>";
             }
             ?>
