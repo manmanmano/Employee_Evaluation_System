@@ -60,8 +60,7 @@ session_start();
                 }
             } elseif (isset($_POST['searchbyname'])) {
                 $name = $_POST['name'];
-                echo $name;
-                foreach ($grades[$name] as $week => $grade) {
+                foreach ($employees[$name] as $week => $grade) {
                     echo "<tr>";
                     echo "<td>", $name, "</td>";
                     echo "<td>", $week, "</td>";
