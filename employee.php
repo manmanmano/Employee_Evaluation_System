@@ -1,3 +1,7 @@
+<?php
+session_name($user);
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,6 +18,10 @@
 			</nav>
 		</header>
 		<h1>My evaluation</h1>
+        <form>
+            <label for="week">Week:</label>
+            <input type="week" >
+        </form>
         <table>
             <tr>
                 <th>Week</th>
