@@ -35,16 +35,16 @@ session_start();
                 $week = intval(substr($_POST['week'], 6, 2));
                 ?>
                 <tr>
-                    <td><?php $week ?><td>
-                    <td><a href='grade popup'><?php $grades[$week] ?></a></td>
+                    <td><? $week ?><td>
+                    <td><a href='grade popup'><? $grades[$week] ?></a></td>
                 </tr>
                 <?php
             } else {
                 foreach ($grades as $week => $grade) {
                     ?>
                     <tr>
-                        <td><?php $week ?></td>
-                        <td><a href='grade popup'><?php $grade ?></a></td>
+                        <td><? $week ?></td>
+                        <td><a href='grade popup'><? $grade ?></a></td>
                     </tr>
                     <?php
                 }
