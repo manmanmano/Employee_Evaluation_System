@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 
 
     $initiative = $_POST['initiative'];
-    if (!isset($initiative)) {                                                       
+    if (!isset($initiative) || empty($initiative)) {                                                       
         die("Radio button left blank!");                                        
     } else {                                                                    
         if ($initiative != 1 && $initiative != 5) {                     
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     }
     
     $gbProjects = $_POST['group_based_projects'];
-    if (!isset($gbProjects)) {                                                      
+    if (!isset($gbProjects) || empty($gbProjects)) {                                                      
         die("Radio button left blank!");                                        
     } else {                                                                    
         if ($gbProjects != 1 && $gbProjects != 5) {                                
@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     }
 
     $follows = $_POST['follows_instructions'];
-    if (!isset($follows)) {
+    if (!isset($follows) || empty($follows)) {
         die("Radio button left blank!");
     } else {
         if ($follows != 1 && $follows != 5) {
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     }
 
     $leadership = $_POST['leadership'];
-    if (!isset($leadership)) {
+    if (!isset($leadership) || empty($leadership)) {
         die("Radio button left blank!");
     } else {
         if ($leadership != 1 && $leadership != 5) {
@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
     }
 
     $focused = $_POST['focused'];
-    if (!isset($focused)) {
+    if (!isset($focused) || empty($focused)) {
         die("Radio button left blank!");
     } else {
         if ($focused != 1 && $focused != 5) {
@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
     }
 
     $prioritize = $_POST['prioritize'];
-    if (!isset($prioritize)) {
+    if (!isset($prioritize) || empty($prioritize)) {
         die("Radio button left blank!");
     } else {
         if ($prioritize != 1 && $prioritize != 5) {
@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
     }
 
     $workers = $_POST['communication_coworkers'];
-    if (!isset($workers)) {
+    if (!isset($workers) || empty($workers)) {
         die("Radio button left blank!");
     } else {
         if ($workers != 1 && $workers != 5) {
@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
     }
 
     $superiors = $_POST['communication_superiors'];
-    if (!isset($superiors)) {
+    if (!isset($superiors) || empty($superiors)) {
         die("Radio button left blank!");
     } else {
         if ($superiors != 1 && $superiors != 5) {
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
     }
 
     $dependable = $_POST['dependable'];
-    if (!isset($dependable)) {
+    if (!isset($dependable) || empty($dependable)) {
         die("Radio button left blank!");
     } else {
         if ($dependable != 1 && $dependable != 5) {
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
     }
 
     $punctualAss = $_POST['assignments_on_time'];
-    if (!isset($punctualAss)) {
+    if (!isset($punctualAss) || empty($punctualAss)) {
         die("Radio button left blank!");
     } else {
         if ($punctualAss != 1 && $punctualAss != 5) {
@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
     }
 
     $punctualTime = $_POST['arrives_on_time'];
-    if (!isset($punctualTime)) {
+    if (!isset($punctualTime) || empty($punctualTime)) {
         die("Radio button left blank!");
     } else {
         if ($punctualTime != 1 && $punctualTime != 5) {
@@ -108,7 +108,7 @@ if (isset($_POST['submit'])) {
     }
 
     $quality = $_POST['quality'];
-    if (!isset($quality)) {
+    if (!isset($quality) || empty($quality)) {
         die("Radio button left blank!");
     } else {
         if ($quality != 1 && $quality != 5) {
