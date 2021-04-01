@@ -1,4 +1,4 @@
-<?php require_once("indexvalidation/indexValidator.php")?>
+<?php require_once("indexValidation//indexValidator.php")?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta name="description" content="Main page for employee performance evaluation system">
     <title>Index</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="indexvalidation/dynamicAction.js" type="text/javascript"></script>
+    <script src="indexValidation//dynamicAction.js" type="text/javascript"></script>
 </head>
 <body>
     <h1>Employee perfomance evaluation</h1>

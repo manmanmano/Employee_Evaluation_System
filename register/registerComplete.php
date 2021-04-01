@@ -2,9 +2,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="refresh" content="7; index.html" />
+	<meta http-equiv="refresh" content="7; index.php" />
 	<title>Registration complete</title>
-	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
 <h1>
