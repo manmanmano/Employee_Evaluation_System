@@ -60,9 +60,6 @@ if (!file_exists('users')) {
   }
   */
 
-  /* if(!isset($employee) && (!isset($employer))){
-      exit("Select Your position");
-  }*/
 
   $position = $_POST['position'];
   if(!isset($position) || empty($position)){
