@@ -64,6 +64,15 @@ if (!file_exists('users')) {
       exit("Select Your position");
   }*/
 
+  $position = $_POST['position'];
+  if(!isset($position) || empty($position)){
+    exit("Position must be selected.");
+  }else{
+    if($position != "employee" && $position != "employer"){
+      exit("Position must be 'Employee' or 'Employer'");
+    }
+  }
+
   $password = $_POST['password'];
   if (empty($_POST['password'])){
       exit("Please choose a password.");
