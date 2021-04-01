@@ -1,5 +1,5 @@
 <?php
-session_name();
+sessions_set_cookie_params(['path'] => '/~juprus/icd0007_project/');
 session_start();
 ?>
 
