@@ -29,7 +29,9 @@ session_start();
                 <?php
                 $names = ['John Smith', 'Mary Jane', 'James Doe'];
                 for ($i = 0; $i < sizeof($names); $i++) {
-                    printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
+                    ?>
+                    <option value =<?php $names[$i] ?>><?php $names[$i] ?></option>
+                    <?php
                 }
                 ?>
             </select><br>
@@ -51,38 +53,46 @@ session_start();
                 $week = intval(substr($_POST['week'], 6, 2));
                 foreach ($employees as $name => $grades) {
                     if (!empty($grades[$week])) {
-                        echo "<tr>";
-                        echo "<td>", $name, "</td>";
-                        echo "<td>", $week, "</td>";
-                        echo "<td><a href='grade popup'>", $grades[$week], "</a></td>";
-                        echo "</tr>";
+                        ?>
+                        <tr>
+                            <td><?php $name ?></td>
+                            <td><?php $week ?></td>
+                            <td><a href='grade popup'><?php $grades[$week] ?></a></td>
+                        </tr>
+                        <?php
                     }
                 }
             } elseif (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) == 0 && !empty($_POST['name'])) {
                 $name = $_POST['name'];
                 foreach ($employees[$name] as $week => $grade) {
-                    echo "<tr>";
-                    echo "<td>", $name, "</td>";
-                    echo "<td>", $week, "</td>";
-                    echo "<td><a href='grade popup'>", $grade, "</a></td>";
-                    echo "</tr>";
+                    ?>
+                    <tr>
+                        <td><?php $name ?></td>
+                        <td><?php $week ?></td>
+                        <td><a href='grade popup'><?php $grade ?></a></td>
+                    </tr>
+                    <?php
                 }
             } elseif (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) != 0 && !empty($_POST['name'])) {
                 $name = $_POST['name'];
                 $week = intval(substr($_POST['week'], 6, 2));
-                echo "<tr>";
-                echo "<td>", $name, "</td>";
-                echo "<td>", $week, "</td>";
-                echo "<td><a href='grade popup'>", $employees[$name][$week], "</a></td>";
-                echo "</tr>";
+                ?>
+                <tr>
+                    <td><?php $name ?></td>
+                    <td><?php $week ?></td>
+                    <td><a href='grade popup'><?php $employees[$name][$week] ?></a></td>
+                </tr>
+                <?php
             } else {
                 foreach ($employees as $name => $grades) {
                     foreach ($grades as $week => $grade) {
-                        echo "<tr>";
-                        echo "<td>", $name, "</td>";
-                        echo "<td>", $week, "</td>";
-                        echo "<td><a href='grade popup'>", $grade, "</a></td>";
-                        echo "</tr>";
+                        ?>
+                        <tr>
+                            <td><?php $name ?></td>
+                            <td><?php $week ?></td>
+                            <td><a href='grade popup'><?php $grade ?></a></td>
+                        </tr>
+                        <?php
                     }
                 }
             }
