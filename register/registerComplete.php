@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="refresh" content="7; index.php" />
+	<meta http-equiv="refresh" content="7; ../index.php" />
 	<title>Registration complete</title>
 	<link rel="stylesheet" href="../styles/style.css">
 </head>
