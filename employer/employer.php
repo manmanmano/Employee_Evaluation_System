@@ -105,6 +105,6 @@ if (isset($_POST['logout'])) {
     header("refresh:0; url=../index.php");
 }
 if (isset($_POST['newevaluation'])) {
-    header("refresh:0; url=employerinput.php");
+    header("refresh:0; url=employerInput.php");
 }
 ?>

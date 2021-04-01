@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <img class="logo" src="img/JAMLogo.png">
+            <img class="logo" src="../img/JAMLogo.png">
             <nav>
                 <a href="employer.php">Back to user page</a>
             </nav>

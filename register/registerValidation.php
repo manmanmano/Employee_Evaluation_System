@@ -94,5 +94,5 @@ if (!file_exists('users')) {
 
 	fclose('usersData/users.csv');
 
-  header("refresh:0;registercomplete.html");
+  header("refresh:0;registerComplete.php");
 ?>

@@ -18,11 +18,10 @@
 	<header>
 		<p class="logo">Logo JAM</p>
 		<nav>
-			<a href="index.php">Main page</a>
-			<a href="#">Profile</a>
+			<a href="../index.php">Main page</a>
 		</nav>
 	</header>
-	<form method="post" action="registerValidation.php">
+	<form method="post" action="registerComplete.php">
 		<label for="name"><b>Name</b></label>
 		<input type="text" id="name" name="name"  placeholder="Full Name"  pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required>
 		<br>
