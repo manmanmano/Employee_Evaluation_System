@@ -14,13 +14,13 @@ session_start();
         <header>
             <img class="logo" src="img/JAMLogo.png">
             <nav>
-                <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
+                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
                     <input type="submit" name="logout" value="Log out">
                     <input type="submit" name="newevaluation" value="Add new evaluation">
                 </form>
             </nav>
         </header>
-        <form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
+        <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
             <label for="week">Week:</label>
             <input type="week" id="week" name="week"><br>
             <label for="name">Name:</label>
