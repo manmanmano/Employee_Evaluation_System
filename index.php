@@ -1,25 +1,4 @@
-<?php 
-if (isset($_POST['submit'])) {
-
-    $title = $_POST['title'];
-    if (!isset($title) || empty($title)) {
-        die("Radio button left blank!");
-    } else {
-        if ($title != "employee" && $title != "employer") {
-            die("Corrupted data in radio input!");       
-        }
-    }
-
-    if (!filter_var($_POST['username'], FILTER_VALIDATE_EMAIL) || empty($_POST['username'])) {
-        die("Invalid email in input!");
-    }
-
-    if (strlen($_POST['password']) < 8 || empty($_POST['password'])) {
-        die("Invalid password in input. Too short!");
-    }
-
-}
-?>
+<?php require_once("indexvalidation/indexValidator.php")?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +7,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="Main page for employee performance evaluation system">
     <title>Index</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="dynamicAction.js" type="text/javascript"></script>
+    <script src="indexvalidation/dynamicAction.js" type="text/javascript"></script>
 </head>
 <body>
     <h1>Employee perfomance evaluation</h1>
