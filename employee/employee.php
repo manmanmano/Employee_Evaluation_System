@@ -6,7 +6,7 @@ session_start();
     <head>
         <meta charset="utf-8">
         <title>(username) evaluation</title>
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
 		<header>
@@ -61,6 +61,6 @@ session_start();
 if (isset($_POST['logout'])) {
     session_unset();
     session_destroy();
-    header("refresh:0; url=index.php");
+    header("refresh:0; url=../index.php");
 }
 ?>
