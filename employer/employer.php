@@ -11,7 +11,7 @@ session_start();
     </head>
     <body>
         <header>
-            <img class="logo" src="img/JAMLogo.png">
+            <img class="logo" src="../img/JAMLogo.png">
             <nav>
                 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
                     <input type="submit" name="logout" value="Log out">
