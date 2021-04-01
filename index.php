@@ -28,7 +28,7 @@
             <input type="password" name="password" placeholder="Password" minlength="8" autocomplete="off" required="">
             <br><br>
             <input type="submit" value="login" name="submit">
-            <p>Not registered? Do it <a href="register.php">now</a>!</p>
+            <p>Not registered? Do it <a href="register/register.php">now</a>!</p>
         </form>
     </div>
     <p> 

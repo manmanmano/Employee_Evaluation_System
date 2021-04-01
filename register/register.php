@@ -12,7 +12,7 @@
 	haveToken.style.display = employee.checked ? "block" : "none";
 	}
 	</script>
-	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
 	<header>
