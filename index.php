@@ -1,3 +1,26 @@
+<?php 
+if (isset($_POST['submit'])) {
+
+    $title = $_POST['title'];
+    if (!isset($title)) {
+        die("Radio button left blank!");
+    } else {
+        if ($title != "employee" && $title != "employer") {
+            die("Corrupted data in radio input!");       
+        }
+    }
+
+    if (!filter_var($_POST['username'], FILTER_VALIDATE_EMAIL)) {
+        die("Invalid email in input!");
+    }
+
+    if (strlen($_POST['password']) < 8) {
+        die("Invalid password in input. Too short!");
+    }
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,27 +28,29 @@
     <meta name="description" content="Main page for employee performance evaluation system">
     <title>Index</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="dynamicAction.js" type="text/javascript"></script>
 </head>
 <body>
     <h1>Employee perfomance evaluation</h1>
     <p>
         Welcome to JAM's most precious invention: the "Employee performance evaluation" system.<br>
-        
     </p>
     <div id= "floating-login">
         <h2>Welcome!</h2>
-        <label>Login as:</label>
-        <input type="radio" value="employer" name="level">
-        <label>Employer</label>
-        <input type="radio" value="employee" name="level">
-        <label>Employee</label>
-        <br><br>
-        <input type="text" name="username" placeholder="Email" autocomplete="off" required="">
-        <br><br>
-        <input type="password" name="password" placeholder="Password" autocomplete="off" required="">
-        <br><br>
-        <input type="submit" value="submit">
-        <p>Not registered? Do it <a href="register.html">now</a>!</p>
+        <form onsubmit="return changeAction();" method="POST" name="loginForm">
+            <label>Login as:</label>
+            <input type="radio" name="title" value="employer" required>
+            <label for="employer">Employer</label>
+            <input type="radio" name="title" value="employee" required>
+            <label for="employee">Employee</label>
+            <br><br>
+            <input type="text" name="username" placeholder="Email" autocomplete="off" required="">
+            <br><br>
+            <input type="password" name="password" placeholder="Password" minlength="8" autocomplete="off" required="">
+            <br><br>
+            <input type="submit" value="login" name="submit">
+            <p>Not registered? Do it <a href="register.php">now</a>!</p>
+        </form>
     </div>
     <p> 
         The purpose of this website is to provide employers with an efficient and easy to use tool that evaluates the performance of their employers.<br>
