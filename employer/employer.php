@@ -7,7 +7,7 @@ session_start();
     <head>
         <meta charset="utf-8">
         <title>Employer</title>
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
         <header>
@@ -102,7 +102,7 @@ session_start();
 if (isset($_POST['logout'])) {
     session_unset();
     session_destroy();
-    header("refresh:0; url=index.php");
+    header("refresh:0; url=../index.php");
 }
 if (isset($_POST['newevaluation'])) {
     header("refresh:0; url=employerinput.php");
