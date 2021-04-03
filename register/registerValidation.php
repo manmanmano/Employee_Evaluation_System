@@ -70,6 +70,11 @@ if (!file_exists('users')) {
     }
   }
 
+  $employeeToken = $_POST['company'];
+  if($position == "employee" && empty($employeeToken)){
+    exit("Token is required for registering");
+  }
+
   $password = $_POST['password'];
   if (empty($_POST['password'])){
       exit("Please choose a password.");
@@ -94,5 +99,5 @@ if (!file_exists('users')) {
 
 	fclose('usersData/users.csv');
 
-  header("refresh:0;registerComplete.php");
+  header("refresh:0;registercomplete.html");
 ?>
