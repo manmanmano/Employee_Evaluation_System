@@ -1,13 +1,17 @@
 <?php                                                                           
+function evaluateEmployee($arr) {
+    return array_sum($arr) / count($arr);
+}
+
 if (isset($_POST['submit'])) {                                                  
                                                                                 
     $names = $_POST['worker_name'];                                             
     if (isset($names) && ($names != "james" || $names != "mary" || $names != "john")) {
         die("Invalid worker name set!");                                        
-    }                                                                           
-                                                                                
-                                                                                
-                                                                                
+    }
+
+    
+
     $initiative = $_POST['initiative'];                                         
     if (!isset($initiative) || empty($initiative)) {                            
         die("Radio button left blank!");                                        
@@ -115,6 +119,13 @@ if (isset($_POST['submit'])) {
             die("Corrupted data in radio input!");
         }
     }
+
+    $attrArr = [
+        $initiatve, $gbProjects, $follows, $leadership, $focused, $prioritize,
+        $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality 
+    ];
+
+    $average = evaluateEmployee($attrArr);
 
 }
 ?>
