@@ -10,12 +10,14 @@ if (isset($_POST['submit'])) {
         }                                                                       
     }                                                                           
                                                                                 
-    if (!filter_var($_POST['username'], FILTER_VALIDATE_EMAIL) || empty($_POST['username'])) {
+    $username = $_POST['email'];
+    if (!filter_var($username, FILTER_VALIDATE_EMAIL) || empty($username)) {
         die("Invalid email in input!");                                         
     }                                                                           
-                                                                                
-    if (strlen($_POST['password']) < 8 || empty($_POST['password'])) {          
-        die("Invalid password in input. Too short!");                           
+    
+    $password = $_POST['password'];    
+    if (strlen($password) < 8 || empty($password)) {          
+        die("Invalid password in input!");                           
     }                                                                           
                                                                                 
 }                                                                               

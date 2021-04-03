@@ -1,4 +1,4 @@
-<?php require_once("indexValidation//indexValidator.php")?>
+<?php require ("indexValidation/indexValidator.php")?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@
             <input type="radio" name="title" value="employee" required>
             <label for="employee">Employee</label>
             <br><br>
-            <input type="text" name="username" placeholder="Email" autocomplete="off" required="">
+            <input type="email" name="email" placeholder="Email" autocomplete="off" required="">
             <br><br>
             <input type="password" name="password" placeholder="Password" minlength="8" autocomplete="off" required="">
             <br><br>
