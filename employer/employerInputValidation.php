@@ -127,5 +127,9 @@ if (isset($_POST['submit'])) {
 
     $average = evaluateEmployee($attrArr);
 
+    $data = $names . chr(44) . $date . chr(44) . $average . PHP_EOL;
+
+    file_put_contents('newEval.csv', $data, FILE_APPEND);
+
 }
 ?>
