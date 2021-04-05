@@ -1,4 +1,5 @@
 <?php
+session_set_cookie_params(['path' => '/~juprus/icd0007_project/']);
 session_start();
 require_once("employertable.php");
 ?>
@@ -22,15 +23,12 @@ require_once("employertable.php");
         </header>
         <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
             <label for="week">Week:</label>
-            <input type="week" id="week" name="week"><br>
+            <input type="date" id="date" name="date"><br>
             <label for="name">Name:</label>
             <select id="name" name="name">
                 <option value=0>Please select an employee</option>
                 <?php
-                $names = ['John Smith', 'Mary Jane', 'James Doe'];
-                for ($i = 0; $i < sizeof($names); $i++) {
-                    printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
-                }
+                createOptions();
                 ?>
             </select><br>
             <input type="submit" name="search" value="Search"><br>
