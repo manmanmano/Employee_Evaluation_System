@@ -1,4 +1,5 @@
 <?php
+session_set_cookie_params(['path' => '/~juprus/icd0007_project/']);
 session_start();
 require_once("employeetable.php");
 ?>
@@ -21,7 +22,7 @@ require_once("employeetable.php");
 		<h1>My evaluation</h1>
         <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
             <label for="week">Week:</label>
-            <input type="week" id="week" name="week">
+            <input type="date" id="week" name="week">
             <input type="submit" name="search" value="Search">
         </form><br>
         <table>
