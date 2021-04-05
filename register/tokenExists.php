@@ -12,13 +12,4 @@ function checkCsv($handle, $token) {
         "Try again boomer\n";
     }
 }
-
-
-$file = 'users.csv';
-if (!file_exists($file)) {
-    die("FILE NOT FOUND!");
-}
-$handle = fopen($file, 'r');
-$courses = checkCsv($handle, "def");
-fclose($handle);
 ?>
