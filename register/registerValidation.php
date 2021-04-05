@@ -18,11 +18,17 @@ function matching_passwords($password, $cpassword)
 }
 
 
-
-
-
-
 $user = '';
+
+$position = $_POST['position'];
+if($position == "employee"){
+  $user .= $position;
+  $user .= '; ';
+}
+
+if($position == "employer"){
+  $user .= 'employer; ';
+}
 
 $name = $_POST['name'];
 if (empty($_POST['name'])){
@@ -45,17 +51,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 $user .= $email;
 $user .= '; ';
-
-/*
-
-$position = $_POST['position'];
-if($position == "employee"){
-
-}
-if($position == "employer"){
-
-}
-*/
 
 
 $position = $_POST['position'];
@@ -87,8 +82,11 @@ matching_passwords($password, $cpassword);
 
 $user .= $password;
 $user .= '; ';
-$user .= $cpassword;
-$user .= '; ';
+
+if($position == "employee"){
+  $user .= $employeeToken;
+  $user .= "; ";
+}
 
 $user .= "\r\n";
 
