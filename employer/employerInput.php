@@ -28,9 +28,11 @@ require_once("employerInputValidation.php")
                     <option value="james">James Doe</option>
                 </select>
                 Week:
-                <input type="date" name="date" value"<?php echo date("Y-m-d"); ?>"
-                    max="<?php echo date('Y-m-d');?>" 
-                    min="<?php echo date('Y-m-d', strtotime($date . ' - 3 weeks')) ?>">
+                <select name="date" id="date">
+                    <?php
+                    createOptions();
+                    ?>
+                </select>
             </tr>
             <tr>
                 <th>Performance</th>
