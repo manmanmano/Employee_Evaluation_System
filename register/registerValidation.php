@@ -23,7 +23,7 @@ function matching_passwords($password, $cpassword)
 if (!file_exists('users')) {
     mkdir('usersData');
 }
-  fopen('usersData/users.csv');
+  fopen('../usersData/users.csv');
 
   $user = '';
 
