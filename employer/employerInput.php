@@ -1,4 +1,8 @@
-<?php require_once("employerInputValidation.php") ?>
+<?php
+session_set_cookie_params(['path' => '/~juprus/icd0007_project/']);
+session_start();
+require_once("employerInputValidation.php")
+?>
 
 <!DOCTYPE html>
 <html lang="en">
