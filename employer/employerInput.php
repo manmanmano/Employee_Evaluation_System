@@ -31,7 +31,7 @@ require_once("employertable.php");
                 Week:
                 <select name="date" id="date" required>
                     <?php
-                    createOptions();
+                    createDates();
                     ?>
                 </select>
             </tr>
