@@ -6,7 +6,7 @@ function createTable() {
         $month = intval(date("M", strtotime($_POST['date'])));
         $day = intval(date("D", strtotime($_POST['date'])));
         $year = intval(date("Y", strtotime($_POST['date'])));
-        if (checkdate($month, $day, $year)) {                                                 
+        if (!checkdate($month, $day, $year)) {                                                 
             die("Invalid date set!");
         }
         echo "<tr>";
