@@ -1,5 +1,6 @@
 <?php
 session_name('sesRegister');
+session_set_cookie_params(['path' => '/~juprus/icd0007_project/']);
 session_start();
 // checks if password and cPassword match
 function matching_passwords($password, $cpassword)
