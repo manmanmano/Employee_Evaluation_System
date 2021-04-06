@@ -46,6 +46,7 @@ function createTable() {
         if (!checkdate($month, $day, $year)) {                                                 
             die("Invalid date set!");
         }
+        $name = $_POST['name'];
         echo "<tr>";
         echo "<td>", $name, "</td>";
         echo "<td>", $week, "</td>";
