@@ -24,12 +24,12 @@ require_once("employertable.php");
             <tr>
                 Name:
                 <select name="worker_name" required>
-                    <option value="john">John Smith</option>
-                    <option value="mary">Mary Jane</option>
-                    <option value="james">James Doe</option>
+                    <?php
+                    createOptionsNames();
+                    ?>
                 </select>
                 Week:
-                <select name="date" id="date">
+                <select name="date" id="date" required>
                     <?php
                     createOptions();
                     ?>
