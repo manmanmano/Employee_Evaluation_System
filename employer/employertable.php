@@ -12,8 +12,8 @@ function createTable() {
         'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
         'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
     );
-    if (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) != 0 && empty($_POST['name'])) {
-        $week = intval(substr($_POST['week'], 6, 2));
+    if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
+        $week = intval(date("W", strtotime($_POST['date'])));
         foreach ($employees as $name => $grades) {
             if (!empty($grades[$week])) {
                 echo "<tr>";
@@ -23,7 +23,7 @@ function createTable() {
                 echo "</tr>";
             }
         }
-    } elseif (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) == 0 && !empty($_POST['name'])) {
+    } elseif (isset($_POST['search']) && empty($_POST['date']) && !empty($_POST['name'])) {
         $name = $_POST['name'];
         foreach ($employees[$name] as $week => $grade) {
             echo "<tr>";
@@ -32,9 +32,9 @@ function createTable() {
             echo "<td><a href='grade popup'>", $grade, "</a></td>";
             echo "</tr>";
         }
-    } elseif (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) != 0 && !empty($_POST['name'])) {
+    } elseif (isset($_POST['search']) && !empty($_POST['date']) && !empty($_POST['name'])) {
         $name = $_POST['name'];
-        $week = intval(substr($_POST['week'], 6, 2));
+        $week = intval(date("W", strtotime($_POST['date'])));
         echo "<tr>";
         echo "<td>", $name, "</td>";
         echo "<td>", $week, "</td>";
