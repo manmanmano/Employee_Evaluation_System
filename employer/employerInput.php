@@ -29,11 +29,7 @@ require_once("employertable.php");
                     ?>
                 </select>
                 Week:
-                <select name="date" id="date" required>
-                    <?php
-                    createDates();
-                    ?>
-                </select>
+                <input type="date" name="date" id="date">
             </tr>
             <tr>
                 <th>Performance</th>
