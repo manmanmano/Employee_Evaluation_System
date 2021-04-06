@@ -1,5 +1,5 @@
 <?php
-function createOptionsNames() {
+function createNames() {
     $names = ['John Smith', 'Mary Jane', 'James Doe'];
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
