@@ -1,7 +1,7 @@
 <?php
 function createTable() {
-    $grades = array(05 => 4.5, 6 => 3.9, 7 => 2.9);
-    $week = intval(substr(date("W", strtotime($_POST['date']))1, 1));
+    $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
+    $week = intval(substr(date("W", strtotime($_POST['date']), 1, 1)));
     if (isset($_POST['search']) && !empty($_POST['date'])) {
         echo "<tr>";
         echo "<td>", $week, "<td>";
