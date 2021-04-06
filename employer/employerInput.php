@@ -18,7 +18,7 @@ require_once("employerInputValidation.php");
                 <a href="employer.php">Back to user page</a>
             </nav>
         </header>
-        <form action="employerInputvalidation.php" method="POST" name="updateEval">
+        <form action="employerInputValidation.php" method="POST" name="updateEval">
         <table>
             <tr>
                 Name:
