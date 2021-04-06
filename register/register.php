@@ -1,4 +1,9 @@
-<?php session_name('sesRegister'); session_start(); $_SESSION['tokenGen'] = bin2hex(random_bytes(15));?>
+<?php
+session_name('sesRegister');
+session_set_cookie_params(['path' => '/~juprus/icd0007_project/']);
+session_start();
+$_SESSION['tokenGen'] = bin2hex(random_bytes(15));
+?>
 <!DOCTYPE html>
 
 <html lang="en">
