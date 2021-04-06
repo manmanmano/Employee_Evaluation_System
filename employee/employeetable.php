@@ -1,6 +1,6 @@
 <?php
 function createTable() {
-    $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
+    $grades = array(05 => 4.5, 6 => 3.9, 7 => 2.9);
     $week = date("W", strtotime($_POST['date']));
     if (isset($_POST['search']) && isset($_POST['date'])) {
         echo "<tr>";
