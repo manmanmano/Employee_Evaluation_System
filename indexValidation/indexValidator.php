@@ -19,12 +19,6 @@ if (isset($_POST['submit'])) {
     if (strlen($password) < 8 || empty($password)) {          
         die("Invalid password in input!");                           
     }                                                                           
-
-    if ($title == "employer") {
-        header("refresh=0; url=../employer/employer.php");
-    } else {
-        header("refresh=0; url=../employee/employee.php");
-    }
                                                                                 
 }                                                                               
 ?> 
