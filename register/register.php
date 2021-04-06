@@ -1,3 +1,4 @@
+<?php session_name('sesRegister'); session_start(); $_SESSION['tokenGen'] = bin2hex(random_bytes(15));?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -61,13 +62,13 @@
 		</div>
 
 		<div id="companyGen"  style="display:none">
-		<p><b><?php require_once("genToken.php");
+		<p><b><?php
 		echo "Give this token to employees for registering: ";
 		echo "<br>";
-		echo generateRandomString();?></b></p>
+		echo $_SESSION['tokenGen'];?></b></p>
 		</div>
 		<br>
-		<button class="registerButton" type="submit"><b>Register</b></button>
+		<button class="registerButton" type="submit" name="register"><b>Register</b></button>
 	</form>
 </body>
 </html>
