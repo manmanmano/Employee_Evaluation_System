@@ -142,5 +142,6 @@ if (isset($_POST['submit'])) {
     $data = $workerName . chr(59) . $week . chr(59) . $average . PHP_EOL;
 
     file_put_contents('newEval.csv', $data, FILE_APPEND);
+    header("refresh:0; url=employer.php");
 }
 ?>
