@@ -21,9 +21,9 @@ if (isset($_POST['submit'])) {
     }                                                                           
 
     if ($title == "employer") {
-        header("refresh=0;employer.php");
+        header("refresh=0;../employer/employer.php");
     } else {
-        header("refresh=0;employee.php");
+        header("refresh=0;../employee/employee.php");
     }
                                                                                 
 }                                                                               
