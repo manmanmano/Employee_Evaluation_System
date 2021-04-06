@@ -14,6 +14,7 @@ function createTable() {
     );
     $week = intval(date("W", strtotime($_POST['date'])));
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
+        echo $_POST['date'];
         $month = intval(date("M", strtotime($_POST['date'])));
         $day = intval(date("D", strtotime($_POST['date'])));
         $year = intval(date("Y", strtotime($_POST['date'])));
