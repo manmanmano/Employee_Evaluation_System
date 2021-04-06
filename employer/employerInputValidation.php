@@ -15,9 +15,6 @@ if (isset($_POST['submit'])) {
     $day = intval(date("D", strtotime($_POST['date'])));
     $year = intval(date("Y", strtotime($_POST['date'])));
     $week = intval(date("W", strtotime($_POST['date'])));
-    echo $month;
-    echo $day;
-    echo $year;
     if (!checkdate($month, $day, $year)) {                                                 
         die("Invalid date set!");
     }
