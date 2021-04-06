@@ -19,8 +19,8 @@ if (isset($_POST['submit'])) {
         die("Invalid date set!");
     }
 
-    $names = $_POST['worker_name'];                                            
-    if (!empty($names) && ($names != 'James Doe' && $names != 'Mary Jane' && $names != 'John Smith')) {
+    $workerName = $_POST['worker_name'];                                            
+    if (!empty($names) && !in_array($worker, $names))) {
         die("Invalid worker name set!");                                        
     }  
 
@@ -139,7 +139,7 @@ if (isset($_POST['submit'])) {
 
     $average = round(evaluateEmployee($attrArr), 1);
 
-    $data = $names . chr(59) . $week . chr(59) . $average . PHP_EOL;
+    $data = $workerName . chr(59) . $week . chr(59) . $average . PHP_EOL;
 
     file_put_contents('newEval.csv', $data, FILE_APPEND);
 }
