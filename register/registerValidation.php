@@ -5,18 +5,15 @@ function matching_passwords($password, $cpassword)
 {
     // Your validation code.
     if (empty($password)) {
-        echo "Password is required.";
-        return false;
+        exit ("Password is required.");
     }
     else if ($password != $cpassword) {
         // error matching passwords
-        echo 'Your passwords do not match.';
-        return false;
+        echo ('Your passwords do not match.');
     }
     // passwords match
     return true;
 }
-
 
 $user = '';
 
@@ -79,7 +76,6 @@ $cpassword = $_POST['cPassword'];
 
 matching_passwords($password, $cpassword);
 
-
 $user .= $password;
 $user .= '; ';
 
@@ -91,7 +87,6 @@ if($position == "employee"){
 $user .= "\r\n";
 
 $return = file_put_contents('../usersData/users.csv', $user, FILE_APPEND);
-
 
 header("refresh:0;registerComplete.php");
 ?>
