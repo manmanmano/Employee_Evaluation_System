@@ -1,15 +1,16 @@
 <?php
-
+session_name('sesRegister');
+session_start();
 // checks if password and cPassword match
 function matching_passwords($password, $cpassword)
 {
     // Your validation code.
     if (empty($password)) {
-        exit ("Password is required.");
+        exit("Password is required.");
     }
     else if ($password != $cpassword) {
         // error matching passwords
-        echo ('Your passwords do not match.');
+        exit('Your passwords do not match.');
     }
     // passwords match
     return true;
@@ -76,6 +77,7 @@ $cpassword = $_POST['cPassword'];
 
 matching_passwords($password, $cpassword);
 
+
 $user .= $password;
 $user .= '; ';
 
@@ -83,10 +85,18 @@ if($position == "employee"){
   $user .= $employeeToken;
   $user .= "; ";
 }
+if($position == "employer"){
+  $user .= $_SESSION['tokenGen'];
+  $user .= "; ";
+}
 
 $user .= "\r\n";
 
 $return = file_put_contents('../usersData/users.csv', $user, FILE_APPEND);
 
+session_unset();
+session_destroy();
+
 header("refresh:0;registerComplete.php");
+
 ?>
