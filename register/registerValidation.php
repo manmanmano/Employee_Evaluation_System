@@ -1,6 +1,5 @@
 <?php
 session_name('sesRegister');
-session_set_cookie_params(['path' => '/~juprus/icd0007_project/']);
 session_start();
 // checks if password and cPassword match
 function matching_passwords($password, $cpassword)
@@ -12,6 +11,7 @@ function matching_passwords($password, $cpassword)
     else if ($password != $cpassword) {
         // error matching passwords
         exit('Your passwords do not match.');
+
     }
     // passwords match
     return true;
@@ -90,6 +90,11 @@ if($position == "employer"){
   $user .= $_SESSION['tokenGen'];
   $user .= "; ";
 }
+
+require ('token.php');
+$handle = fopen('../usersData/users.csv', 'r');
+checkCsv($handle, $_POST['company']);
+
 
 $user .= "\r\n";
 
