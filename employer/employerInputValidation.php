@@ -12,7 +12,8 @@ function evaluateEmployee($arr) {
 
 if (isset($_POST['submit'])) {                                                  
     $date = intval(date("W", strtotime($_POST['date'])));                                                                            
-    $names = $_POST['worker_name'];                                             
+    $names = $_POST['worker_name'];
+    echo $names;                                             
     if (isset($names) && ($names != "James Doe" || $names != "Mary Jane" || $names != "John Smith")) {
         die("Invalid worker name set!");                                        
     }  
