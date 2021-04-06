@@ -10,6 +10,9 @@ function validateDate($date) {
     $month = intval(date("M", strtotime($date)));
     $day = intval(date("D", strtotime($date)));
     $year = intval(date("Y", strtotime($date)));
+    echo $month;
+    echo $day;
+    echo $year;
     if (!checkdate($month, $day, $year)) {                                                 
         die("Invalid date set!");
     }
