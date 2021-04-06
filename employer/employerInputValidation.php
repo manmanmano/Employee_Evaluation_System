@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
         $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality 
     ];
 
-    $average = evaluateEmployee($attrArr);
+    $average = round(evaluateEmployee($attrArr), 1);
 
     $data = $names . chr(44) . $date . chr(44) . $average . PHP_EOL;
 
