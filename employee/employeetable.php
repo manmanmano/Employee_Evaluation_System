@@ -1,8 +1,9 @@
 <?php
 function createTable() {
     $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
-    if (isset($_POST['search']) && intval(substr($_POST['week'], 6, 2)) != 0) {
-        $week = intval(substr($_POST['week'], 6, 2));
+    $week = intval(substr($_POST['date'], 6, 2));
+    echo $_POST['date'];
+    if (isset($_POST['search']) && $week != 0) {
         echo "<tr>";
         echo "<td>", $week, "<td>";
         echo "<td><a href='grade popup'>", $grades[$week], "</a></td>";
