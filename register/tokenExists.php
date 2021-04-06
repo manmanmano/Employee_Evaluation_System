@@ -9,6 +9,6 @@ function checkCsv($handle, $token) {
     }
     if (!in_array($token, $csvTokens)) {
         exit ("Token doesn't exist");
-  }
-
+    }
+}
 ?>
