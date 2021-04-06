@@ -12,8 +12,8 @@ function createTable() {
         'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
         'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
     );
-    $week = intval(date("W", strtotime($_POST['date'])));
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
+        $week = intval(date("W", strtotime($_POST['date'])));
         $month = intval(date("m", strtotime($_POST['date'])));
         $day = intval(date("d", strtotime($_POST['date'])));
         $year = intval(date("y", strtotime($_POST['date'])));
@@ -39,6 +39,7 @@ function createTable() {
             echo "</tr>";
         }
     } elseif (isset($_POST['search']) && !empty($_POST['date']) && !empty($_POST['name'])) {
+        $week = intval(date("W", strtotime($_POST['date'])));
         $month = intval(date("m", strtotime($_POST['date'])));
         $day = intval(date("d", strtotime($_POST['date'])));
         $year = intval(date("y", strtotime($_POST['date'])));
