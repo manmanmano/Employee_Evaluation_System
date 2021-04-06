@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     if (!isset($initiative) || empty($initiative)) {                            
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($initiative != 1 && $initiative != 5) {                             
+        if ($initiative < 1 || $initiative > 5) {                             
             die("Corrupted data in radio input!");                              
         }                                                                       
     }                                                                           
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     if (!isset($gbProjects) || empty($gbProjects)) {                            
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($gbProjects != 1 && $gbProjects != 5) {                             
+        if ($gbProjects < 1 || $gbProjects > 5) {                             
             die("Corrupted data in radio input!");                              
         }                                                                       
     }                                                                           
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
     if (!isset($follows) || empty($follows)) {                                  
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($follows != 1 && $follows != 5) {                                   
+        if ($follows < 1 || $follows > 5) {                                   
             die("Corrupted data in radio input!");                              
         }                                                                       
     }                                                                           
@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
     if (!isset($leadership) || empty($leadership)) {                            
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($leadership != 1 && $leadership != 5) {                             
+        if ($leadership < 1 || $leadership > 5) {                             
             die("Corrupted data in radio input!");                              
         }                                                                       
     }                                                                           
@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
     if (!isset($focused) || empty($focused)) {                                  
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($focused != 1 && $focused != 5) {                                   
+        if ($focused < 1 || $focused > 5) {                                   
             die("Corrupted data in radio input!");                              
         }                                                                       
     }                                                                           
@@ -67,7 +67,7 @@ if (isset($_POST['submit'])) {
     if (!isset($prioritize) || empty($prioritize)) {                            
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($prioritize != 1 && $prioritize != 5) {                             
+        if ($prioritize < 1 || $prioritize > 5) {                             
             die("Corrupted data in radio input!");                              
         }                                                                       
     }                                                                           
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
     if (!isset($workers) || empty($workers)) {                                  
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($workers != 1 && $workers != 5) {                                   
+        if ($workers < 1 || $workers > 5) {                                   
             die("Corrupted data in radio input!");                              
         }                                                                       
     }                                                                           
@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
     if (!isset($superiors) || empty($superiors)) {                              
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($superiors != 1 && $superiors != 5) {                               
+        if ($superiors < 1 || $superiors > 5) {                               
             die("Corrupted data in radio input!");                              
         }                                                                       
     }                                                                           
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
     if (!isset($dependable) || empty($dependable)) {                            
         die("Radio button left blank!");                                        
     } else {                                                                    
-        if ($dependable != 1 && $dependable != 5) {                             
+        if ($dependable < 1 || $dependable > 5) {                             
             die("Corrupted data in radio input!");                              
         }                                                                       
     }
@@ -103,7 +103,7 @@ if (isset($_POST['submit'])) {
     if (!isset($punctualAss) || empty($punctualAss)) {
         die("Radio button left blank!");
     } else {
-        if ($punctualAss != 1 && $punctualAss != 5) {
+        if ($punctualAss < 1 || $punctualAss > 5) {
             die("Corrupted data in radio input!");
         }
     }
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
     if (!isset($punctualTime) || empty($punctualTime)) {
         die("Radio button left blank!");
     } else {
-        if ($punctualTime != 1 && $punctualTime != 5) {
+        if ($punctualTime < 1 || $punctualTime > 5) {
             die("Corrupted data in radio input!");
         }
     }
@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
     if (!isset($quality) || empty($quality)) {
         die("Radio button left blank!");
     } else {
-        if ($quality != 1 && $quality != 5) {
+        if ($quality < 1 || $quality > 5) {
             die("Corrupted data in radio input!");
         }
     }
