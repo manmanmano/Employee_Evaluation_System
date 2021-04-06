@@ -6,7 +6,7 @@ function evaluateEmployee($arr) {
 if (isset($_POST['submit'])) {                                                  
                                                                                 
     $names = $_POST['worker_name'];                                             
-    if (isset($names) && ($names != "james" || $names != "mary" || $names != "john")) {
+    if (isset($names) && ($names != "James Doe" || $names != "Mary Jane" || $names != "John Smith")) {
         die("Invalid worker name set!");                                        
     }
 
