@@ -9,6 +9,7 @@ function createNames() {
 function validateDate($date) {
     echo $date;
     $month = intval(date("M", strtotime($date)));
+    echo $month;
     $day = intval(date("D", strtotime($date)));
     $year = intval(date("Y", strtotime($date)));
     if (!checkdate($month, $day, $year)) {                                                 
