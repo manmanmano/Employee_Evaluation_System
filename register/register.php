@@ -22,7 +22,7 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 </head>
 <body>
 	<header>
-		<p class="logo">Logo JAM</p>
+		<img class="logo" src="../img/JAMLogo.png">
 		<nav>
 			<a href="../index.php">Main page</a>
 		</nav>
