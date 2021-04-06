@@ -21,7 +21,7 @@ require_once("employeetable.php");
 		</header>
 		<h1>My evaluation</h1>
         <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
-            <label for="week">Week:</label>
+            <label for="date">Week:</label>
             <input type="date" id="date" name="date">
             <input type="submit" name="search" value="Search">
         </form><br>
