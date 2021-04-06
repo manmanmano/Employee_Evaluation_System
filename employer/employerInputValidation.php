@@ -12,8 +12,7 @@ function evaluateEmployee($arr) {
 
 if (isset($_POST['submit'])) {                                                  
     $date = intval(date("W", strtotime($_POST['date'])));                                                                            
-    $names = $_POST['worker_name'];
-    echo $names;                                             
+    $names = $_POST['worker_name'];                                            
     if (!empty($names) && ($names != 'James Doe' && $names != 'Mary Jane' && $names != 'John Smith')) {
         die("Invalid worker name set!");                                        
     }  
@@ -136,6 +135,6 @@ if (isset($_POST['submit'])) {
     $data = $names . chr(44) . $date . chr(44) . $average . PHP_EOL;
 
     file_put_contents('newEval.csv', $data, FILE_APPEND);
-
+    header("refresh:0 url=employer.php");
 }
 ?>
