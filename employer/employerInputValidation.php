@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     }
 
     $workerName = $_POST['worker_name'];                                            
-    if (!empty($names) && !in_array($workerName, $names))) {
+    if (!empty($names) && !in_array($workerName, $names)) {
         die("Invalid worker name set!");                                        
     }  
 
