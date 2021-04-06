@@ -10,8 +10,15 @@ function evaluateEmployee($arr) {
     return array_sum($arr) / count($arr);
 }
 
-if (isset($_POST['submit'])) {                                                  
-    $date = intval(date("W", strtotime($_POST['date'])));                                                                            
+if (isset($_POST['submit'])) {
+    $month = intval(date("M", strtotime($_POST['date'])));
+    $day = intval(date("D", strtotime($_POST['date'])));
+    $year = intval(date("Y", strtotime($_POST['date'])));
+    $week = intval(date("W", strtotime($_POST['date'])));
+    if (!checkdate($month, $day, $year)) {                                                 
+        die("Invalid date set!");
+    }
+
     $names = $_POST['worker_name'];                                            
     if (!empty($names) && ($names != 'James Doe' && $names != 'Mary Jane' && $names != 'John Smith')) {
         die("Invalid worker name set!");                                        
@@ -132,7 +139,7 @@ if (isset($_POST['submit'])) {
 
     $average = round(evaluateEmployee($attrArr), 1);
 
-    $data = $names . chr(44) . $date . chr(44) . $average . PHP_EOL;
+    $data = $names . chr(59) . $week . chr(59) . $average . PHP_EOL;
 
     file_put_contents('newEval.csv', $data, FILE_APPEND);
     header("refresh:0 url=employer.php");
