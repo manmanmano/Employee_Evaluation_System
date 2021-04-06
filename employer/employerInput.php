@@ -2,7 +2,6 @@
 session_set_cookie_params(['path' => '/~juprus/icd0007_project/']);
 session_start();
 require_once("employerInputValidation.php");
-require_once("employertable.php");
 ?>
 
 <!DOCTYPE html>
