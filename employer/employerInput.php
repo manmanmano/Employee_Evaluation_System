@@ -25,7 +25,7 @@ require_once("employertable.php");
                 Name:
                 <select name="worker_name" required>
                     <?php
-                    createOptionsNames();
+                    createNames();
                     ?>
                 </select>
                 Week:
