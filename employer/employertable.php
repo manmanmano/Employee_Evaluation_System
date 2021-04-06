@@ -6,6 +6,15 @@ function createNames() {
     }
 }
 
+function validateDate($date) {
+    $month = intval(date("M", strtotime($date)));
+    $day = intval(date("D", strtotime($date)));
+    $year = intval(date("Y", strtotime($date)));
+    if (!checkdate($month, $day, $year)) {                                                 
+        die("Invalid date set!");
+    }
+}
+
 function createTable() {
     $employees = array(
         'John Smith' => array(5 => 4.5, 6 => 3.9, 7 => 2.9),
@@ -14,6 +23,7 @@ function createTable() {
     );
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
         $week = intval(date("W", strtotime($_POST['date'])));
+        validateDate($_POST['date']);
         foreach ($employees as $name => $grades) {
             if (!empty($grades[$week])) {
                 echo "<tr>";
@@ -35,6 +45,7 @@ function createTable() {
     } elseif (isset($_POST['search']) && !empty($_POST['date']) && !empty($_POST['name'])) {
         $name = $_POST['name'];
         $week = intval(date("W", strtotime($_POST['date'])));
+        validateDate($_POST['date']);
         echo "<tr>";
         echo "<td>", $name, "</td>";
         echo "<td>", $week, "</td>";
