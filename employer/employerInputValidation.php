@@ -11,6 +11,9 @@ function evaluateEmployee($arr) {
 }
 
 if (isset($_POST['submit'])) {
+    if (!isset($_POST['date'])) {
+        die("No date set!");
+    }
     $month = intval(date("m", strtotime($_POST['date'])));
     $day = intval(date("d", strtotime($_POST['date'])));
     $year = intval(date("y", strtotime($_POST['date'])));
