@@ -2,7 +2,7 @@
 if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
-echo $_SESSION['token'];
+$_SESSION['title'];
 
 function createNames() {
     $csvfile = fopen("Eval.csv", "r");
