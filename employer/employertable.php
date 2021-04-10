@@ -71,7 +71,7 @@ function createTable() {
         echo "<tr>";
         echo "<td>", $name, "</td>";
         echo "<td>", $week, "</td>";
-        echo "<td>", $employees[$name][$week], "</td>";
+        echo "<td class='evals'>", $employees[$name][$week], "</td>";
         echo "</tr>";
     } else {
         foreach ($employees as $name => $grades) {
