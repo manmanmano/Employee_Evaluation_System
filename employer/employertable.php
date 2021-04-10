@@ -26,6 +26,7 @@ function createTable() {
         while ($data = fgetcsv($csvfile)) {
             if ($name == $data[0]) {
                 $evaluations[$data[1]] = $data[2];
+                echo $evaluations;
             }
         }
         $employees[$name] = $evaluations;
