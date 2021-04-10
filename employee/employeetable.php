@@ -11,13 +11,13 @@ function createTable() {
         }
         echo "<tr>";
         echo "<td>", $week, "<td>";
-        echo "<td>", $grades[$week], "</td>";
+        echo "<td class='evals'>", $grades[$week], "</td>";
         echo "</tr>";
     } else {
         foreach ($grades as $week => $grade) {
             echo "<tr>";
             echo "<td>", $week, "</td>";
-            echo "<td>", $grade,"</td>";
+            echo "<td class='evals'>", $grade,"</td>";
             echo "</tr>";
         }
     }

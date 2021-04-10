@@ -25,7 +25,7 @@ function createTable() {
                 echo "<tr>";
                 echo "<td>", $name, "</td>";
                 echo "<td>", $week, "</td>";
-                echo "<td>", $grades[$week], "</td>";
+                echo "<td class='evals'>", $grades[$week], "</td>";
                 echo "</tr>";
             }
         }
@@ -35,7 +35,7 @@ function createTable() {
             echo "<tr>";
             echo "<td>", $name, "</td>";
             echo "<td>", $week, "</td>";
-            echo "<td>", $grade, "</td>";
+            echo "<td class='evals'>", $grade, "</td>";
             echo "</tr>";
         }
     } elseif (isset($_POST['search']) && !empty($_POST['date']) && !empty($_POST['name'])) {
@@ -58,7 +58,7 @@ function createTable() {
                 echo "<tr>";
                 echo "<td>", $name, "</td>";
                 echo "<td>", $week, "</td>";
-                echo "<td>", $grade, "</td>";
+                echo "<td class='evals'>", $grade, "</td>";
                 echo "</tr>";
             }
         }
