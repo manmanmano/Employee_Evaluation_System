@@ -4,6 +4,8 @@ session_start();
 
 if ($_SESSION['title'] != 'employer') {
     echo $_SESSION['title'];
+    echo $_SESSION['token'];
+    echo $_SESSION['name'];
     die("Incorrect credentials");
 }
 
