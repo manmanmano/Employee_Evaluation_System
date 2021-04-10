@@ -36,9 +36,9 @@ if (isset($_POST['submit']) && !isset($_SESSION['name'])) {
         header("refresh:0; ../employer/employer.php");
     } elseif ($title == "employee") {
         header("refresh:0; ../employee/employee.php");
-    } else {
-        exit("Error!");
-    }
+    }# else {
+     #   exit("Error!");
+     #}
 }
 
 ?> 
