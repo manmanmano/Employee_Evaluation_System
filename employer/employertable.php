@@ -17,7 +17,6 @@ function createTable() {
     $names = array();
     $employees = array();
     while ($data = fgetcsv($csvfile, 1000, ";")) {
-        echo $data[0];
         if (!in_array($data[0], $names)) {
             array_push($names, $data[0]);
         }
@@ -26,6 +25,7 @@ function createTable() {
         $evaluations = array();
         while ($data = fgetcsv($csvfile, 1000, ";")) {
             if ($name == $data[0]) {
+                echo $name;
                 $evaluations[$data[1]] = $data[2];
             }
         }
