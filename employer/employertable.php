@@ -22,7 +22,7 @@ function createTable() {
             array_push($names, $data[0]);
         }
     }
-    foreach ($name as $names) {
+    foreach ($names as $name) {
         $evaluations = array();
         while ($data = fgetcsv($csvfile, 1000, ";")) {
             if ($name == $data[0]) {
