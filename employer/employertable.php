@@ -14,8 +14,8 @@ function createNames() {
 
 function createTable() {
     $csvfile = fopen("Eval.csv", "r");
-    $employees = array();
     $names = array();
+    $employees = array();
     while ($data = fgetcsv($csvfile)) {
         if (!in_array($data[0], $names)) {
             array_push($names, $data[0]);
@@ -25,10 +25,10 @@ function createTable() {
         $evaluations = array();
         while ($data = fgetcsv($csvfile)) {
             if ($name == $data[0]) {
-                $evaluations[$data[1]] => $data[2];
+                $evaluations[$data[1]] = $data[2];
             }
         }
-        $employees[$name] => $evaluations;
+        $employees[$name] = $evaluations;
     }
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
         $week = intval(date("W", strtotime($_POST['date'])));
