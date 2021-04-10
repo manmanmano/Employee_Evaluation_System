@@ -1,6 +1,8 @@
 <?php
+session_name("evaluation");
 session_set_cookie_params(['path' => '~/juprus/icd0007_project/']);                                                                
 session_start();
+
 echo $_SESSION['name'];
 echo $_SESSION['title'];
 echo $_SESSION['token'];
