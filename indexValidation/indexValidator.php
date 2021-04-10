@@ -1,5 +1,5 @@
 <?php           
-session_set_cookie_params('path' => '~/juprus/icd0007_project/indexValidation');                                                              
+session_set_cookie_params(['path' => '~/juprus/icd0007_project/indexValidation']);                                                              
 session_start();                                                                           
 
 $title = $_POST['title'];                                                   
