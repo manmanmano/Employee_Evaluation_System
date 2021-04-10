@@ -25,7 +25,7 @@ function createTable() {
                 echo "<tr>";
                 echo "<td>", $name, "</td>";
                 echo "<td>", $week, "</td>";
-                echo "<td><a href='grade popup'>", $grades[$week], "</a></td>";
+                echo "<td>", $grades[$week], "</td>";
                 echo "</tr>";
             }
         }
@@ -35,7 +35,7 @@ function createTable() {
             echo "<tr>";
             echo "<td>", $name, "</td>";
             echo "<td>", $week, "</td>";
-            echo "<td><a href='grade popup'>", $grade, "</a></td>";
+            echo "<td>", $grade, "</td>";
             echo "</tr>";
         }
     } elseif (isset($_POST['search']) && !empty($_POST['date']) && !empty($_POST['name'])) {
@@ -50,7 +50,7 @@ function createTable() {
         echo "<tr>";
         echo "<td>", $name, "</td>";
         echo "<td>", $week, "</td>";
-        echo "<td><a href='grade popup'>", $employees[$name][$week], "</a></td>";
+        echo "<td>", $employees[$name][$week], "</td>";
         echo "</tr>";
     } else {
         foreach ($employees as $name => $grades) {
@@ -58,7 +58,7 @@ function createTable() {
                 echo "<tr>";
                 echo "<td>", $name, "</td>";
                 echo "<td>", $week, "</td>";
-                echo "<td><a href='grade popup'>", $grade, "</a></td>";
+                echo "<td>", $grade, "</td>";
                 echo "</tr>";
             }
         }
