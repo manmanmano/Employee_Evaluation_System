@@ -17,7 +17,7 @@ function createTable() {
     $names = array();
     for ($i = 0, $array = array(); !feof($csvfile); $i++) {
         $array = fgetcsv($csvfile);
-        if (!in_array($array[0]), $names) {
+        if (!in_array($array[0], $names)) {
             $names[$i] = $array[0];
         }
     }
