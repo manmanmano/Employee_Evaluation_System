@@ -1,6 +1,7 @@
 <?php           
 session_set_cookie_params(['path' => '~/juprus/icd0007_project/']);                                                                
-session_start();                                                                                
+session_start();
+echo session_id();                                                                                
 
 $title = $_POST['title'];                                                   
 if (!isset($title) || empty($title)) {                                      
@@ -35,7 +36,7 @@ if (isset($_POST['submit']) && !isset($_SESSION['name'])) {
     echo "Incorrect credentials. Please try again!";
 } else {
     if ($title == "employer") {
-        header("refresh:0; ../employer/employer.php");
+        header("refresh:5; ../employer/employer.php");
     } elseif ($title == "employee") {
         header("refresh:0; ../employee/employee.php");
     }# else {
