@@ -1,6 +1,4 @@
 <?php
-echo $_SESSION['title'];
-echo $_SESSION['token'];
 if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
