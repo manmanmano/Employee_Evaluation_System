@@ -2,7 +2,7 @@
 function createNames() {
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
-    for ($i = 0 $array = array(); !feof($csvfile); $i++) {
+    for ($i = 0, $array = array(); !feof($csvfile); $i++) {
         $array = fgetcsv($csvfile);
         $names[$i] = $array[0];
     }
