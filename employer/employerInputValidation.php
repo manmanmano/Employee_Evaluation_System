@@ -1,6 +1,13 @@
 <?php
 function createNames() {
-    $names = ['John Smith', 'Mary Jane', 'James Doe'];
+    $csvfile = fopen("Eval.csv", "r");
+    $names = array();
+    while ($data = fgetcsv($csvfile, 1000, ";")) {
+        if (!in_array($data[0], $names)) {
+            array_push($names, $data[0]);
+        }
+    }
+    fclose($csvfile);
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
     }
