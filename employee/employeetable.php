@@ -1,4 +1,8 @@
 <?php
+if ($_SESSION['title'] != 'employee') {
+    die("Incorrect credentials");
+}
+
 function createTable() {
     $grades = array();
     $csvfile = fopen("../employer/Eval.csv", "r");
