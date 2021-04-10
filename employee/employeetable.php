@@ -1,6 +1,13 @@
 <?php
 function createTable() {
-    $grades = array(5 => 4.5, 6 => 3.9, 7 => 2.9);
+    $grades = array();
+    $csvfile = fopen("Eval.csv", "r");
+    while ($data = fgetcsv($csvfile, 1000, ";")) {
+        if ($data[0] == $_SESSION['name']) {
+            $grades[$data[1]] = $data[2];
+        }
+    }
+    fclose($csvfile);
     $week = intval(date("W", strtotime($_POST['date'])));
     if (isset($_POST['search']) && !empty($_POST['date'])) {
         $month = intval(date("m", strtotime($_POST['date'])));
