@@ -21,10 +21,10 @@ function createTable() {
             array_push($names, $data[0]);
         }
     }
-    print_r($names);
     foreach ($names as $name) {
         $evaluations = array();
         while ($data = fgetcsv($csvfile, 1000, ";")) {
+            echo $data[0];
             if ($name == $data[0]) {
                 echo $name;
                 $evaluations[$data[1]] = $data[2];
