@@ -7,7 +7,7 @@ function createNames() {
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
     while ($data = fgetcsv($csvfile, 1000, ";")) {
-        if (!in_array($data[0], $names)) {
+        if (!in_array($data[0], $names) && $data[3] == $_SESSION['token']) {
             array_push($names, $data[0]);
         }
     }
@@ -23,7 +23,7 @@ function createTable() {
     $employees = array();
     while ($data = fgetcsv($csvfile, 1000, ";")) {
         $evaluations = array();
-        if (!in_array($data[0], $names)) {
+        if (!in_array($data[0], $names) && $data[3] == $_SESSION['token']) {
             array_push($names, $data[0]);
         }
     }
@@ -31,7 +31,7 @@ function createTable() {
     $csvfile = fopen("Eval.csv", "r");
     foreach ($names as $name) {
         while ($data = fgetcsv($csvfile, 1000, ";")) {
-            if ($name == $data[0]) {
+            if ($name == $data[0] && $data[3] == $_SESSION['token']) {
                 $evaluations[$data[1]] = $data[2];
             }
         }
