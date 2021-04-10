@@ -1,4 +1,8 @@
 <?php
+if ($_SESSION['title'] != 'employer') {
+    die("Incorrect credentials");
+}
+
 function createNames() {
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
