@@ -5,7 +5,8 @@ function createNames() {
     $array = array();
     while (!feof($csvfile)) {
         $array = fgetcsv($csvfile);
-        echo $array;
+        array_push($names, $array[0]);
+        echo $names;
     }
     for ($i = 0; $i < sizeof($array); $i++) {
         if (!in_array($array[$i][0], $names)) {
