@@ -27,6 +27,7 @@ foreach ($csvLine as $line) {
     if ($title == $values[0] && $username == $values[2] && $password == $values[3]) {
         $_SESSION['name'] = $values[1];
         $_SESSION['title'] = $values[0];
+        $_SESSION['token'] = $value[4];
     } 
 }
 
