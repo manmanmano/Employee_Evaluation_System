@@ -23,7 +23,6 @@ function createTable() {
     $employees = array();
     while ($data = fgetcsv($csvfile, 1000, ";")) {
         $evaluations = array();
-        echo $data[3];
         echo $_SESSION['token'];
         if (!in_array($data[0], $names) && $data[3] == $_SESSION['token']) {
             array_push($names, $data[0]);
