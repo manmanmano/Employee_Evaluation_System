@@ -22,9 +22,17 @@ function createTable() {
             array_push($names, $data[0]);
         }
     }
-    while ($data = fgetcsv($csvfile, 1000, ";")) {
-        print_r($data);
+    fclose($csvfile);
+    $csvfile = fopen("Eval.csv", "r");
+    foreach ($names as $name) {
+        while ($data = fgetcsv($csvfile, 1000, ";")) {
+            if ($name == $data[0]) {
+                $evaluations[$data[1]] = $data[2];
+            }
+        }
+        $employees[$name] = $evaluations;
     }
+    fclose($csvfile);
     print_r($employees);
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
         $week = intval(date("W", strtotime($_POST['date'])));
