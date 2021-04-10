@@ -153,7 +153,7 @@ if (isset($_POST['submit'])) {
 
     $average = round(evaluateEmployee($attrArr), 1);
 
-    $data = $workerName . chr(59) . $week . chr(59) . $average . PHP_EOL;
+    $data = $workerName . chr(59) . $week . chr(59) . $average . chr(59) . $_SESSION['token'] . PHP_EOL;
 
     file_put_contents('Eval.csv', $data, FILE_APPEND);
     header("refresh:0; url=employer.php");
