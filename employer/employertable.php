@@ -25,12 +25,11 @@ function createTable() {
         $evaluations = array();
         while ($data = fgetcsv($csvfile)) {
             if ($name == $data[0]) {
-                $evaluations[$data[1]] = $data[2];
+                $evaluations[$data[1]] => $data[2];
             }
         }
-        $employees[$name] = $evaluations;
+        $employees[$name] => $evaluations;
     }
-    print_r($employees);
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
         $week = intval(date("W", strtotime($_POST['date'])));
         $month = intval(date("m", strtotime($_POST['date'])));
