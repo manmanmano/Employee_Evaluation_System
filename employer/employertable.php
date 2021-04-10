@@ -16,18 +16,16 @@ function createTable() {
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
     $employees = array();
-    while ($data = fgetcsv($csvfile)) {
+    while ($data = fgetcsv($csvfile, 1000, ";")) {
         if (!in_array($data[0], $names)) {
             array_push($names, $data[0]);
         }
     }
     foreach ($name as $names) {
         $evaluations = array();
-        while ($data = fgetcsv($csvfile)) {
-            echo $data[0];
+        while ($data = fgetcsv($csvfile, 1000, ";")) {
             if ($name == $data[0]) {
                 $evaluations[$data[1]] = $data[2];
-                echo $evaluations;
             }
         }
         $employees[$name] = $evaluations;
