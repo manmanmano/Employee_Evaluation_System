@@ -1,6 +1,7 @@
-<?php                                                                           
-#if (isset($_POST['submit'])) {                                                  
-                                                                                
+<?php           
+session_set_cookie_params(['path' => '~/juprus/icd0007_project/']);                                                                
+session_start();                                                                                
+
 $title = $_POST['title'];                                                   
 if (!isset($title) || empty($title)) {                                      
     die("Radio button left blank!");                                        
@@ -20,14 +21,24 @@ if (strlen($password) < 8 || empty($password)) {
     die("Invalid password in input!");                           
 }                                                                           
     
-if ($title == "employer") {
-    header("refresh:0; ../employer/employer.php");
-} elseif ($title == "employee") {
-    header("refresh:0; ../employee/employee.php");
-} else {
-    exit("Error!");
+$csvLine = explode(PHP_EOL, file_get_contents('../usersData/users.csv'));
+foreach ($csvLine as $line) {
+    $values = explode('; ', $line);
+    if (strcmp($title, $values[0]) && strcmp($username, $values[2]) && strcmp($password, $values[3])) {
+        $_SESSION['name'] = $values[1];
+    } 
 }
 
+if (isset($_POST['submit']) && !isset($_SESSION['name'])) {
+    echo "Incorrect credentials. Please try again!";
+} else {
+    if ($title == "employer") {
+        header("refresh:0; ../employer/employer.php");
+    } elseif ($title == "employee") {
+        header("refresh:0; ../employee/employee.php");
+    } else {
+        exit("Error!");
+    }
+}
 
-#}                                                                               
 ?> 
