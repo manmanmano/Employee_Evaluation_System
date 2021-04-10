@@ -24,7 +24,7 @@ if (strlen($password) < 8 || empty($password)) {
 $csvLine = explode(PHP_EOL, file_get_contents('../usersData/users.csv'));
 foreach ($csvLine as $line) {
     $values = explode('; ', $line);
-    if (strcmp($title, $values[0]) && strcmp($username, $values[2]) && strcmp($password, $values[3])) {
+    if ($title == $values[0] && $username == $values[2] && $password == $values[3]) {
         $_SESSION['name'] = $values[1];
     } 
 }
