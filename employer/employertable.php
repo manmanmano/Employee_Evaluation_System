@@ -21,10 +21,9 @@ function createTable() {
         if (!in_array($data[0], $names)) {
             array_push($names, $data[0]);
         }
-        if ($name == $data[0]) {
-            $evaluations[$data[1]] = $data[2];
-        }
-        $employees[$name] = $evaluations;
+    }
+    while ($data = fgetcsv($csvfile, 1000, ";")) {
+        print_r($data);
     }
     print_r($employees);
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
