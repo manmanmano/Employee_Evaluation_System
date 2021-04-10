@@ -1,5 +1,5 @@
 <?php
-session_save_path('~/juprus/icd0007_project/');                                                             
+session_save_path('~/juprus/icd0007_project/indexValidation');                                                             
 session_start();
 
 echo $_SESSION['name'];
