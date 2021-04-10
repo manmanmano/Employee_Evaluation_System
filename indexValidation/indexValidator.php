@@ -31,6 +31,10 @@ foreach ($csvLine as $line) {
     } 
 }
 
+echo $_SESSION['name'];
+echo $_SESSION['title'];
+echo $_SESSION['token'];
+
 if (isset($_POST['submit']) && !isset($_SESSION['name'])) {
     echo "Incorrect credentials. Please try again!";
 } else {
