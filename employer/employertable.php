@@ -24,6 +24,7 @@ function createTable() {
     foreach ($name as $names) {
         $evaluations = array();
         while ($data = fgetcsv($csvfile)) {
+            echo $data[0];
             if ($name == $data[0]) {
                 $evaluations[$data[1]] = $data[2];
                 echo $evaluations;
