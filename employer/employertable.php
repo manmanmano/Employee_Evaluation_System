@@ -21,7 +21,7 @@ function createTable() {
             $names[$i] = $array[0];
         }
     }
-    foreach ($name in $names) {
+    foreach ($name as $names) {
         $evaluations = array();
         for ($i = 0, $array = array(); !feof($csvfile); $i++) {
             $array = fgetcsv($csvfile);
