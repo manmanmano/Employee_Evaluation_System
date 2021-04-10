@@ -7,7 +7,7 @@ require_once("employeetable.php");
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>(username) evaluation</title>
+        <title><?php echo $_SESSION['name']; ?> evaluation</title>
         <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
