@@ -7,7 +7,7 @@ function checkCsv($handle, $token) {
         array_push($csvTokens, $values[4]);
 
     }
-    if (!in_array($token, $csTokens)) {
+    if (!in_array($token, $csvTokens)) {
         exit ("Token doesn't exist");
     }
 }
