@@ -1,7 +1,6 @@
 <?php           
-session_set_cookie_params(['path' => '~/juprus/icd0007_project/']);                                                                
-session_start();
-echo ini_get('session.cookie_domain');                                                                                
+session_set_cookie_params(['path' => '~/juprus/icd0007_project']);                                                                
+session_start();                                                                            
 
 $title = $_POST['title'];                                                   
 if (!isset($title) || empty($title)) {                                      
