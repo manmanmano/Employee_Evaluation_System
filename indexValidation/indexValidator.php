@@ -1,5 +1,5 @@
 <?php                                                                           
-if (isset($_POST['submit'])) {                                                  
+#if (isset($_POST['submit'])) {                                                  
                                                                                 
     $title = $_POST['title'];                                                   
     if (!isset($title) || empty($title)) {                                      
@@ -19,6 +19,13 @@ if (isset($_POST['submit'])) {
     if (strlen($password) < 8 || empty($password)) {          
         die("Invalid password in input!");                           
     }                                                                           
-                                                                                
-}                                                                               
+    
+    if ($title == "employer") {
+        header("refresh:0; ../employer/employer.php");
+    } elseif ($title == "employee") {
+        header("refresh:0; ../employee/employee.php");
+    } else {
+        exit("Error!");
+    }
+#}                                                                               
 ?> 

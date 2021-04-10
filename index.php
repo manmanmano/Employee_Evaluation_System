@@ -1,4 +1,3 @@
-<?php require ("indexValidation/indexValidator.php")?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +15,7 @@
     </p>
     <div id= "floating-login">
         <h2>Welcome!</h2>
-        <form onsubmit="return changeAction();" method="POST" name="loginForm">
+        <form action="indexValidation/indexValidator.php" method="POST" name="loginForm">
             <label>Login as:</label>
             <input type="radio" name="title" value="employer" required>
             <label for="employer">Employer</label>
