@@ -1,4 +1,5 @@
-<?php           
+<?php
+session_name("evaluation");           
 session_set_cookie_params(['path' => '~/juprus/icd0007_project/']);                                                                
 session_start();                                                                                
 
@@ -31,15 +32,11 @@ foreach ($csvLine as $line) {
     } 
 }
 
-echo $_SESSION['name'];
-echo $_SESSION['title'];
-echo $_SESSION['token'];
-
 if (isset($_POST['submit']) && !isset($_SESSION['name'])) {
     echo "Incorrect credentials. Please try again!";
 } else {
     if ($title == "employer") {
-        header("refresh:5; ../employer/employer.php");
+        header("refresh:0; ../employer/employer.php");
     } elseif ($title == "employee") {
         header("refresh:0; ../employee/employee.php");
     }# else {
