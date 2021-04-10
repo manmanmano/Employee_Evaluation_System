@@ -1,5 +1,5 @@
 <?php
-session_save_path('~/juprus/icd0007_project/indexValidation');
+session_set_cookie_params('path' => '~/juprus/icd0007_project/indexValidation');
 session_start();
 
 if ($_SESSION['title'] != 'employer') {
