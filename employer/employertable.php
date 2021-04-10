@@ -3,9 +3,8 @@ function createNames() {
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
     $array = array();
-    while (!feof($csvfile)) {
-        $array = fgetcsv($csvfile, $delimiter=';');
-        array_push($names, $array[0]);
+    while ($data = fgetcsv($csvfile, 1000, ";")) {
+        array_push($names, $data[0]);
     }
     for ($i = 0; $i < sizeof($array); $i++) {
         if (!in_array($array[$i][0], $names)) {
