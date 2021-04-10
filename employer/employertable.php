@@ -1,17 +1,36 @@
 <?php
 function createNames() {
-    $names = ['John Smith', 'Mary Jane', 'James Doe'];
+    $csvfile = fopen("Eval.csv", "r");
+    $names = array();
+    while ($data = fgetcsv($csvfile, 1000, ";")) {
+        if (!in_array($data[0], $names)) {
+            array_push($names, $data[0]);
+        }
+    }
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
     }
 }
 
 function createTable() {
-    $employees = array(
-        'John Smith' => array(5 => 4.5, 6 => 3.9, 7 => 2.9),
-        'Mary Jane' => array(5 => 3.7, 6 => 4.3, 7 => 4.4),
-        'James Doe' => array(5 => 2.5, 6 => 3.5, 7 => 4.9),
-    );
+    $csvfile = fopen("Eval.csv", "r");
+    $employees = array();
+    $names = array();
+    while ($data = fgetcsv($csvfile)) {
+        if (!in_array($data[0], $names)) {
+            array_push($names, $data[0]);
+        }
+    }
+    foreach ($name as $names) {
+        $evaluations = array();
+        while ($data = fgetcsv($csvfile)) {
+            if ($name == $data[0]) {
+                $evaluations[$data[1]] = $data[2];
+            }
+        }
+        $employees[$name] = $evaluations;
+    }
+    print_r($employees);
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
         $week = intval(date("W", strtotime($_POST['date'])));
         $month = intval(date("m", strtotime($_POST['date'])));
