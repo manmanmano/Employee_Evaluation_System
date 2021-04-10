@@ -1,7 +1,7 @@
 <?php
 function createTable() {
     $grades = array();
-    $csvfile = fopen("Eval.csv", "r");
+    $csvfile = fopen("../employer/Eval.csv", "r");
     while ($data = fgetcsv($csvfile, 1000, ";")) {
         if ($data[0] == $_SESSION['name']) {
             $grades[$data[1]] = $data[2];
