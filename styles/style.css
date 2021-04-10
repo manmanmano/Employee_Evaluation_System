@@ -130,6 +130,6 @@ table tr:hover {
     background-color: #87ff9e;
     border: 1px solid black;
 }
-.evals td {
+.evals {
     color: red;
 }
