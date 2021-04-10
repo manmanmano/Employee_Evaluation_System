@@ -1,6 +1,6 @@
 <?php
-session_set_cookie_params(['path' => '~/juprus/icd0007_project/']); 
-session_start();
+echo $_SESSION['title'];
+echo $_SESSION['token'];
 if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
@@ -25,7 +25,6 @@ function createTable() {
     $employees = array();
     while ($data = fgetcsv($csvfile, 1000, ";")) {
         $evaluations = array();
-        echo $_SESSION['token'];
         if (!in_array($data[0], $names) && $data[3] == $_SESSION['token']) {
             array_push($names, $data[0]);
         }
