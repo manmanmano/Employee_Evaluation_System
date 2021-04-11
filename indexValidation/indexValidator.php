@@ -1,7 +1,9 @@
 <?php
 session_name("Evaluation");           
 session_set_cookie_params(['path' => '~/juprus/icd0007_project/']);                                                              
-session_start();                                                                           
+session_start();
+
+echo session.save_path();
 
 $title = $_POST['title'];                                                   
 if (!isset($title) || empty($title)) {                                      
