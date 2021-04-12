@@ -96,8 +96,6 @@ checkCsv($handle, $_POST['company']);
 
 $user .= PHP_EOL;
 
-echo $user;
-
 $users = fopen('../usersData/users.csv', 'r+');
 $return = file_put_contents($users, $user, FILE_APPEND);
 fclose($users);
@@ -105,6 +103,6 @@ fclose($users);
 session_unset();
 session_destroy();
 
-header("refresh:5;registerComplete.php");
+header("refresh:0;registerComplete.php");
 
 ?>
