@@ -39,7 +39,7 @@ if(!preg_match("/^[a-zA-Z ]*$/", $name)){
     }
 
 $user .= $name;
-$user .= '; ';
+$user .= ';';
 
 $email = $_POST['email'];
 if (empty($_POST['email'])){
