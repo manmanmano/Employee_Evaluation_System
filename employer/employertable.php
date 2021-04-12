@@ -32,13 +32,12 @@ function createTable() {
     foreach ($names as $name) {
         $evaluations = array();
         while ($data = fgetcsv($csvfile, 1000, ";")) {
-            print_r($data);
-            echo "<br>";
             if ($name == $data[0] && $data[3] == $_SESSION['token']) {
                 $evaluations[$data[1]] = $data[2];
             }
         }
         $employees[$name] = $evaluations;
+        print_r($employees);
     }
     fclose($csvfile);
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
