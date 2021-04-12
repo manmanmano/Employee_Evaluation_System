@@ -96,11 +96,13 @@ checkCsv($handle, $_POST['company']);
 
 $user .= PHP_EOL;
 
+echo $user;
+
 $return = file_put_contents('../usersData/users.csv', $user, FILE_APPEND);
 
 session_unset();
 session_destroy();
 
-header("refresh:0;registerComplete.php");
+header("refresh:5;registerComplete.php");
 
 ?>
