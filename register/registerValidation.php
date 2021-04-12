@@ -90,7 +90,7 @@ $handle = fopen('../usersData/users.csv', 'r');
 checkCsv($users, $_POST['company']);
 fclose($handle);
 
-$users = fopen('../usersData/users.csv', 'a+');
+$users = fopen('../usersData/users.csv', 'a');
 $return = fputcsv($users, $user, ";");
 fclose($users);
 
