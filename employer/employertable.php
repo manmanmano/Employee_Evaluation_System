@@ -40,6 +40,7 @@ function createTable() {
     }
     fclose($csvfile);
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
+        print_r($employees);
         $week = intval(date("W", strtotime($_POST['date'])));
         $month = intval(date("m", strtotime($_POST['date'])));
         $day = intval(date("d", strtotime($_POST['date'])));
