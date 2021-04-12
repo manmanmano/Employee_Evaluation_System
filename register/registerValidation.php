@@ -98,7 +98,9 @@ $user .= PHP_EOL;
 
 echo $user;
 
-$return = file_put_contents('../usersData/users.csv', $user, FILE_APPEND);
+$users = fopen('../usersData/users.csv', 'r+');
+$return = file_put_contents($users, $user, FILE_APPEND);
+fclose($users);
 
 session_unset();
 session_destroy();
