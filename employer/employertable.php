@@ -38,6 +38,8 @@ function createTable() {
         }
         $employees[$name] = $evaluations;
         unset($evaluations);
+        print_r($employees);
+        echo "<br>";
     }
     fclose($csvfile);
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
