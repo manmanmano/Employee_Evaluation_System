@@ -86,9 +86,11 @@ if($position == "employer"){
 }
 
 require ('tokenExists.php');
-$users = fopen('../usersData/users.csv', 'r+');
+$handle = fopen('../usersData/users.csv', 'r');
 checkCsv($users, $_POST['company']);
+fclose($handle);
 
+$users = fopen('../usersData/users.csv', 'a+');
 $return = fputcsv($users, $user, ";");
 fclose($users);
 
