@@ -9,7 +9,7 @@ function createNames() {
     $csvfile = fopen("../usersData/users.csv", "r");
     $names = array();
     while ($data = fgetcsv($csvfile, 1000, ";")) {
-        if (!in_array($data[1], $names) && $data[4] == $_SESSION['token'] && $data[1] == 'employee') {
+        if (!in_array($data[1], $names) && $data[4] == $_SESSION['token'] && $data[0] == 'employee') {
             array_push($names, $data[1]);
         }
     }
