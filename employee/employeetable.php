@@ -9,6 +9,10 @@ function createTable() {
     $grades = array();
     $csvfile = fopen("../employer/Eval.csv", "r");
     while ($data = fgetcsv($csvfile, 1000, ";")) {
+        echo $data[0];
+        echo $_SESSION['name'];
+        echo $data[3];
+        echo $_SESSION['token'];
         if ($data[0] == $_SESSION['name'] && $data[3] == $_SESSION['token']) {
             $grades[$data[1]] = $data[2];
         }
