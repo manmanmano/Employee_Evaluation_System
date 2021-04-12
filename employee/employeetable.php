@@ -14,11 +14,11 @@ function createTable() {
         }
     }
     fclose($csvfile);
-    $week = intval(date("W", strtotime($_POST['date'])));
-    if (isset($_POST['search']) && !empty($_POST['date'])) {
-        $month = intval(date("m", strtotime($_POST['date'])));
-        $day = intval(date("d", strtotime($_POST['date'])));
-        $year = intval(date("y", strtotime($_POST['date'])));
+    $week = intval(date("W", strtotime($_GET['date'])));
+    if (isset($_GET['search']) && !empty($_GET['date'])) {
+        $month = intval(date("m", strtotime($_GET['date'])));
+        $day = intval(date("d", strtotime($_GET['date'])));
+        $year = intval(date("y", strtotime($_GET['date'])));
         if (!checkdate($month, $day, $year)) {                                                 
             die("Invalid date set!");
         }

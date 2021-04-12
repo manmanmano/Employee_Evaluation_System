@@ -40,11 +40,11 @@ function createTable() {
         fclose($csvfile);
         unset($evaluations);
     }
-    if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
-        $week = intval(date("W", strtotime($_POST['date'])));
-        $month = intval(date("m", strtotime($_POST['date'])));
-        $day = intval(date("d", strtotime($_POST['date'])));
-        $year = intval(date("y", strtotime($_POST['date'])));
+    if (isset($_GET['search']) && !empty($_GET['date']) && empty($_GET['name'])) {
+        $week = intval(date("W", strtotime($_GET['date'])));
+        $month = intval(date("m", strtotime($_GET['date'])));
+        $day = intval(date("d", strtotime($_GET['date'])));
+        $year = intval(date("y", strtotime($_GET['date'])));
         if (!checkdate($month, $day, $year)) {                                                 
             die("Invalid date set!");
         }
@@ -57,8 +57,8 @@ function createTable() {
                 echo "</tr>";
             }
         }
-    } elseif (isset($_POST['search']) && empty($_POST['date']) && !empty($_POST['name'])) {
-        $name = $_POST['name'];
+    } elseif (isset($_GET['search']) && empty($_GET['date']) && !empty($_GET['name'])) {
+        $name = $_GET['name'];
         foreach ($employees[$name] as $week => $grade) {
             echo "<tr>";
             echo "<td>", $name, "</td>";
@@ -66,15 +66,15 @@ function createTable() {
             echo "<td class='evals'>", $grade, "</td>";
             echo "</tr>";
         }
-    } elseif (isset($_POST['search']) && !empty($_POST['date']) && !empty($_POST['name'])) {
-        $week = intval(date("W", strtotime($_POST['date'])));
-        $month = intval(date("m", strtotime($_POST['date'])));
-        $day = intval(date("d", strtotime($_POST['date'])));
-        $year = intval(date("y", strtotime($_POST['date'])));
+    } elseif (isset($_GET['search']) && !empty($_GET['date']) && !empty($_GET['name'])) {
+        $week = intval(date("W", strtotime($_GET['date'])));
+        $month = intval(date("m", strtotime($_GET['date'])));
+        $day = intval(date("d", strtotime($_GET['date'])));
+        $year = intval(date("y", strtotime($_GET['date'])));
         if (!checkdate($month, $day, $year)) {                                                 
             die("Invalid date set!");
         }
-        $name = $_POST['name'];
+        $name = $_GET['name'];
         echo "<tr>";
         echo "<td>", $name, "</td>";
         echo "<td>", $week, "</td>";

@@ -20,7 +20,7 @@ require_once("employertable.php");
                 </form>
             </nav>
         </header>
-        <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
+        <form method="GET" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
             <label for="week">Week:</label>
             <input type="date" id="date" name="date"><br>
             <label for="name">Name:</label>
