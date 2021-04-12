@@ -24,13 +24,13 @@ function createTable() {
     $names = array();
     $employees = array();
     while ($data = fgetcsv($csvfile, 1000, ";")) {
-        $evaluations = array();
         if (!in_array($data[0], $names) && $data[3] == $_SESSION['token']) {
             array_push($names, $data[0]);
         }
     }
     $csvfile = fopen("Eval.csv", "r");
     foreach ($names as $name) {
+        $evaluations = array();
         while ($data = fgetcsv($csvfile, 1000, ";")) {
             if ($name == $data[0] && $data[3] == $_SESSION['token']) {
                 $evaluations[$data[1]] = $data[2];
@@ -40,7 +40,6 @@ function createTable() {
     }
     fclose($csvfile);
     if (isset($_POST['search']) && !empty($_POST['date']) && empty($_POST['name'])) {
-        print_r($employees);
         $week = intval(date("W", strtotime($_POST['date'])));
         $month = intval(date("m", strtotime($_POST['date'])));
         $day = intval(date("d", strtotime($_POST['date'])));
