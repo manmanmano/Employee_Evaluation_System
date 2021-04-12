@@ -30,6 +30,7 @@ function createTable() {
     }
     $csvfile = fopen("Eval.csv", "r");
     foreach ($names as $name) {
+        echo $name;
         $evaluations = array();
         while ($data = fgetcsv($csvfile, 1000, ";")) {
             if ($name == $data[0] && $data[3] == $_SESSION['token']) {
