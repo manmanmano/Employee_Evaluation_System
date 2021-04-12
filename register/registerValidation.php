@@ -1,6 +1,5 @@
 <?php
-session_name('sesRegister');
-session_start();
+require_once("../sessionstart.php");
 // checks if password and cPassword match
 function matching_passwords($password, $cpassword)
 {
