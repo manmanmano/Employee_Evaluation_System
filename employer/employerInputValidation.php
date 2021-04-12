@@ -6,11 +6,11 @@ if ($_SESSION['title'] != 'employer') {
 }
 
 function createNames() {
-    $csvfile = fopen("Eval.csv", "r");
+    $csvfile = fopen("../usersData/users.csv", "r");
     $names = array();
     while ($data = fgetcsv($csvfile, 1000, ";")) {
-        if (!in_array($data[0], $names) && $data[3] == $_SESSION['token']) {
-            array_push($names, $data[0]);
+        if (!in_array($data[1], $names) && $data[4] == $_SESSION['token'] && $data[1] == 'employee') {
+            array_push($names, $data[1]);
         }
     }
     fclose($csvfile);
