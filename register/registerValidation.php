@@ -17,15 +17,17 @@ function matching_passwords($password, $cpassword)
     return true;
 }
 
-$user = array();
+$user = '';
 
 $position = $_POST['position'];
 if($position == "employee"){
-  $user[0] = $position;
+  $user .= $position;
+  $user .= ';';
 }
 
 if($position == "employer"){
-  $user[0] = 'employer';
+  $user = 'employer';
+  $user .= ';';
 }
 
 $name = $_POST['name'];
@@ -37,7 +39,8 @@ if(!preg_match("/^[a-zA-Z ]*$/", $name)){
     exit("Please enter full name and use Latin alphabet.");
     }
 
-$user[1] = $name;
+$user .= $name;
+$user .= ';';
 
 $email = $_POST['email'];
 if (empty($_POST['email'])){
@@ -47,7 +50,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit("Please enter a valid email.");
 }
 
-$user[2] = $email;
+$user .= $email;
+$user .= ';';
 
 $position = $_POST['position'];
 if(!isset($position) || empty($position)){
@@ -76,13 +80,14 @@ $cpassword = $_POST['cPassword'];
 matching_passwords($password, $cpassword);
 
 
-$user[3] = $password;
+$user .= $password;
+$user .= ';';
 
 if($position == "employee"){
-  $user[4] = $employeeToken;
+  $user .= $employeeToken;
 }
 if($position == "employer"){
-  $user[4] = $_SESSION['tokenGen'];
+  $user .= $_SESSION['tokenGen'];
 }
 
 require ('tokenExists.php');
@@ -90,9 +95,7 @@ $handle = fopen('../usersData/users.csv', 'r');
 checkCsv($users, $_POST['company']);
 fclose($handle);
 
-$users = fopen('../usersData/users.csv', 'a');
-$return = fputcsv($users, $user, ";");
-fclose($users);
+file_put_contents('../usersData/users.csv', $user, FILE_APPEND);
 
 session_unset();
 session_destroy();
