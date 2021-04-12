@@ -1,7 +1,5 @@
 <?php
-session_name("Evaluation");
-session_set_cookie_params(['path' => '~/juprus/icd0007_project/']);   
-session_start();
+require_once("../sessionstart.php");
 
 if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
