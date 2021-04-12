@@ -22,11 +22,11 @@ $user = '';
 $position = $_POST['position'];
 if($position == "employee"){
   $user .= $position;
-  $user .= '; ';
+  $user .= ';';
 }
 
 if($position == "employer"){
-  $user .= 'employer; ';
+  $user .= 'employer;';
 }
 
 $name = $_POST['name'];
@@ -49,7 +49,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit("Please enter a valid email.");
 }
 $user .= $email;
-$user .= '; ';
+$user .= ';';
 
 
 $position = $_POST['position'];
@@ -80,15 +80,13 @@ matching_passwords($password, $cpassword);
 
 
 $user .= $password;
-$user .= '; ';
+$user .= ';';
 
 if($position == "employee"){
   $user .= $employeeToken;
-  $user .= "; ";
 }
 if($position == "employer"){
   $user .= $_SESSION['tokenGen'];
-  $user .= "; ";
 }
 
 require ('tokenExists.php');
@@ -96,7 +94,7 @@ $handle = fopen('../usersData/users.csv', 'r');
 checkCsv($handle, $_POST['company']);
 
 
-$user .= "\r\n";
+$user .= PHP_EOL;
 
 $return = file_put_contents('../usersData/users.csv', $user, FILE_APPEND);
 
