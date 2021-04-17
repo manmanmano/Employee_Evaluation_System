@@ -66,7 +66,7 @@ function createTable($token) {
             die("Invalid date set!");
         }
         foreach ($employees as $name => $grades) {
-            foreach (!empty($grades[$year][$week])) {
+            if (!empty($grades[$year][$week])) {
                 echo "<tr>";
                 echo "<td>", $name, "</td>";
                 echo "<td>", $week, "</td>";
