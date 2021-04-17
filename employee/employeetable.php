@@ -1,9 +1,12 @@
 <?php
 require_once("../sessionstart.php");
-include("modal.html");
 
 if ($_SESSION['title'] != 'employee') {
     die("Incorrect credentials");
+}
+
+function getGrade() {
+
 }
 
 function createTable($token) {
@@ -47,7 +50,7 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $week, "</td>";
         echo "<td>", $year, "</td>";
-        echo "<td><a class='modal' data-toggle='modal' href='modal.html' data-target='#MyModal' data-backdrop='static'>", $grades[$year][$week], "</a></td>";
+        echo "<td>", $grades[$year][$week], "</td>";
         echo "</tr>";
     } else {
         foreach ($grades as $year => $weeks) {
@@ -55,7 +58,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td><a class='modal' data-toggle='modal' href='modal.html' data-target='#MyModal' data-backdrop='static'>", $grade,"</a></td>";
+                echo "<td>", include("modal.html");,"</td>";
                 echo "</tr>";
             }
         }
