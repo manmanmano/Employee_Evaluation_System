@@ -5,17 +5,8 @@
     <meta name="description" content="Main page for employee performance evaluation system">
     <title>Index</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="indexValidation//dynamicAction.js" type="text/javascript">
-    
-    function showPwd(){
-    	document.getElementsByName("password").type='text';
-  	}
-
-	function hidePwd(){
-    	document.getElementsByName("password").type='password';
-  	}
-
-    </script>
+    <script src="indexValidation//dynamicAction.js" type="text/javascript"></script>
+    <script src="indexValidation//showPwd.js" type="text/javascript"></script>
 </head>
 <body>
     <h1>Employee perfomance evaluation</h1>
