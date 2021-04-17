@@ -23,6 +23,7 @@ function createTable($token) {
             array_push($years, $row['year']);
         }
     }
+    print_r($years);
     foreach ($years as $year) {
         while ($row = mysqli_fetch_assoc($result)) {
             if ($row['name'] == $_SESSION['name']) {
