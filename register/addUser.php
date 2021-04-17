@@ -16,7 +16,13 @@ function addUser($link, $position, $name, $email, $hashedPassword, $employeeToke
                 $position, $name, $email, $hashedPassword, $employeeToken);
         } 
         //if execute is successful redirect to registrationSuccess
+        if (mysqli_stmt_execute($stmt)) {
+            header("refresh:0;registerComplete.php");
+        } else {
+            echo "<h1>Something went wrong! Please retry later.</h1>";
+        }
     }
+    mysqli_close($link);
 }
 
 ?>

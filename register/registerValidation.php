@@ -95,7 +95,4 @@ addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $_SESS
 
 session_unset();
 session_destroy();
-
-header("refresh:0;registerComplete.php");
-
 ?>
