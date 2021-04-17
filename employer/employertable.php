@@ -16,6 +16,7 @@ function createNames($token) {
     }
 
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token='?';");
+    echo "<option>" . sanitizedInputVar($link, $token) . "</option>";
     mysqli_stmt_bind_param($query, "s", sanitizedInputVar($link, $token));
     mysqli_stmt_execute($query);
     mysqli_stmt_bind_result($query, $name);
