@@ -18,6 +18,7 @@ function createNames() {
     }
 
     $token = $GLOBALS['token'];
+    echo $token;
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token=?;");
     mysqli_stmt_bind_param($query, "s", sanitizeInputVar($link, $token));
     mysqli_stmt_execute($query);
