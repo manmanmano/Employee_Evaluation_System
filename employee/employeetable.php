@@ -36,7 +36,6 @@ function createTable($token) {
         unset($weeks);
     }
     $week = intval(date("W", strtotime($_GET['date'])));
-    $year = intval(date("Y", strtotime($_GET['date'])));
     if (isset($_GET['search']) && !empty($_GET['date'])) {
         $month = intval(date("m", strtotime($_GET['date'])));
         $day = intval(date("d", strtotime($_GET['date'])));
