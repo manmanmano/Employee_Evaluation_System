@@ -7,7 +7,6 @@ if ($_SESSION['title'] != 'employer') {
 
 function createNames($token) {
     include_once("../usersData/connect.db.php");
-    include_once("../usersData/sanitizeInputVar");
 
     $link = mysqli_connect($server, $user, $password, $database);
 
@@ -29,7 +28,6 @@ function createNames($token) {
 
 function createTable($token) {
     include_once("../usersData/connect.db.php");
-    include_once("../usersData/sanitizeInputVar");
 
     $link = mysqli_connect($server, $user, $password, $database);
 
