@@ -29,6 +29,7 @@ function createTable($token) {
                 $grades[$row['year']] = array($row['week'] => $row['average']);
             }
         }
+    }
     $week = intval(date("W", strtotime($_GET['date'])));
     $year = intval(date("y", strtotime($_GET['date'])));
     if (isset($_GET['search']) && !empty($_GET['date'])) {
