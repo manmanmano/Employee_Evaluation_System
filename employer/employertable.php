@@ -1,12 +1,12 @@
 <?php
-require_once("../sessionstart.php");
+require("../sessionstart.php");
 
 if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
 function createNames() {
-    require_once("../sessionstart.php");
+    require("../sessionstart.php");
     include_once("../usersData/connect.db.php");
     include_once("../usersData/sanitizeInputVar");
 
@@ -30,7 +30,7 @@ function createNames() {
 }
 
 function createTable() {
-    require_once("../sessionstart.php");
+    require("../sessionstart.php");
     echo $_SESSION['token'];
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
