@@ -19,7 +19,7 @@ function createTable($token) {
     $query = "SELECT name, week, year, average FROM token_" . $token . ";";
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($row['name'] == $_SESSION['name'] && !in_array($row['year'])) {
+        if ($row['name'] == $_SESSION['name'] && !in_array($row['year'], $years)) {
             array_push($years, $row['year']);
         }
     }
