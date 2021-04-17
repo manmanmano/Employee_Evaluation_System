@@ -1,5 +1,7 @@
 <?php
 require_once("employertable.php");
+require_once("../sessionstart.php");
+echo $_SESSION['token'];
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +40,6 @@ require_once("employertable.php");
                 <th>Evaluation</th>
             </tr>
             <?php
-            require_once("../sessionstart.php");
-            echo $_SESSION['token'];
             createTable();
             ?>
         </table>
