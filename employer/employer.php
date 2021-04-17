@@ -13,7 +13,7 @@ require_once("employertable.php");
         <header>
             <img class="logo" src="../img/JAMLogo.png">
             <nav>
-                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+                <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
                     <input type="submit" name="logout" value="Log out">
                     <input type="submit" name="newevaluation" value="Add new evaluation">
                 </form>
