@@ -17,8 +17,8 @@ require_once("employeetable.php");
                 </form>
 			</nav>
 		</header>
-		<h1>My evaluation</h1>
         <h1>Welcome <?php echo $_SESSION['name']; ?>!</h1>
+		<h1>My evaluation</h1>
         <form method="GET" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
             <label for="date">Week:</label>
             <input type="date" id="date" name="date">
