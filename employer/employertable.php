@@ -21,6 +21,7 @@ function createNames($token) {
     mysqli_stmt_bind_result($query, $name);
     $names = array();
     while ($row = mysqli_stmt_fetch($query)) {
+        echo $name;
         array_push($names, $name);
     }
     for ($i = 0; $i < sizeof($names); $i++) {
