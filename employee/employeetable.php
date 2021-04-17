@@ -1,5 +1,6 @@
 <?php
 require_once("../sessionstart.php");
+include("modal.html");
 
 if ($_SESSION['title'] != 'employee') {
     die("Incorrect credentials");
