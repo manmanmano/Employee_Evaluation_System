@@ -15,13 +15,20 @@ function createTable($token) {
     }
 
     $grades = array();
+    $years = array();
     $query = "SELECT name, week, year, average FROM token_" . $token . ";";
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
         if ($row['name'] == $_SESSION['name']) {
-            $grades[$row['year']] = array($row['week'] => $row['average']);
+            array_push($years, $row['year']);
         }
     }
+    foreach ($years as $year) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($row['name'] == $_SESSION['name']) {
+                $grades[$row['year']] = array($row['week'] => $row['average']);
+            }
+        }
     $week = intval(date("W", strtotime($_GET['date'])));
     $year = intval(date("y", strtotime($_GET['date'])));
     if (isset($_GET['search']) && !empty($_GET['date'])) {
@@ -34,10 +41,9 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $week, "</td>";
         echo "<td>", $year, "</td>";
-        echo "<td class='evals'>", $grades[$year][$week], "</td>";
+        echo "<td class='evals'>", $grades[$year[$week]], "</td>";
         echo "</tr>";
     } else {
-        print_r($grades);
         foreach ($grades as $year => $weeks) {
             foreach ($weeks as $week => $grade) {
                 echo "<tr>";
