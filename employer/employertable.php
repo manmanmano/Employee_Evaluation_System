@@ -5,19 +5,16 @@ if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
-include_once("../usersData/connect.db.php");
-include_once("../usersData/sanitizeInputVar");
-
-$token = sanitizeInputVar($_SESSION['token']);
-
-$link = mysqli_connect($server, $user, $password, $database);
-
-if (!$link) {
-    die("Connection to DB failed: " . mysqli_connect_error());
-}
-
 function createNames() {
-    echo $token;
+    include_once("../usersData/connect.db.php");
+    include_once("../usersData/sanitizeInputVar");
+
+    $link = mysqli_connect($server, $user, $password, $database);
+
+    if (!$link) {
+        die("Connection to DB failed: " . mysqli_connect_error());
+    }
+
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token=?;");
     mysqli_stmt_bind_param($query, "s", $token);
     mysqli_stmt_execute($query);
