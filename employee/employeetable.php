@@ -46,7 +46,7 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $week, "</td>";
         echo "<td>", $year, "</td>";
-        echo "<td><button id=myBtn>", $grades[$year][$week], "</button></td>";
+        echo "<td><button formaction='modal.html'>", $grades[$year][$week], "</button></td>";
         echo "</tr>";
     } else {
         foreach ($grades as $year => $weeks) {
@@ -54,7 +54,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td><button id=myBtn>", $grade,"</button></td>";
+                echo "<td><button formaction='modal.html'>", $grade,"</button></td>";
                 echo "</tr>";
             }
         }
