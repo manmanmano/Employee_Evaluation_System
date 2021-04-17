@@ -58,7 +58,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td><a href='modal.html'", $grade,"</a></td>";
+                echo "<td><a href='modal.php'", $grade,"</a></td>";
                 echo "</tr>";
             }
         }
