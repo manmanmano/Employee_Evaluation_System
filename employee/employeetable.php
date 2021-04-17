@@ -33,6 +33,7 @@ function createTable($token) {
         $grades[$year] = $weeks;
         unset($weeks);
     }
+    print_r($grades);
     $week = intval(date("W", strtotime($_GET['date'])));
     $year = intval(date("y", strtotime($_GET['date'])));
     if (isset($_GET['search']) && !empty($_GET['date'])) {
