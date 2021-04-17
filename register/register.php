@@ -17,6 +17,10 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 	companyGen.style.display = employee.checked ? "none" : "block";
 	haveToken.style.display = employee.checked ? "block" : "none";
 	}
+	
+	function showPwd(){
+    	document.getElementById("password").type='text':
+  }
 	</script>
 	<link rel="stylesheet" href="../styles/style.css">
 </head>
