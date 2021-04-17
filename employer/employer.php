@@ -39,6 +39,7 @@ require_once("employertable.php");
                 <th>Evaluation</th>
             </tr>
             <?php
+            echo $token;
             createTable($token);
             ?>
         </table>
