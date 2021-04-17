@@ -2,9 +2,6 @@
 require_once("../sessionstart.php");
 require_once("../usersData/connect.db.php");
 
-$link = mysqli_connect($server, $user, $password, $database);
-if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
-
 // checks if password and cPassword match
 function matching_passwords($password, $cpassword)
 {
@@ -20,6 +17,9 @@ function matching_passwords($password, $cpassword)
     // passwords match
     return true;
 }
+
+$link = mysqli_connect($server, $user, $password, $database);
+if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
 $user = '';
 
@@ -95,8 +95,9 @@ if($position == "employer"){
 }
 
 require ('tokenExists.php');
+
 $handle = fopen('../usersData/users.csv', 'r');
-checkCsv($users, $_POST['company']);
+checkUsers($users, $_POST['company']);
 fclose($handle);
 
 file_put_contents('../usersData/users.csv', $user, FILE_APPEND);

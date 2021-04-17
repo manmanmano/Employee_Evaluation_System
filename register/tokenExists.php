@@ -1,5 +1,6 @@
 <?php
-function checkCsv($handle, $token) {
+function checkUsers($handle, $token) {
+/*
     $csvTokens = array();
     $csvLine = explode(PHP_EOL, file_get_contents('../usersData/users.csv'));
     foreach ($csvLine as $line) {
@@ -9,6 +10,6 @@ function checkCsv($handle, $token) {
     }
     if (!in_array($token, $csvTokens)) {
         exit ("Token doesn't exist");
-    }
+    } */
 }
 ?>
