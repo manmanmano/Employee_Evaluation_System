@@ -20,7 +20,12 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 	
 	function showPwd(){
     	document.getElementById("password").type='text';
-  }
+  	}
+
+	function hidePwd(){
+    	document.getElementById("password").type='password';
+  	}
+
 	</script>
 	<link rel="stylesheet" href="../styles/style.css">
 </head>
@@ -59,7 +64,7 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 		<label for="name">Password must have at least 8 characters and at least one number, one uppercase letter and one lowercase letter.<br></label>
 		<label for="name"><b>Password</b></label>
 		<input type="password" id="password" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-		<span id="reveal-pwd" onmouseover="showPwd()"">?</span>
+		<span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
 		<br>
 		<br>
 		<label for="name"><b>Confirm Password</b></label>
