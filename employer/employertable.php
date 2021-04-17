@@ -4,9 +4,9 @@ require_once("../sessionstart.php");
 if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
-
-$token = $_SESSION['token'];
-echo $token;
+function token () {
+    $token = $_SESSION['token'];
+}
 
 function createNames() {
     include_once("../usersData/connect.db.php");
