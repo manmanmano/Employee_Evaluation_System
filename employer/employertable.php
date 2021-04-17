@@ -44,49 +44,53 @@ function createTable($token) {
         array_push($names, $row['name']);
     }
     foreach ($names as $name) {
-        $evaluations = array();
-        $query = "SELECT name, week, year, average FROM token_" . $token . ";";
+        $years = array();
+        $query = "SELECT year FROM token_" . $token . " WHERE name='" . $name . "';";
         $result = mysqli_query($link, $query);
         while ($row = mysqli_fetch_assoc($result)) {
-            if ($name == $row['name']) {
-                $evaluations[$row['week']] = $row['average'];
+            if (!in_array($row['year'], $years)) {
+                array_push($years, $row['year']);
             }
         }
-        $employees[$name] = $evaluations;
-        unset($evaluations);
+        $employees[$name] = $years;
+        unset($years);
     }
     mysqli_close($link);
     if (isset($_GET['search']) && !empty($_GET['date']) && empty($_GET['name'])) {
         $week = intval(date("W", strtotime($_GET['date'])));
         $month = intval(date("m", strtotime($_GET['date'])));
         $day = intval(date("d", strtotime($_GET['date'])));
-        $year = intval(date("y", strtotime($_GET['date'])));
+        $year = intval(date("Y", strtotime($_GET['date'])));
         if (!checkdate($month, $day, $year)) {                                                 
             die("Invalid date set!");
         }
         foreach ($employees as $name => $grades) {
-            if (!empty($grades[$week])) {
+            foreach (!empty($grades[$year][$week])) {
                 echo "<tr>";
                 echo "<td>", $name, "</td>";
                 echo "<td>", $week, "</td>";
-                echo "<td class='evals'>", $grades[$week], "</td>";
+                echo "<td>", $year, "</td>";
+                echo "<td class='evals'>", $grades[$year][$week], "</td>";
                 echo "</tr>";
             }
         }
     } elseif (isset($_GET['search']) && empty($_GET['date']) && !empty($_GET['name'])) {
         $name = $_GET['name'];
-        foreach ($employees[$name] as $week => $grade) {
-            echo "<tr>";
-            echo "<td>", $name, "</td>";
-            echo "<td>", $week, "</td>";
-            echo "<td class='evals'>", $grade, "</td>";
-            echo "</tr>";
+        foreach ($employees[$name] as $year => $weeks) {
+            foreach ($weeks as $week => $grade) {
+                echo "<tr>";
+                echo "<td>", $name, "</td>";
+                echo "<td>", $week, "</td>";
+                echo "<td>", $year, "</td>";
+                echo "<td class='evals'>", $grade, "</td>";
+                echo "</tr>";
+            }
         }
     } elseif (isset($_GET['search']) && !empty($_GET['date']) && !empty($_GET['name'])) {
         $week = intval(date("W", strtotime($_GET['date'])));
         $month = intval(date("m", strtotime($_GET['date'])));
         $day = intval(date("d", strtotime($_GET['date'])));
-        $year = intval(date("y", strtotime($_GET['date'])));
+        $year = intval(date("Y", strtotime($_GET['date'])));
         if (!checkdate($month, $day, $year)) {                                                 
             die("Invalid date set!");
         }
@@ -94,16 +98,20 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $name, "</td>";
         echo "<td>", $week, "</td>";
-        echo "<td class='evals'>", $employees[$name][$week], "</td>";
+        echo "<td>", $year, "</td>";
+        echo "<td class='evals'>", $employees[$name][$year][$week], "</td>";
         echo "</tr>";
     } else {
-        foreach ($employees as $name => $grades) {
-            foreach ($grades as $week => $grade) {
-                echo "<tr>";
-                echo "<td>", $name, "</td>";
-                echo "<td>", $week, "</td>";
-                echo "<td class='evals'>", $grade, "</td>";
-                echo "</tr>";
+        foreach ($employees as $name => $years) {
+            foreach ($years as $year => $weeks) {
+                foreach ($weeks as $week => $grade) {
+                    echo "<tr>";
+                    echo "<td>", $name, "</td>";
+                    echo "<td>", $week, "</td>";
+                    echo "<td>", $year, "</td>";
+                    echo "<td class='evals'>", $grade, "</td>";
+                    echo "</tr>";
+                }
             }
         }
     }
