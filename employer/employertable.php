@@ -16,7 +16,7 @@ function createNames($token) {
     }
 
     $query = "SELECT name FROM users WHERE token='". $token . "';";
-    $result = mysqli_query($link, $query)
+    $result = mysqli_query($link, $query);
     $names = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($names, $row['name']);
