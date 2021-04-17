@@ -58,7 +58,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td>", include("modal.html");,"</td>";
+                echo "<td>", include("modal.html"),"</td>";
                 echo "</tr>";
             }
         }
