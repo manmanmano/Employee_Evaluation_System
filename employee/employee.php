@@ -27,6 +27,7 @@ require_once("employeetable.php");
         <table>
             <tr>
                 <th>Week</th>
+                <th>Year</th>
                 <th>Evaluation</th>
             </tr>
             <?php
