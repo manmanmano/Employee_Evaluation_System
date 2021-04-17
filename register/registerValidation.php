@@ -91,7 +91,7 @@ checkToken($link, $employeeToken);
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-addUser($position, $name, $email, $hashedPassword, $employeeToken, $_SESSION['tokenGen']);
+addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $_SESSION['tokenGen']);
 
 session_unset();
 session_destroy();
