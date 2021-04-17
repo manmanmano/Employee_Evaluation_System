@@ -40,6 +40,7 @@ require_once("../sessionstart.php");
             </tr>
             <?php
             require("employertable.php");
+            echo $token;
             createTable($token);
             ?>
         </table>
