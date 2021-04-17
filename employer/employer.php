@@ -27,6 +27,7 @@ require_once("employertable.php");
             <select id="name" name="name">
                 <option value=0>Please select an employee</option>
                 <?php
+                echo $token;
                 createNames($token);
                 ?>
             </select><br>
