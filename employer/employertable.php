@@ -16,12 +16,13 @@ function createNames($token) {
     }
 
     $sanitizedtoken = sanitizeInputVar($link, $token);
-    $query = "SELECT name FROM users WHERE token='" . $sanitizedtoken . "';";
-    echo "<option>" . $query . "</option>";
-    $result = mysqli_query($link, $query);
+    $query = mysqli_prepare($link, "SELECT name FROM users WHERE token='?';");
+    mysqli_stmt_bind_param($query, "s", $sanitizedtoken);
+    mysqli_stmt_execute($query);
+    mysqli_stmt_bind_result($query, $name);
     $names = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-        array_push($names, $row['name']);
+    while ($row = mysqli_stmt_fetch($query)) {
+        array_push($names, $name);
     }
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
