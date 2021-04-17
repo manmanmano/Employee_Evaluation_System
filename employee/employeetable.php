@@ -15,14 +15,28 @@ function createTable($token) {
     }
 
     $grades = array();
-    $query = "SELECT name, week, year, average FROM token_" . $token . ";";
+    $years = array();
+    $query = "SELECT week, year, average FROM token_" . $token . " WHERE name='" . $_SESSION['name'] . "';";
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($row['name'] == $_SESSION['name']) {
-            $grades[$row['week']] = $row['average'];
+        if (!in_array($row['year'], $years)) {
+            array_push($years, $row['year']);
         }
     }
+    foreach ($years as $year) {
+        $weeks = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo 1;
+            if ($row['name'] == $_SESSION['name'] && $row['year'] == $year) {
+                $weeks[$row['week']] = $row['average'];
+            }
+        }
+        $grades[$year] = $weeks;
+        unset($weeks);
+    }
+    print_r($grades);
     $week = intval(date("W", strtotime($_GET['date'])));
+    $year = intval(date("y", strtotime($_GET['date'])));
     if (isset($_GET['search']) && !empty($_GET['date'])) {
         $month = intval(date("m", strtotime($_GET['date'])));
         $day = intval(date("d", strtotime($_GET['date'])));
@@ -31,15 +45,19 @@ function createTable($token) {
             die("Invalid date set!");
         }
         echo "<tr>";
-        echo "<td>", $week, "<td>";
-        echo "<td class='evals'>", $grades[$week], "</td>";
+        echo "<td>", $week, "</td>";
+        echo "<td>", $year, "</td>";
+        echo "<td class='evals'>", $grades[$year[$week]], "</td>";
         echo "</tr>";
     } else {
-        foreach ($grades as $week => $grade) {
-            echo "<tr>";
-            echo "<td>", $week, "</td>";
-            echo "<td class='evals'>", $grade,"</td>";
-            echo "</tr>";
+        foreach ($grades as $year => $weeks) {
+            foreach ($weeks as $week => $grade) {
+                echo "<tr>";
+                echo "<td>", $week, "</td>";
+                echo "<td>", $year, "</td>";
+                echo "<td class='evals'>", $grade,"</td>";
+                echo "</tr>";
+            }
         }
     }
 }
