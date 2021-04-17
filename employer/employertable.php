@@ -5,9 +5,9 @@ if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
-$GLOBALS['token'] = $_SESSION['token'];
+$token = $_SESSION['token']
 
-function createNames() {
+function createNames($token) {
     include_once("../usersData/connect.db.php");
     include_once("../usersData/sanitizeInputVar");
 
@@ -18,7 +18,6 @@ function createNames() {
     }
 
     $token = $GLOBALS['token'];
-    echo $token;
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token=?;");
     mysqli_stmt_bind_param($query, "s", sanitizeInputVar($link, $token));
     mysqli_stmt_execute($query);
@@ -32,7 +31,7 @@ function createNames() {
     }
 }
 
-function createTable() {
+function createTable($token) {
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
     $employees = array();
