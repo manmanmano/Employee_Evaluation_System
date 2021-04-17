@@ -98,7 +98,8 @@ if ($position == "employee") {
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 //in the end add a new user
-addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $_SESSION['tokenGen']);
+$employerToken = $_SESSION['tokenGen'];
+addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $employerToken);
 
 //close the connection to the db
 mysqli_close($link);
