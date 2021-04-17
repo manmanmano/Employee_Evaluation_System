@@ -15,9 +15,8 @@ function createNames($token) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
-    $sanitizedtoken = sanitizeInputVar($link, $token);
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token='?';");
-    mysqli_stmt_bind_param($query, "s", $sanitizedtoken);
+    mysqli_stmt_bind_param($query, "s", sanitizedInputVar($link, $token));
     mysqli_stmt_execute($query);
     mysqli_stmt_bind_result($query, $name);
     $names = array();
