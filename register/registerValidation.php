@@ -2,6 +2,27 @@
 require_once("../sessionstart.php");
 require_once("../usersData/connect.db.php");
 
+//check if the token is valid
+function checkToken($link, $token) {
+    //prepare a select statement
+    $query = mysqli_prepare($link,
+        "SELECT title, token FROM users WHERE title='employer' AND token=?");
+
+    if ($stmt = mysqli_prepare($link, $query)) {
+        //bind the token to the prepared statement
+        mysqli_stmt_bind_param($query, "s", $token);
+        //if execution is successful check for the token
+        if (mysqli_stmt_execute($query)) {
+            //store the result locally
+            mysqli_stmt_store_result($query);
+            //if token does not exist exit
+            if (mysqli_stmt_num_rows($query) != 1) {
+                die("Token does not exist!");
+            }
+        }
+    }
+}
+
 // checks if password and cPassword match
 function matching_passwords($password, $cpassword)
 {
@@ -94,11 +115,7 @@ if($position == "employer"){
   $user .= $_SESSION['tokenGen'];
 }
 
-require ('tokenExists.php');
-
-$handle = fopen('../usersData/users.csv', 'r');
-checkUsers($users, $_POST['company']);
-fclose($handle);
+checkToken($link, $_POST['company']);
 
 file_put_contents('../usersData/users.csv', $user, FILE_APPEND);
 
