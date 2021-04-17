@@ -15,7 +15,7 @@ function createNames($token) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
-    $query = "SELECT name FROM users WHERE token='". $token . "';";
+    $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee';";
     $result = mysqli_query($link, $query);
     $names = array();
     while ($row = mysqli_fetch_assoc($result)) {
