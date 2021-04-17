@@ -31,7 +31,6 @@ function createNames($token) {
 }
 
 function createTable($token) {
-    echo $token;
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
     $employees = array();
