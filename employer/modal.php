@@ -1,3 +1,7 @@
+<?php
+require_once("employeetable.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +83,7 @@ body {font-family: "open sans", sans-serif;}
 <body>
 
 <!--Open modal -->
-<button id="myBtn">Open Modal</button>
+<button id="myBtn"><?php echo getGrade(); ?></button>
 
 <!-- modal -->
 <div id="myModal" class="modal">
