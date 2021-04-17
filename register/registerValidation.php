@@ -5,19 +5,20 @@ require_once("../usersData/connect.db.php");
 //check if the token is valid
 function checkToken($link, $token) {
     //prepare a select statement
-    $query = mysqli_prepare($link,
-        "SELECT title, token FROM users WHERE title='employer' AND token=?");
+    $query = "SELECT title, token FROM users WHERE title='employer' AND token=?";
 
     if ($stmt = mysqli_prepare($link, $query)) {
         //bind the token to the prepared statement
-        mysqli_stmt_bind_param($query, "s", $token);
+        mysqli_stmt_bind_param($stmt, "s", $token);
         //if execution is successful check for the token
-        if (mysqli_stmt_execute($query)) {
+        if (mysqli_stmt_execute($stmt)) {
             //store the result locally
-            mysqli_stmt_store_result($query);
+            mysqli_stmt_store_result($stmt);
             //if token does not exist exit
-            if (mysqli_stmt_num_rows($query) != 1) {
-                die("Token does not exist!");
+            if (mysqli_stmt_num_rows($stmt) != 1) {
+                echo "<h1>";
+                die("Invalid token!");
+                echo "</h1>";
             }
         }
     }
