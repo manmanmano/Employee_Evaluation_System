@@ -23,7 +23,6 @@ function createNames($token) {
     while ($row = mysqli_stmt_fetch($query)) {
         array_push($names, $name);
     }
-    echo "<option>" . $names . "</option>";
     mysqli_stmt_close($query);
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
