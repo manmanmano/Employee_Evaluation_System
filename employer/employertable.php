@@ -16,7 +16,7 @@ function createNames() {
     }
 
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token=?;");
-    mysqli_stmt_bind_param($query, "s", $token);
+    mysqli_stmt_bind_param($query, "s", sanitizeInputVar($link, $_SESSION['token']));
     mysqli_stmt_execute($query);
     mysqli_stmt_bind_result($query, $name);
     $names = array();
