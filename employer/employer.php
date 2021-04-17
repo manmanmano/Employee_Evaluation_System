@@ -26,6 +26,8 @@ require_once("employertable.php");
             <select id="name" name="name">
                 <option value=0>Please select an employee</option>
                 <?php
+                require_once("../sessionstart.php");
+                echo "<option>" . $_SESSION['token'] . "</option>";
                 createNames();
                 ?>
             </select><br>
@@ -38,8 +40,6 @@ require_once("employertable.php");
                 <th>Evaluation</th>
             </tr>
             <?php
-            require_once("../sessionstart.php");
-            echo "<tr><td>" . $_SESSION['token'] . "</td></tr>";
             createTable();
             ?>
         </table>
