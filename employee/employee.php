@@ -1,5 +1,6 @@
 <?php
 require_once("employeetable.php");
+require("../sessionstart.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +19,7 @@ require_once("employeetable.php");
 			</nav>
 		</header>
 		<h1>My evaluation</h1>
+        <h1>Welcome <?php echo $_SESSION['name']; ?>!</h1>
         <form method="GET" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
             <label for="date">Week:</label>
             <input type="date" id="date" name="date">
@@ -29,7 +31,7 @@ require_once("employeetable.php");
                 <th>Evaluation</th>
             </tr>
             <?php
-            require_once("../sessionstart.php");
+            require("../sessionstart.php");
             createTable($_SESSION['token']);
             ?>
         </table>
