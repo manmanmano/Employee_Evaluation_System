@@ -6,7 +6,7 @@ require_once("employertable.php");
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Employer</title>
+        <title><?php echo $_SESSION['name']; ?> evaluation</title>
         <link rel="stylesheet" href="../styles/style.css">
     </head>
     <body>
@@ -19,6 +19,8 @@ require_once("employertable.php");
                 </form>
             </nav>
         </header>
+        <h1>Welcome <?php echo $_SESSION['name']; ?>!</h1>
+		<h1>My evaluation</h1>
         <form method="GET" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
             <label for="week">Week:</label>
             <input type="date" id="date" name="date"><br>
