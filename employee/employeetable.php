@@ -25,8 +25,9 @@ function createTable($token) {
     }
     foreach ($years as $year) {
         $weeks = array();
+        $query = "SELECT name, week, year, average FROM token_" . $token . ";";
+        $result = mysqli_query($link, $query);
         while ($row = mysqli_fetch_assoc($result)) {
-            echo 1;
             if ($row['name'] == $_SESSION['name'] && $row['year'] == $year) {
                 $weeks[$row['week']] = $row['average'];
             }
