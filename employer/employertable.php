@@ -5,7 +5,7 @@ if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
-$token = $_SESSION['token']
+$token = $_SESSION['token'];
 
 function createNames($token) {
     include_once("../usersData/connect.db.php");
