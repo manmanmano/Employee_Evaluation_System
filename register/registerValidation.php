@@ -40,21 +40,9 @@ function matching_passwords($password, $cpassword)
     return true;
 }
 
+//connect to database, in case of failure give error
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
-
-$user = '';
-
-$position = $_POST['position'];
-if($position == "employee"){
-  $user .= $position;
-  $user .= ';';
-}
-
-if($position == "employer"){
-  $user = 'employer';
-  $user .= ';';
-}
 
 $name = $_POST['name'];
 if (empty($_POST['name'])){
@@ -63,33 +51,27 @@ if (empty($_POST['name'])){
 // /^[a-zA-Z ]*$/ letters and whitespace or ^[A-Za-z]+(\s[A-Za-z]+){0,2}$ Only First, First & Last(?), First, Middle and Last
 if(!preg_match("/^[a-zA-Z ]*$/", $name)){
     exit("Please enter full name and use Latin alphabet.");
-    }
-
-$user .= $name;
-$user .= ';';
+}
 
 $email = $_POST['email'];
-if (empty($_POST['email'])){
+if (empty($_POST['email'])) {
     exit("Please enter Your email.");
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit("Please enter a valid email.");
 }
 
-$user .= $email;
-$user .= ';';
-
 $position = $_POST['position'];
-if(!isset($position) || empty($position)){
+if (!isset($position) || empty($position)){
   exit("Position must be selected.");
-}else{
-  if($position != "employee" && $position != "employer"){
+} else {
+  if ($position != "employee" && $position != "employer"){
     exit("Position must be 'Employee' or 'Employer'");
   }
 }
 
 $employeeToken = $_POST['company'];
-if($position == "employee" && empty($employeeToken)){
+if ($position == "employee" && empty($employeeToken)){
   exit("Token is required for registering");
 }
 
@@ -99,26 +81,17 @@ if (empty($_POST['password'])){
 }
 if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)){
     exit("Password must have at least 8 characters and at least one number, one uppercase letter and one lowercase letter.");
-    }
+}
 
 $cpassword = $_POST['cPassword'];
 
 matching_passwords($password, $cpassword);
 
+checkToken($link, $employeeToken);
 
-$user .= $password;
-$user .= ';';
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-if($position == "employee"){
-  $user .= $employeeToken;
-}
-if($position == "employer"){
-  $user .= $_SESSION['tokenGen'];
-}
-
-checkToken($link, $_POST['company']);
-
-file_put_contents('../usersData/users.csv', $user, FILE_APPEND);
+addUser($position, $name, $email, $hashedPassword, $employeeToken, $_SESSION['tokenGen']);
 
 session_unset();
 session_destroy();
