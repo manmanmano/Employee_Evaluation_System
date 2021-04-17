@@ -6,7 +6,7 @@ if ($_SESSION['title'] != 'employer') {
 }
 
 function createNames($token) {
-    include_once("../usersData/connect.db.php");
+    include("../usersData/connect.db.php");
 
     $link = mysqli_connect($server, $user, $password, $database);
 
@@ -27,7 +27,7 @@ function createNames($token) {
 }
 
 function createTable($token) {
-    include_once("../usersData/connect.db.php");
+    include("../usersData/connect.db.php");
 
     $link = mysqli_connect($server, $user, $password, $database);
 
