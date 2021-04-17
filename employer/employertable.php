@@ -38,6 +38,7 @@ function createTable($token) {
     $names = array();
     $employees = array();
     $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee';";
+    echo $query;
     $result = mysqli_query($link, $query);
     $names = array();
     while ($row = mysqli_fetch_assoc($result)) {
