@@ -86,15 +86,21 @@ if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)){
 }
 
 $cpassword = $_POST['cPassword'];
-
+//check if passwords match
 matching_passwords($password, $cpassword);
 
-checkToken($link, $employeeToken);
+//if registrant is an employee check his token
+if ($position == "employee") {
+    checkToken($link, $employeeToken);
+}
 
+//hash the password before storing it
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+//in the end add a new user
 addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $_SESSION['tokenGen']);
 
+//close the connection to the db
 mysqli_close($link);
 session_unset();
 session_destroy();
