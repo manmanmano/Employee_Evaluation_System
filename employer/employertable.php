@@ -5,15 +5,25 @@ if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
+include_once("../usersData/connect.db.php");
+include_once("../usersData/sanitizeInputVar");
+
+$link = mysqli_connect($server, $user, $password, $database);
+
+if (!$link) {
+    die("Connection to DB failed: " . mysqli_connect_error());
+}
+
 function createNames() {
-    $csvfile = fopen("../usersData/users.csv", "r");
+    $token = sanitizeInputVar($_SESSION['token']);
+    $query = mysqli_prepare($link, "SELECT name FROM users WHERE token=?";
+    mysqli_stmt_bind_param($query, "s", $token);
+    mysqli_stmt_execute($query);
+    mysqli_stmt_bind_result($query, $name);
     $names = array();
-    while ($data = fgetcsv($csvfile, 1000, ";")) {
-        if (!in_array($data[1], $names) && $data[4] == $_SESSION['token'] && $data[0] == 'employee') {
-            array_push($names, $data[1]);
-        }
+    while ($row = mysqli_stmt_fetch($query)) {
+        array_push($names, $row['name']);
     }
-    fclose($csvfile);
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
     }
