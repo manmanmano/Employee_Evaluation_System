@@ -9,6 +9,7 @@ function createNames($token) {
     include_once("../usersData/connect.db.php");
     include_once("../usersData/sanitizeInputVar");
 
+    echo $token;
     $link = mysqli_connect($server, $user, $password, $database);
 
     if (!$link) {
