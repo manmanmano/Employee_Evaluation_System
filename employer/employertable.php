@@ -6,8 +6,7 @@ if ($_SESSION['title'] != 'employer') {
 }
 
 function createNames($token) {
-    include_once("../usersData/connect.db.php");
-    include_once("../usersData/sanitizeInputVar");
+    include("../usersData/connect.db.php");
 
     $link = mysqli_connect($server, $user, $password, $database);
 
@@ -27,27 +26,36 @@ function createNames($token) {
     }
 }
 
-function createTable() {
-    $csvfile = fopen("Eval.csv", "r");
+function createTable($token) {
+    include("../usersData/connect.db.php");
+
+    $link = mysqli_connect($server, $user, $password, $database);
+
+    if (!$link) {
+        die("Connection to DB failed: " . mysqli_connect_error());
+    }
+    
     $names = array();
     $employees = array();
-    while ($data = fgetcsv($csvfile, 1000, ";")) {
-        if (!in_array($data[0], $names) && $data[3] == $_SESSION['token']) {
-            array_push($names, $data[0]);
-        }
+    $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee';";
+    $result = mysqli_query($link, $query);
+    $names = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        array_push($names, $row['name']);
     }
     foreach ($names as $name) {
         $evaluations = array();
-        $csvfile = fopen("Eval.csv", "r");
-        while ($data = fgetcsv($csvfile, 1000, ";")) {
-            if ($name == $data[0] && $data[3] == $_SESSION['token']) {
-                $evaluations[$data[1]] = $data[2];
+        $query = "SELECT name, week, year, average FROM token_" . $token . ";";
+        $result = mysqli_query($link, $query);
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($name == $row['name']) {
+                $evaluations[$row['week']] = $row['average'];
             }
         }
         $employees[$name] = $evaluations;
-        fclose($csvfile);
         unset($evaluations);
     }
+    mysqli_close($link);
     if (isset($_GET['search']) && !empty($_GET['date']) && empty($_GET['name'])) {
         $week = intval(date("W", strtotime($_GET['date'])));
         $month = intval(date("m", strtotime($_GET['date'])));
