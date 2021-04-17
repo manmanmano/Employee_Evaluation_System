@@ -16,16 +16,17 @@ function createTable($token) {
 
     $grades = array();
     $years = array();
-    $query = "SELECT name, week, year, average FROM token_" . $token . ";";
+    $query = "SELECT week, year, average FROM token_" . $token . " WHERE name='" . $_SESSION['name'] . "';";
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($row['name'] == $_SESSION['name'] && !in_array($row['year'], $years)) {
+        if (!in_array($row['year'], $years)) {
             array_push($years, $row['year']);
         }
     }
     foreach ($years as $year) {
         $weeks = array();
         while ($row = mysqli_fetch_assoc($result)) {
+            echo 1;
             if ($row['name'] == $_SESSION['name'] && $row['year'] == $year) {
                 $weeks[$row['week']] = $row['average'];
             }
