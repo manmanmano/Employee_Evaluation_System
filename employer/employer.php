@@ -1,7 +1,5 @@
 <?php
 require_once("../sessionstart.php");
-require_once("employertable.php");
-global $token = $token;
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +26,7 @@ global $token = $token;
             <select id="name" name="name">
                 <option value=0>Please select an employee</option>
                 <?php
-                echo $token;
+                require("employertable.php");
                 createNames($token);
                 ?>
             </select><br>
@@ -41,6 +39,7 @@ global $token = $token;
                 <th>Evaluation</th>
             </tr>
             <?php
+            require("employertable.php");
             createTable($token);
             ?>
         </table>
