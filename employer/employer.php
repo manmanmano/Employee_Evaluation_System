@@ -1,7 +1,6 @@
 <?php
 require_once("../sessionstart.php");
 require_once("employertable.php");
-$usertoken = $token;
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +39,6 @@ $usertoken = $token;
                 <th>Evaluation</th>
             </tr>
             <?php
-            echo $usertoken;
             createTable($usertoken);
             ?>
         </table>
