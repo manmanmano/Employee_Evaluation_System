@@ -61,6 +61,7 @@ function createTable($token) {
                     $weeks[$row['week']] = $row['average'];
                 }
             }
+            print_r($weeks);
             $evaluation[$year] = $weeks;
             unset($weeks);
         }
