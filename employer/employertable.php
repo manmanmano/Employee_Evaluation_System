@@ -17,7 +17,7 @@ function createNames($token) {
 
     $sanitizedtoken = sanitizeInputVar($link, $token);
     $query = "SELECT name FROM users WHERE token='" . $sanitizedtoken . "';";
-    echo $query;
+    echo "<option>" . $query . "</option>";
     $result = mysqli_query($link, $query);
     $names = array();
     while ($row = mysqli_fetch_assoc($result)) {
