@@ -38,6 +38,7 @@ require_once("employertable.php");
             <tr>
                 <th>Name</th>
                 <th>Week</th>
+                <th>Year</th>
                 <th>Evaluation</th>
             </tr>
             <?php
