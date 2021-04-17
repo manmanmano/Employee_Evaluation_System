@@ -27,7 +27,7 @@ require_once("employertable.php");
             <select id="name" name="name">
                 <option value=0>Please select an employee</option>
                 <?php
-                createNames();
+                createNames($token);
                 ?>
             </select><br>
             <input type="submit" name="search" value="Search"><br>
@@ -39,7 +39,7 @@ require_once("employertable.php");
                 <th>Evaluation</th>
             </tr>
             <?php
-            createTable();
+            createTable($token);
             ?>
         </table>
         <footer>
