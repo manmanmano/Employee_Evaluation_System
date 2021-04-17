@@ -56,6 +56,7 @@ function createTable($token) {
         unset($years);
     }
     mysqli_close($link);
+    print_r($employees);
     if (isset($_GET['search']) && !empty($_GET['date']) && empty($_GET['name'])) {
         $week = intval(date("W", strtotime($_GET['date'])));
         $month = intval(date("m", strtotime($_GET['date'])));
