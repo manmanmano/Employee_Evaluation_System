@@ -5,15 +5,23 @@ if ($_SESSION['title'] != 'employee') {
     die("Incorrect credentials");
 }
 
-function createTable() {
+function createTable($token) {
+    include("../usersData/connect.db.php");
+
+    $link = mysqli_connect($server, $user, $password, $database);
+
+    if (!$link) {
+        die("Connection to DB failed: " . mysqli_connect_error());
+    }
+
     $grades = array();
-    $csvfile = fopen("../employer/Eval.csv", "r");
-    while ($data = fgetcsv($csvfile, 1000, ";")) {
-        if ($data[0] == $_SESSION['name']  && $data[3] == $_SESSION['token']) {
-            $grades[$data[1]] = $data[2];
+    $query = "SELECT name, week, year, average FROM token_" . $token . ";";
+    $result = mysqli_query($link, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($row['name'] == $_SESSION['name']) {
+            $grades[$row['week']] = $row['average'];
         }
     }
-    fclose($csvfile);
     $week = intval(date("W", strtotime($_GET['date'])));
     if (isset($_GET['search']) && !empty($_GET['date'])) {
         $month = intval(date("m", strtotime($_GET['date'])));
