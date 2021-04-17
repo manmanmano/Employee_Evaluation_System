@@ -1,5 +1,4 @@
 <?php
-require_once("../sessionstart.php");
 require_once("employertable.php");
 ?>
 
@@ -27,7 +26,6 @@ require_once("employertable.php");
             <select id="name" name="name">
                 <option value=0>Please select an employee</option>
                 <?php
-                require_once("../sessionstart.php");
                 createNames($usertoken);
                 ?>
             </select><br>
@@ -40,7 +38,6 @@ require_once("employertable.php");
                 <th>Evaluation</th>
             </tr>
             <?php
-            require_once("../sessionstart.php");
             createTable($usertoken);
             ?>
         </table>
