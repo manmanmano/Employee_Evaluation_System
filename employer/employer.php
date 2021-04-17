@@ -1,7 +1,7 @@
 <?php
 require_once("../sessionstart.php");
 require_once("employertable.php");
-$usertoken = $token
+$usertoken = $token;
 ?>
 
 <!DOCTYPE html>
