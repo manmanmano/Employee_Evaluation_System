@@ -40,7 +40,7 @@ $usertoken = $token;
                 <th>Evaluation</th>
             </tr>
             <?php
-            echo $token;
+            echo $usertoken;
             createTable($usertoken);
             ?>
         </table>
