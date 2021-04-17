@@ -5,8 +5,6 @@ if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
-echo $_SESSION['token'];
-
 function createNames() {
     include_once("../usersData/connect.db.php");
     include_once("../usersData/sanitizeInputVar");
