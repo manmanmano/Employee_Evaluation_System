@@ -1,7 +1,7 @@
 <?php
 require_once("../sessionstart.php");
 require_once("employertable.php");
-echo $token;
+$usertoken = $token
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ echo $token;
             <select id="name" name="name">
                 <option value=0>Please select an employee</option>
                 <?php
-                createNames($token);
+                createNames($usertoken);
                 ?>
             </select><br>
             <input type="submit" name="search" value="Search"><br>
@@ -41,7 +41,7 @@ echo $token;
             </tr>
             <?php
             echo $token;
-            createTable($token);
+            createTable($usertoken);
             ?>
         </table>
         <footer>
