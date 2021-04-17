@@ -6,6 +6,7 @@ if ($_SESSION['title'] != 'employer') {
 }
 
 $token = $_SESSION['token'];
+echo $token;
 
 function createNames() {
     include_once("../usersData/connect.db.php");
@@ -31,7 +32,6 @@ function createNames() {
 }
 
 function createTable() {
-    echo $token;
     $csvfile = fopen("Eval.csv", "r");
     $names = array();
     $employees = array();
