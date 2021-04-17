@@ -5,6 +5,8 @@ if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
+$GLOBALS['token'] = $_SESSION['token'];
+
 function createNames() {
     include_once("../usersData/connect.db.php");
     include_once("../usersData/sanitizeInputVar");
@@ -15,6 +17,7 @@ function createNames() {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
+    $token = $GLOBALS['token'];
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token=?;");
     mysqli_stmt_bind_param($query, "s", sanitizeInputVar($link, $token));
     mysqli_stmt_execute($query);
