@@ -23,13 +23,15 @@ function createTable($token) {
             array_push($years, $row['year']);
         }
     }
-    print_r($years);
     foreach ($years as $year) {
+        $weeks = array();
         while ($row = mysqli_fetch_assoc($result)) {
-            if ($row['name'] == $_SESSION['name']) {
-                $grades[$row['year']] = array($row['week'] => $row['average']);
+            if ($row['name'] == $_SESSION['name'] && $row['year'] == $year) {
+                $weeks[$row['week']] = $row['average'];
             }
         }
+        $grades[$year] = $weeks;
+        unset($weeks);
     }
     $week = intval(date("W", strtotime($_GET['date'])));
     $year = intval(date("y", strtotime($_GET['date'])));
