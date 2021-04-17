@@ -50,7 +50,7 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $week, "</td>";
         echo "<td>", $year, "</td>";
-        echo "<td><a href='#' id='myBtn'>", $grades[$year][$week], "</a></td>";
+        echo "<td>", $grades[$year][$week], "</td>";
         echo "</tr>";
     } else {
         foreach ($grades as $year => $weeks) {
@@ -58,7 +58,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td><a href='#' id='myBtn'>", $grade,"</a></td>";
+                echo "<td>", $grade,"</td>";
                 echo "</tr>";
             }
         }
