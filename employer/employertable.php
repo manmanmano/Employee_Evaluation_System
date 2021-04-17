@@ -5,6 +5,8 @@ if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
+echo $_SESSION['token'];
+
 include_once("../usersData/connect.db.php");
 include_once("../usersData/sanitizeInputVar");
 
@@ -17,7 +19,6 @@ if (!$link) {
 function createNames() {
     $token = sanitizeInputVar($_SESSION['token']);
     echo $token;
-    echo $_SESSION['token'];
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token=?;");
     mysqli_stmt_bind_param($query, "s", $token);
     mysqli_stmt_execute($query);
