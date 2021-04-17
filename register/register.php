@@ -69,6 +69,7 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 		<br>
 		<label for="name"><b>Confirm Password</b></label>
 		<input type="password" id="cPassword" name="cPassword" placeholder="Confirm Password" required>
+		<span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
 		<br>
 		<br>
 		<div id="haveToken" style="display:block">
