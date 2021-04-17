@@ -6,7 +6,16 @@
     <title>Index</title>
     <link rel="stylesheet" href="styles/style.css">
     <script src="indexValidation//dynamicAction.js" type="text/javascript"></script>
-    <script src="indexValidation//showPwd.js" type="text/javascript"></script>
+    
+    <script>
+    function showPwd(){
+        document.getElementsByName("password").type='text';
+    }
+
+    function hidePwd(){
+        document.getElementsByName("password").type='password';
+    }
+    </script>
 </head>
 <body>
     <h1>Employee perfomance evaluation</h1>
