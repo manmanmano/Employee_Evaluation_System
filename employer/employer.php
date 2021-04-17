@@ -24,6 +24,7 @@ require_once("employertable.php");
             <input type="date" id="date" name="date"><br>
             <label for="name">Name:</label>
             <select id="name" name="name">
+                <option value=0>Please select an employee</option>
                 <?php
                 require_once("../sessionstart.php");
                 createNames($_SESSION['token']);
