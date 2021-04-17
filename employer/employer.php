@@ -38,6 +38,7 @@ require_once("employertable.php");
                 <th>Evaluation</th>
             </tr>
             <?php
+            echo $_SESSION['token'];
             createTable();
             ?>
         </table>
