@@ -66,7 +66,7 @@ function createTable($token) {
             unset($weeks);
         }
         $employees[$name] = $evaluation;
-        unset($years);
+        unset($evaluation);
     }
     mysqli_close($link);
     print_r($employees);
@@ -130,5 +130,4 @@ function createTable($token) {
         }
     }
 }
-
 ?>
