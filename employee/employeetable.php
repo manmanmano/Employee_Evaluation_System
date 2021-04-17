@@ -37,6 +37,7 @@ function createTable($token) {
         echo "<td class='evals'>", $grades[$year][$week], "</td>";
         echo "</tr>";
     } else {
+        print_r($grades);
         foreach ($grades as $year => $weeks) {
             foreach ($weeks as $week => $grade) {
                 echo "<tr>";
