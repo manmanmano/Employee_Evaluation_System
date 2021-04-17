@@ -1,7 +1,6 @@
 <?php
 require_once("../sessionstart.php");
 require_once("employertable.php");
-echo $token;
 ?>
 
 <!DOCTYPE html>
