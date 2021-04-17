@@ -19,10 +19,11 @@ function createTable($token) {
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
         if ($row['name'] == $_SESSION['name']) {
-            $grades[$row['week']] = $row['average'];
+            $grades[$row['year']] = array($row['week'] => $row['average']);
         }
     }
     $week = intval(date("W", strtotime($_GET['date'])));
+    $year = intval(date("y", strtotime($_GET['date'])));
     if (isset($_GET['search']) && !empty($_GET['date'])) {
         $month = intval(date("m", strtotime($_GET['date'])));
         $day = intval(date("d", strtotime($_GET['date'])));
@@ -31,13 +32,15 @@ function createTable($token) {
             die("Invalid date set!");
         }
         echo "<tr>";
-        echo "<td>", $week, "<td>";
-        echo "<td class='evals'>", $grades[$week], "</td>";
+        echo "<td>", $week, "</td>";
+        echo "<td>", $year, "</td>";
+        echo "<td class='evals'>", $grades[$year][$week], "</td>";
         echo "</tr>";
     } else {
-        foreach ($grades as $week => $grade) {
+        foreach ($grades as $year => array($week => $grade)) {
             echo "<tr>";
             echo "<td>", $week, "</td>";
+            echo "<td>", $year, "</td>";
             echo "<td class='evals'>", $grade,"</td>";
             echo "</tr>";
         }
