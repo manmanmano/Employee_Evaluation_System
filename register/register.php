@@ -26,6 +26,14 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
     	document.getElementById("password").type='password';
   	}
 
+	function showPwd(){
+    	document.getElementById("cPassword").type='text';
+  	}
+
+	function hidePwd(){
+    	document.getElementById("cPassword").type='password';
+  	}
+
 	</script>
 	<link rel="stylesheet" href="../styles/style.css">
 </head>
