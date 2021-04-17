@@ -22,7 +22,7 @@ function addUser($link, $position, $name, $email, $hashedPassword, $employeeToke
             echo "<h1>Something went wrong! Please retry later.</h1>";
         }
     }
-    mysqli_close($link);
+    mysqli_stmt_close($stmt);
 }
 
 ?>

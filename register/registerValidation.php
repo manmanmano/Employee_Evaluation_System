@@ -1,6 +1,7 @@
 <?php
 require_once("../sessionstart.php");
 require_once("../usersData/connect.db.php");
+require_once("addUser.php");
 
 //check if the token is valid
 function checkToken($link, $token) {
@@ -22,6 +23,7 @@ function checkToken($link, $token) {
             }
         }
     }
+    mysqli_stmt_close($stmt);
 }
 
 // checks if password and cPassword match
@@ -93,6 +95,7 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $_SESSION['tokenGen']);
 
+mysqli_close($link);
 session_unset();
 session_destroy();
 ?>
