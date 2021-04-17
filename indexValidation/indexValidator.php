@@ -1,5 +1,6 @@
 <?php
 require_once("../sessionstart.php");
+require_once("../usersData/connect.db.php");
 
 $title = $_POST['title'];                                                   
 if (!isset($title) || empty($title)) {                                      
@@ -37,9 +38,7 @@ if (isset($_POST['submit']) && !isset($_SESSION['name'])) {
         header("refresh:0; ../employer/employer.php");
     } elseif ($title == "employee") {
         header("refresh:0; ../employee/employee.php");
-    }# else {
-     #   exit("Error!");
-     #}
+    }
 }
 
 ?> 

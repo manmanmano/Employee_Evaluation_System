@@ -1,5 +1,10 @@
 <?php
 require_once("../sessionstart.php");
+require_once("../usersData/connect.db.php");
+
+$link = mysqli_connect($server, $user, $password, $database);
+if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
+
 // checks if password and cPassword match
 function matching_passwords($password, $cpassword)
 {
