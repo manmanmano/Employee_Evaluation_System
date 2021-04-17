@@ -17,6 +17,23 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 	companyGen.style.display = employee.checked ? "none" : "block";
 	haveToken.style.display = employee.checked ? "block" : "none";
 	}
+	
+	function showPwd(){
+    	document.getElementById("password").type='text';
+  	}
+
+	function hidePwd(){
+    	document.getElementById("password").type='password';
+  	}
+
+	function showcPwd(){
+    	document.getElementById("cPassword").type='text';
+  	}
+
+	function hidecPwd(){
+    	document.getElementById("cPassword").type='password';
+  	}
+
 	</script>
 	<link rel="stylesheet" href="../styles/style.css">
 </head>
@@ -55,10 +72,12 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 		<label for="name">Password must have at least 8 characters and at least one number, one uppercase letter and one lowercase letter.<br></label>
 		<label for="name"><b>Password</b></label>
 		<input type="password" id="password" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+		<span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
 		<br>
 		<br>
 		<label for="name"><b>Confirm Password</b></label>
 		<input type="password" id="cPassword" name="cPassword" placeholder="Confirm Password" required>
+		<span id="reveal-pwd" onmouseenter="showcPwd()" onmouseleave="hidecPwd()" >?</span>
 		<br>
 		<br>
 		<div id="haveToken" style="display:block">

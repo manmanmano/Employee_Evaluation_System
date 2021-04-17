@@ -35,7 +35,8 @@ if (isset($_POST['submit']) && !isset($_SESSION['name'])) {
     echo "Incorrect credentials. Please try again!";
 } else {
     if ($title == "employer") {
-        header("refresh:0; ../employer/employer.php");
+        echo $_SESSION['token'];
+        header("refresh:5; ../employer/employer.php");
     } elseif ($title == "employee") {
         header("refresh:0; ../employee/employee.php");
     }

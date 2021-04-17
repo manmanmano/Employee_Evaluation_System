@@ -6,6 +6,16 @@
     <title>Index</title>
     <link rel="stylesheet" href="styles/style.css">
     <script src="indexValidation//dynamicAction.js" type="text/javascript"></script>
+    
+    <script>
+    function showPwd(){
+        document.getElementById("password").type='text';
+    }
+
+    function hidePwd(){
+        document.getElementById("password").type='password';
+    }
+    </script>
 </head>
 <body>
     <h1>Employee perfomance evaluation</h1>
@@ -23,7 +33,8 @@
             <br><br>
             <input type="email" name="email" placeholder="Email" autocomplete="off" required="">
             <br><br>
-            <input type="password" name="password" placeholder="Password" minlength="8" autocomplete="off" required="">
+            <input type="password" name="password" id="password" placeholder="Password" minlength="8" autocomplete="off" required="">
+            <span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
             <br><br>
             <input type="submit" value="login" name="submit">
             <p>Not registered? Do it <a href="register/register.php">now</a>!</p>
