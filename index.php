@@ -9,11 +9,11 @@
     
     <script>
     function showPwd(){
-        document.getElementsByName("password").type='text';
+        document.getElementById("password").type='text';
     }
 
     function hidePwd(){
-        document.getElementsByName("password").type='password';
+        document.getElementById("password").type='password';
     }
     </script>
 </head>
@@ -33,7 +33,7 @@
             <br><br>
             <input type="email" name="email" placeholder="Email" autocomplete="off" required="">
             <br><br>
-            <input type="password" name="password" placeholder="Password" minlength="8" autocomplete="off" required="">
+            <input type="password" name="password" id="password" placeholder="Password" minlength="8" autocomplete="off" required="">
             <span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
             <br><br>
             <input type="submit" value="login" name="submit">
