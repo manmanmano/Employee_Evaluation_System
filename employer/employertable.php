@@ -39,7 +39,6 @@ function createTable($token) {
     $employees = array();
     $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee';";
     $result = mysqli_query($link, $query);
-    $names = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($names, $row['name']);
     }
@@ -55,6 +54,7 @@ function createTable($token) {
         }
         foreach ($years as $year) {
             $weeks = array();
+            $yearInput = $year;
             $query = "SELECT name, week, year, average FROM token_" . $token . ";";
             $result = mysqli_query($link, $query);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -62,7 +62,7 @@ function createTable($token) {
                     $weeks[$row['week']] = $row['average'];
                 }
             }
-            evaluation[$year] = $weeks;
+            evaluation[$yearInput] = $weeks;
             unset($weeks);
         }
         $employees[$name] = $evaluation;
