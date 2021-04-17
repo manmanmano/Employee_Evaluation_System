@@ -15,7 +15,6 @@ function createNames($token) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
-    echo "<option>" . $token . "</option>";
     $query = mysqli_prepare($link, "SELECT name FROM users WHERE token='?';");
     mysqli_stmt_bind_param($query, "s", sanitizedInputVar($link, $token));
     mysqli_stmt_execute($query);
@@ -24,6 +23,7 @@ function createNames($token) {
     while ($row = mysqli_stmt_fetch($query)) {
         array_push($names, $name);
     }
+    mysqli_stmt_close($query);
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
     }
