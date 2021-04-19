@@ -16,6 +16,7 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
     }
 
     $name = "'" . $_SESSION['name'] . "'";
+    echo $_SESSION['token'];
     $query = mysqli_prepare($link, "SELECT * FROM token_? WHERE name=? AND week=? AND year=?;");
     mysqli_stmt_bind_param($query, "ssii", $_SESSION['token'], $name, $_GET['week'], $_GET['year']);
     mysqli_stmt_execute($query);
