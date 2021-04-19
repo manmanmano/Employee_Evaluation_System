@@ -6,7 +6,6 @@ if ($_SESSION['title'] != 'employee') {
 }
 
 if (isset($_GET['week']) && isset($_GET['year'])) {
-    header("refresh:0; url=''");
     include("../usersData/connect.db.php");
     include("../usersData/sanitizeInputVar.php");
 
