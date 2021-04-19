@@ -137,16 +137,21 @@ $cpassword = $_POST['cPassword'];
 //check if passwords match
 matching_passwords($password, $cpassword);
 
-//if registrant is an employee check his token
+
+$employerToken = $_SESSION['tokenGen'];
+//if registrant is an employee check his token, if employer create a new table
 if ($position == "employee") {
     checkToken($link, $employeeToken);
+} else if ($position == "employer") {
+    $copyTable = 
+        "CREATE TABLE IF NOT EXISTS token_" . $employerToken . " LIKE token_11878766e47b78d6d5adb81ff2aed1;";
+    mysqli_query($link, $copyTable);
 }
 
 //hash the password before storing it
 $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 //in the end add a new user
-$employerToken = $_SESSION['tokenGen'];
 addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $employerToken);
 
 //close the connection to the db

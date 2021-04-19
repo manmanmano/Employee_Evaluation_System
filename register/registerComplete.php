@@ -14,7 +14,5 @@ Log in to see Your perfomance evaluation under "Profile" tab.
 <br>
 You will be redirected to the main page to log in.
 </h1>
-
-
 </body>
 </html>
