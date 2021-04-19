@@ -35,7 +35,9 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
         $quality = $row['quality'];
     }
     mysqli_close($query);
+    ?>
     modal();
+    <?php
 }
 
 function createTable($token) {
