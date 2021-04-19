@@ -34,7 +34,7 @@ require_once("employeetable.php");
             createTable($_SESSION['token']);
             ?>
         </table>
-        <script>
+        <script defer>
             function modal() {
                 alert("Employee shows strong initiative: " + "\nEmployee works well with others in group-based projects: " + "\nEmployee takes instructions and follows leaders well: " + "\nEmployee shows good leadership skills: " + "\nEmployee stays focused on tasks at hand: " + "\nEmployee knows how to prioritize tasks: " + "\nEmployee has good communication with coworkers: " + "\nEmployee has good communication with superiors: " + "\nEmployee is dependable: " + "\nEmployee gets assignments in on time: " + "\nEmployee arrives on time every day: " + "\nEmployee's work is of high quality: " + "\n");
             }
