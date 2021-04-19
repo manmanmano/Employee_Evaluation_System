@@ -83,7 +83,8 @@ if (isset($_POST['submit'])) {
 
     $average = round(evaluateEmployee($attrArr), 1);                            
 
-
+    addEval($link, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, 
+        $workers, $superiors, $$dependable, $punctualAss, $punctualTime, $quality);
 
     header("refresh:0; url=employer.php");
 
