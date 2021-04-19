@@ -1,7 +1,7 @@
 <?php
 require_once("../usersData/connect.db.php");
 session_name('sesRegister');
-session_set_cookie_params(['path' => '/~madang/Web_Technologies/icd0007_project/'])
+session_set_cookie_params(['path' => '/~madang/Web_Technologies/icd0007_project/']);
 session_start();
 
 //check if the token is valid
@@ -65,36 +65,12 @@ function matching_passwords($password, $cpassword)
     return true;
 }
 
-/*function addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $employerToken) {
-    //insert a new user
-    $query = "INSERT INTO users (title, name, email, password, token)
-        VALUES ('?', '?', '?', '?', '?')";
-    if ($stmt = mysqli_prepare($link, $query)) {
-        //before binding check the position of the person
-        if ($position == "employer") {
-            //if employer than then the employee token
-            mysqli_stmt_bind_param($stmt, "sssss",
-                $position, $name, $email, $hashedPassword, $employerToken);
-        } else {
-            //if not employer than employee
-            mysqli_stmt_bind_param($stmt, "sssss",
-                $position, $name, $email, $hashedPassword, $employeeToken);
-        }
-        //if execute is successful redirect to registrationSuccess
-        if (mysqli_stmt_execute($stmt)) {
-            header("refresh:0;registerComplete.php");
-        } else {
-            echo "<h1>Something went wrong! Please retry later.</h1>";
-        }
-        mysqli_stmt_close($stmt);
-    }
-}*/
-
 function addUser($link, $title, $name, $email, $password, $token, $bossToken) {
     $query = "INSERT INTO users (title, name, email, password, token)
         VALUES (?, ?, ?, ?, ?)";
     if ($stmt = mysqli_prepare($link, $query)) {
         //bind variables to parameters
+        //if the position is employer than use the session token, if not use the token
         if ($title == "employer") {
             mysqli_stmt_bind_param($stmt, "sssss", $title, $name, $email, $password, $bossToken);
         } else {
@@ -102,7 +78,8 @@ function addUser($link, $title, $name, $email, $password, $token, $bossToken) {
         }
         //attempt to execute the statement
         if (mysqli_stmt_execute($stmt)) {
-            header("refresh:0;employer.php");
+            //if successful redirect to the next page
+            header("refresh:0;registerComplete.php");
         } else {
             echo "<h1>Something went wrong! Please retry!</h1>";
         }
@@ -166,12 +143,11 @@ if ($position == "employee") {
 }
 
 //hash the password before storing it
-$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+$hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 //in the end add a new user
 $employerToken = $_SESSION['tokenGen'];
-addUser($link, $_POST['position'], $_POST['name'], $_POST['email'], 
-    $_POST['password'], $_POST['company'], $_SESSION['tokenGen']);
+addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $employerToken);
 
 //close the connection to the db
 mysqli_close($link);
