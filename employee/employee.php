@@ -1,6 +1,6 @@
 <?php
 require_once("employeetable.php");
-print_r(getGrade("initiative", $_SESSION['token']));
+echo getGrade("initiative", $_SESSION['token']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
