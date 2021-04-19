@@ -36,18 +36,7 @@ require_once("employeetable.php");
         </table>
         <script>
             function modal() {
-                alert("Employee shows strong initiative " . $grade . "<br>
-                "Employee works well with others in group-based projects "  . $grade . "<br>"
-                "Employee takes instructions and follows leaders well " . $grade . "<br>"
-                "Employee shows good leadership skills "  . $grade . "<br>"
-                "Employee stays focused on tasks at hand "  . $grade . "<br>"
-                "Employee knows how to prioritize tasks "  . $grade . "<br>"
-                "Employee has good communication with coworkers "  . $grade . "<br>"
-                "Employee has good communication with superiors "  . $grade . "<br>"
-                "Employee is dependable "  . $grade . "<br>"
-                "Employee gets assignments in on time "  . $grade . "<br>"
-                "Employee arrives on time every day "   . $grade . "<br>"
-                "Employee's work is of high quality "  . $grade . "<br>");
+                alert("Employee shows strong initiative <br>Employee works well with others in group-based projects <br>Employee takes instructions and follows leaders well <br>Employee shows good leadership skills <br>Employee stays focused on tasks at hand <br>Employee knows how to prioritize tasks <br>Employee has good communication with coworkers <br>Employee has good communication with superiors <br>Employee is dependable <br>Employee gets assignments in on time <br>Employee arrives on time every day <br>Employee's work is of high quality <br>");
             }
         </script>
         <footer>
