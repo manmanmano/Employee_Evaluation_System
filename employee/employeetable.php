@@ -5,7 +5,7 @@ if ($_SESSION['title'] != 'employee') {
     die("Session expired!");
 }
 
-function getGrade($item, $token) {
+function getGrade($token) {
     include("../usersData/connect.db.php");
     include("../usersData/sanitizeInputVar.php");
 
@@ -15,14 +15,11 @@ function getGrade($item, $token) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
-    $week = sanitizeInputVar($_GET['week']);
-    $year = sanitizeInputVar($_GET['year']);
+    $query = mysqli_prepare($link, "SELECT * FROM token_? WHERE name=? AND week=? AND year=?;");
+    mysqli_stmt_bind_param($query, "ssii", $token, $_SESSION['name'], $_GET['week'], $_GET['year']);
+    mysqli_stmt_execute($query);
+    mysqli_stmt_bind_result($query, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
 
-    $query = "SELECT " . $item . " FROM token_" . $token . " WHERE name='" . $_SESSION['name'] . "' AND week=" . $week . " AND year=" . $year . ";";
-    $result = mysqli_query($link, $query);
-    while ($row = mysqli_fetch_assoc($result)) {
-        return $row[$item];
-    }
 }
 
 function createTable($token) {
