@@ -109,6 +109,8 @@ if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)){
     exit("Password must have at least 8 characters and at least one number, one uppercase letter and one lowercase letter.");
 }
 
+checkEmail($link, $email);
+
 $cpassword = $_POST['cPassword'];
 //check if passwords match
 matching_passwords($password, $cpassword);
