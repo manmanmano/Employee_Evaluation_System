@@ -25,6 +25,16 @@ function createNames($token, $link) {
     }
 }
 
+function validateRadio($input) {
+    if (!isset($input) || empty($input)) {                            
+        die("Radio button left blank!");                                        
+    } else {                                                                    
+        if ($input < 1 || $input > 5) {                               
+            die("Corrupted data in radio input!");                              
+        }                                                                       
+    } 
+}
+
 function evaluateEmployee($arr) {
     return array_sum($arr) / count($arr);
 }
@@ -34,7 +44,7 @@ if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
 if (!isset($_POST['date'])) {                                               
     die("No date set!");                                                    
-}                                                                           
+}
 $month = intval(date("m", strtotime($_POST['date'])));                      
 $day = intval(date("d", strtotime($_POST['date'])));                        
 $year = intval(date("y", strtotime($_POST['date'])));                       
@@ -56,8 +66,8 @@ if (!isset($initiative) || empty($initiative)) {
         die("Corrupted data in radio input!");                              
     }                                                                       
 } 
-$gbProjects = $_POST['group_based_projects'];
-                               
+
+$gbProjects = $_POST['group_based_projects'];                               
 if (!isset($gbProjects) || empty($gbProjects)) {                            
     die("Radio button left blank!");                                        
 } else {                                                                    
