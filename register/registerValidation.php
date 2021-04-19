@@ -25,6 +25,28 @@ function checkToken($link, $token) {
     mysqli_stmt_close($stmt);
 }
 
+function checkEmail($link, $email) {
+        //prepare a select statement
+    $query = "SELECT email FROM users WHERE email=?";
+
+    if ($stmt = mysqli_prepare($link, $query)) {
+        //bind the email to the prepared statement
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        //if execution is successful check for the email 
+        if (mysqli_stmt_execute($stmt)) {
+            //store the result locally
+            mysqli_stmt_store_result($stmt);
+            //if email does not exist exit
+            if (mysqli_stmt_num_rows($stmt) == 1) {
+                echo "<h1>";
+                die("Email already exists!");
+                echo "</h1>";
+            }
+        }
+    }
+    mysqli_stmt_close($stmt);
+}
+
 // checks if password and cPassword match
 function matching_passwords($password, $cpassword)
 {
@@ -109,6 +131,7 @@ if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)){
     exit("Password must have at least 8 characters and at least one number, one uppercase letter and one lowercase letter.");
 }
 
+//check if the email already exist
 checkEmail($link, $email);
 
 $cpassword = $_POST['cPassword'];
