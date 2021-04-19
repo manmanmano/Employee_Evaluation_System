@@ -99,11 +99,9 @@ if (isset($_POST['submit'])) {
     $quality = $_POST['quality'];                                               
 
     $attrArr = [                                                                
-        $initiatve, $gbProjects, $follows, $leadership, $focused, $prioritize,  
+        $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize,  
         $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
     ];
-
-    print_r($attrArr);
 
     foreach ($attrArr as $attr) {
         validateRadio($attr);
