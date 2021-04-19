@@ -36,19 +36,7 @@ require_once("employeetable.php");
         </table>
         <script>
             function modal() {
-                alert("Employee shows strong initiative " . $grade . "\n"
-                    Employee works well with others in group-based projects "  . $grade . "\n"
-                    Employee takes instructions and follows leaders well " . $grade . "\n"
-                    Employee shows good leadership skills "  . $grade . "\n"
-                    Employee stays focused on tasks at hand "  . $grade . "\n"
-                    Employee knows how to prioritize tasks "  . $grade . "\n"
-                    Employee has good communication with coworkers "  . $grade . "\n"
-                    Employee has good communication with superiors "  . $grade . "\n"
-                    Employee is dependable "  . $grade . "\n"
-                    Employee gets assignments in on time "  . $grade . "\n"
-                    Employee arrives on time every day "   . $grade . "\n"
-                    Employee's work is of high quality "  . $grade . "\n"
-                ");
+                alert("Employee shows strong initiative: " . $grade . "\nEmployee works well with others in group-based projects: "  . $grade . "\nEmployee takes instructions and follows leaders well: " . $grade . "\nEmployee shows good leadership skills: "  . $grade . "\nEmployee stays focused on tasks at hand: "  . $grade . "\nEmployee knows how to prioritize tasks: "  . $grade . "\nEmployee has good communication with coworkers: "  . $grade . "\nEmployee has good communication with superiors: "  . $grade . "\nEmployee is dependable: "  . $grade . "\nEmployee gets assignments in on time: "  . $grade . "\nEmployee arrives on time every day: "   . $grade . "\nEmployee's work is of high quality: "  . $grade . "\n");
             }
         </script>
         <footer>
