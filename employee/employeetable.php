@@ -7,6 +7,7 @@ if ($_SESSION['title'] != 'employee') {
 
 function getGrade($item, $token) {
     include("../usersData/connect.db.php");
+    include("../usersData/sanitizeInputVar.php");
 
     $link = mysqli_connect($server, $user, $password, $database);
 
@@ -14,12 +15,16 @@ function getGrade($item, $token) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
-    $query = "SELECT week, year, " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "';";
+    $week = sanitizeInputVar($_GET['week']);
+    $year = sanitizeInputVar($_GET['year']);
+
+    $grade;
+    $query = "SELECT " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "' AND week=" . $week . " AND year=" . $year . ";";
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
-
+        $grade = $row[$item];
     }
-    return $result;
+    return $grade;
 }
 
 function createTable($token) {
