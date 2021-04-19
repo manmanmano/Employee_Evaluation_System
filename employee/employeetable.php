@@ -18,7 +18,6 @@ function getGrade($item, $token) {
     $week = sanitizeInputVar($_GET['week']);
     $year = sanitizeInputVar($_GET['year']);
 
-    $grade;
     $query = "SELECT " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "' AND week=" . $week . " AND year=" . $year . ";";
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
