@@ -15,7 +15,6 @@ function createNames($token, $link) {
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($names, $row['name']);
     }
-    mysqli_close($link);
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
     }
@@ -42,67 +41,52 @@ if ($_SESSION['title'] != 'employer') {
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
-if (!isset($_POST['date'])) {                                               
-    die("No date set!");                                                    
+if (isset($_POST['submit'])) {
+
+    if (!isset($_POST['date'])) {                                               
+        die("No date set!");                                                    
+    }
+    $month = intval(date("m", strtotime($_POST['date'])));                      
+    $day = intval(date("d", strtotime($_POST['date'])));                        
+    $year = intval(date("y", strtotime($_POST['date'])));                       
+    $week = intval(date("W", strtotime($_POST['date'])));                       
+    if (!checkdate($month, $day, $year)) {                                          
+        die("Invalid date set!");                                               
+    }                                                                           
+                                                                            
+    $workerName = $_POST['worker_name'];                                            
+    if (!empty($names) && !in_array($workerName, $names)) {                     
+        die("Invalid worker name set!");                                        
+    }                                                                           
+                                                                            
+    $initiative = $_POST['initiative'];                                         
+    $gbProjects = $_POST['group_based_projects'];                               
+    $follows = $_POST['follows_instructions'];                                  
+    $leadership = $_POST['leadership'];                                         
+    $focused = $_POST['focused'];                                               
+    $prioritize = $_POST['prioritize'];                                         
+    $workers = $_POST['communication_coworkers'];                               
+    $superiors = $_POST['communication_superiors'];                             
+    $dependable = $_POST['dependable'];                                         
+    $punctualAss = $_POST['assignments_on_time'];                              
+    $punctualTime = $_POST['arrives_on_time'];                                  
+    $quality = $_POST['quality'];                                               
+
+    $attrArr = [                                                                
+        $initiatve, $gbProjects, $follows, $leadership, $focused, $prioritize,  
+        $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
+    ];
+
+    foreach ($attrArr as $attr) {
+        validateRadio($attr);
+    } 
+
+    $average = round(evaluateEmployee($attrArr), 1);                            
+
+
+
+    header("refresh:0; url=employer.php");
+
+    mysqli_close($link);
 }
-$month = intval(date("m", strtotime($_POST['date'])));                      
-$day = intval(date("d", strtotime($_POST['date'])));                        
-$year = intval(date("y", strtotime($_POST['date'])));                       
-$week = intval(date("W", strtotime($_POST['date'])));                       
-if (!checkdate($month, $day, $year)) {                                          
-    die("Invalid date set!");                                               
-}                                                                           
-                                                                            
-$workerName = $_POST['worker_name'];                                            
-if (!empty($names) && !in_array($workerName, $names)) {                     
-    die("Invalid worker name set!");                                        
-}                                                                           
-                                                                            
-$initiative = $_POST['initiative'];                                         
-validateRadio($initiative);
-
-$gbProjects = $_POST['group_based_projects'];                               
-validateRadio($gbProjects);
-                                                                                
-$follows = $_POST['follows_instructions'];                                  
-validateRadio($follows);
-
-$leadership = $_POST['leadership'];                                         
-validateRadio($leadership);                                                                            
-
-$focused = $_POST['focused'];                                               
-validateRadio($focused);                                                                            
-
-$prioritize = $_POST['prioritize'];                                         
-validateRadio($prioritize);                                                                            
-
-$workers = $_POST['communication_coworkers'];                               
-validateRadio($workers);                                                                            
-
-$superiors = $_POST['communication_superiors'];                             
-validateRadio($superiors);
-
-$dependable = $_POST['dependable'];                                         
-validateRadio($dependable);                                                                            
-
-$punctualAss = $_POST['assignments_on_time'];                              
-validateRadio($punctualAss);                                                                            
-
-$punctualTime = $_POST['arrives_on_time'];                                  
-validateRadio($punctualTime);                                                                            
-
-$quality = $_POST['quality'];                                               
-validateRadio($quality);
-
-$attrArr = [                                                                
-    $initiatve, $gbProjects, $follows, $leadership, $focused, $prioritize,  
-    $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
-];
-
-$average = round(evaluateEmployee($attrArr), 1);                            
-
-
-
-header("refresh:0; url=employer.php");
-
 ?>
