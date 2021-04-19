@@ -2,7 +2,7 @@
 require("../sessionstart.php");
 
 if ($_SESSION['title'] != 'employer') {
-    die("Incorrect credentials");
+    die("Session expired!");
 }
 
 function createNames($token) {
