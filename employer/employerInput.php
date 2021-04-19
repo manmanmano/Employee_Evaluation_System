@@ -24,7 +24,7 @@ require_once("employerInputValidation.php");
                 <select name="worker_name" required>
                     <?php
                     require_once("../sessionstart.php");
-                    createNames($_SESSION['token']);
+                    createNames($_SESSION['token'], $link);
                     ?>
                 </select>
                 Week:
