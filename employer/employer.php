@@ -45,6 +45,12 @@ require_once("employertable.php");
             createTable($_SESSION['token']);
             ?>
         </table>
+        <script>
+            function modal() {
+                alert("Employee shows strong initiative: " . getGrade(0) . "\nEmployee works well with others in group-based projects: "  . getGrade(1) . "\nEmployee takes instructions and follows leaders well: " . getGrade(2) . "\nEmployee shows good leadership skills: "  . getGrade(3) . "\nEmployee stays focused on tasks at hand: "  . getGrade(4) . "\nEmployee knows how to prioritize tasks: "  . getGrade(5) . "\nEmployee has good communication with coworkers: "  . getGrade(6) . "\nEmployee has good communication with superiors: "  . getGrade(7) . "\nEmployee is dependable: "  . getGrade(8) . "\nEmployee gets assignments in on time: "  . getGrade(9) . "\nEmployee arrives on time every day: "   . getGrade(10) . "\nEmployee's work is of high quality: "  . getGrade(11) . "\n");
+            }
+        </script>
+
         <footer>
             <h3>Contact JAM</h3>
             <p>

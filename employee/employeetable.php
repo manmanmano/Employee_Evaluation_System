@@ -5,8 +5,18 @@ if ($_SESSION['title'] != 'employee') {
     die("Session expired!");
 }
 
-function getGrade($link) {
+function getGrade($item, $token) {
+    include("../usersData/connect.db.php");
 
+    $link = mysqli_connect($server, $user, $password, $database);
+
+    if (!$link) {
+        die("Connection to DB failed: " . mysqli_connect_error());
+    }
+
+    $query = "SELECT " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "';";
+    $result = mysqli_query($link, $query);
+    return $result;
 }
 
 function createTable($token) {

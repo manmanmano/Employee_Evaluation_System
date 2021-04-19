@@ -1,5 +1,6 @@
 <?php
 require_once("employeetable.php");
+echo getGrade("initiative", $_SESSION['token']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,7 @@ require_once("employeetable.php");
         </table>
         <script>
             function modal() {
-                alert("Employee shows strong initiative \nEmployee works well with others in group-based projects <br>Employee takes instructions and follows leaders well <br>Employee shows good leadership skills <br>Employee stays focused on tasks at hand <br>Employee knows how to prioritize tasks <br>Employee has good communication with coworkers <br>Employee has good communication with superiors <br>Employee is dependable <br>Employee gets assignments in on time <br>Employee arrives on time every day <br>Employee's work is of high quality <br>");
+                alert("Employee shows strong initiative: " . <?php getGrade("initiative", $_SESSION['token']) ?> . "\nEmployee works well with others in group-based projects: "  . <?php getGrade("group_based_projects", $_SESSION['token']) ?> . "\nEmployee takes instructions and follows leaders well: " . <?php getGrade("follows_instructions", $_SESSION['token']) ?> . "\nEmployee shows good leadership skills: "  . <?php getGrade("leadership", $_SESSION['token']) ?> . "\nEmployee stays focused on tasks at hand: "  . <?php getGrade("focused", $_SESSION['token']) ?> . "\nEmployee knows how to prioritize tasks: "  . <?php getGrade("prioritize", $_SESSION['token']) ?> . "\nEmployee has good communication with coworkers: "  . <?php getGrade("communication_coworkers", $_SESSION['token']) ?> . "\nEmployee has good communication with superiors: "  . <?php getGrade("communication_superiors", $_SESSION['token']) ?> . "\nEmployee is dependable: "  . <?php getGrade("dependable", $_SESSION['token']) ?> . "\nEmployee gets assignments in on time: "  . <?php getGrade("assignments_on_time", $_SESSION['token']) ?> . "\nEmployee arrives on time every day: "   . <?php getGrade("arrives_on_time", $_SESSION['token']) ?> . "\nEmployee's work is of high quality: "  . <?php getGrade("quality", $_SESSION['token']) ?> . "\n");
             }
         </script>
         <footer>
