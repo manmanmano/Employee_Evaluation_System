@@ -34,14 +34,30 @@ function evaluateEmployee($arr) {
     return array_sum($arr) / count($arr);
 }
 
-function addEval($link, $token, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize,
-    $workers, $superiors, $$dependable, $punctualAss, $punctualTime, $quality) {
+function addEval($link, $token, $name, $week, $year, $average, $initiative, $gbProjects, 
+    $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, 
+    $punctualAss, $punctualTime, $quality) {
 
     $query = "INSERT INTO token_" . $token . "
         (name, week, year, average, initiative, group_based_projects, follows_instructions,
         leadership, focused, prioritize, communication_coworkers, communication_superiors,
-        dependable, assignments_on_time, arrives_on)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        dependable, assignments_on_time, arrives_on_time, quality)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    if ($stmt = mysqli_prepare($link, $query)) {
+        //bind variables to parameters
+        mysqli_stmt_bind_param($stmt, "siidiiiiiiiiiiii", $name, $week, $year, 
+            $average, $initiative, $gbProjects, $follows, $leadership, $focused, 
+            $prioritize, $workers, $superiors, $dependable, $punctualAss,
+            $punctualTime, $quality);
+        //attempt to execute the statement
+        if (mysqli_stmt_execute($stmt)) {
+            header("refresh:0;employer.php");
+        } else {
+            echo "<h1>Something went wrong! Please retry.";
+        }
+        mysqli_stmt_close($stmt);
+    }
 }
 
 if ($_SESSION['title'] != 'employer') {
@@ -93,10 +109,9 @@ if (isset($_POST['submit'])) {
 
     $average = round(evaluateEmployee($attrArr), 1);                            
 
-    addEval($link, $_SESSION['token'], $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, 
-        $workers, $superiors, $$dependable, $punctualAss, $punctualTime, $quality);
-
-    header("refresh:0; url=employer.php");
+    addEval($link, $_SESSION['token'], $workerName, $week, $year, $average, 
+        $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, 
+        $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
 
     mysqli_close($link);
 }
