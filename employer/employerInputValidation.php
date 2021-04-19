@@ -1,15 +1,13 @@
 <?php
 require_once("../sessionstart.php");
+include_once("../usersData/connect.db.php");
 
 if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
 
-function createNames($token) {
-    include_once("../usersData/connect.db.php");
+function createNames($token, $link) {
     include_once("../usersData/sanitizeInputVar");
-
-    $link = mysqli_connect($server, $user, $password, $database);
 
     if (!$link) {
         die("Connection to DB failed: " . mysqli_connect_error());
@@ -30,6 +28,9 @@ function createNames($token) {
 function evaluateEmployee($arr) {
     return array_sum($arr) / count($arr);
 }
+
+$link = mysqli_connect($server, $user, $password, $database);
+if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
 if (!isset($_POST['date'])) {                                               
     die("No date set!");                                                    

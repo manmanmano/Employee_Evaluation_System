@@ -29,7 +29,7 @@ require_once("employertable.php");
                 <option value=0>Please select an employee</option>
                 <?php
                 require_once("../sessionstart.php");
-                createNames($_SESSION['token']);
+                createNames($_SESSION['token'], $link);
                 ?>
             </select><br>
             <input type="submit" name="search" value="Search"><br>
