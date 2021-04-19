@@ -36,7 +36,7 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
     }
     mysqli_close($query);
     ?>
-    modal();
+    <script>modal();</script>
     <?php
 }
 
