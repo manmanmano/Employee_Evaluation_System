@@ -5,7 +5,7 @@ if ($_SESSION['title'] != 'employee') {
     die("Session expired!");
 }
 
-function getGrade() {
+function getGrade($link) {
 
 }
 
