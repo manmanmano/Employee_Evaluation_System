@@ -17,7 +17,9 @@ function validateCredentials($link,  $email, $password) {
             if (mysqli_stmt_num_rows($stmt) == 1) {
                 //bind result to variables
                 mysqli_stmt_bind_result($stmt, $title, $name, $email, $sPassword, $token);
+                //fetch the results
                 if (mysqli_stmt_fetch($stmt)) {
+                    //confront passwords. if they match initialize session variables
                     if ($password == $sPassword) {
                         $_SESSION['name'] = $name;
                         $_SESSION['title'] = $title;
@@ -67,7 +69,7 @@ if (strlen($password) < 8 || empty($password)) {
     die("Invalid password in input!");                           
 }                                                                           
     
-validateCredentials($title, $username, $password);
+validateCredentials($link, $username, $password);
 
 redirect($title);
 
