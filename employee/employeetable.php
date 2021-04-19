@@ -58,7 +58,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td>", $grade,"</td>";
+                echo "<td><script type='text/javascript'>alert('Data has been submitted to " . $grade . "');</script></td>";
                 echo "</tr>";
             }
         }
