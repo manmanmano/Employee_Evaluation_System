@@ -14,6 +14,10 @@ function getGrade($item, $token) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
+    echo $_SESSION['name'];
+    echo $item;
+    echo $token;
+
     $query = "SELECT " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "';";
     $result = mysqli_query($link, $query);
     echo $result;
