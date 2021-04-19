@@ -16,11 +16,11 @@ function validateCredentials($link,  $email, $password) {
             //if username exists
             if (mysqli_stmt_num_rows($stmt) == 1) {
                 //bind result to variables
-                mysqli_stmt_bind_result($stmt, $title, $name, $email, $sPassword, $token);
+                mysqli_stmt_bind_result($stmt, $title, $name, $email, $hashedPassword, $token);
                 //fetch the results
                 if (mysqli_stmt_fetch($stmt)) {
                     //confront passwords. if they match initialize session variables
-                    if ($password == $sPassword) {
+                    if (password_verify($password, $hashedPassword)) {
                         $_SESSION['name'] = $name;
                         $_SESSION['title'] = $title;
                         $_SESSION['token'] = $token;
