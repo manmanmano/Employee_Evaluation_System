@@ -19,6 +19,7 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
     mysqli_stmt_bind_param($query, "ssii", $token, $_SESSION['name'], $_GET['week'], $_GET['year']);
     mysqli_stmt_execute($query);
     mysqli_stmt_bind_result($query, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
+    mysqli_stmt_close($query);
 
 }
 
