@@ -16,12 +16,25 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
     }
 
     $name = "'" . $_SESSION['name'] . "'";
-    $query = mysqli_prepare($link, "SELECT * FROM token_? WHERE name=? AND week=? AND year=?;");
-    mysqli_stmt_bind_param($query, "ssii", $_SESSION['token'], $name, $_GET['week'], $_GET['year']);
-    mysqli_stmt_execute($query);
-    mysqli_stmt_bind_result($query, $sqlname, $week, $year, $average, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
-    mysqli_stmt_close($query);
-
+    $week = sanitizeInputVar($link, $_GET['week']);
+    $year = sanitizeInputVar($link, $_GET['year']);
+    $query = "SELECT * FROM token_" . $_SESSION['token'] . " WHERE name=" . $name . " AND week=" . $week . " AND year=" . $year . ";";
+    $result = mysqli_query($link, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $initiative = $row['initiative'];
+        $gbProjects = $row['group_based_projects'];
+        $follows = $row['follows_instructions'];
+        $leadership = $row['leadership'];
+        $focused = $row['focused'];
+        $prioritize = $row['prioritize'];
+        $workers = $row['communication_coworkers'];
+        $superiors = $row['communication_superiors'];
+        $dependable = $row['dependable'];
+        $punctualAss = $row['assignments_on_time'];
+        $punctualTime = $row['arrives_on_time'];
+        $quality = $row['quality'];
+    }
+    mysqli_close($query);
 }
 
 function createTable($token) {
