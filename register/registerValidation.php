@@ -66,7 +66,6 @@ function addUser($link, $position, $name, $email, $hashedPassword, $employeeToke
     mysqli_stmt_close($stmt);
 }
 
-
 //connect to database, in case of failure give error
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
