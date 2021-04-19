@@ -14,13 +14,11 @@ function getGrade($item, $token) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
-    echo $_SESSION['name'];
-    echo $item;
-    echo $token;
-
-    $query = "SELECT " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "';";
+    $query = "SELECT week, year, " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "';";
     $result = mysqli_query($link, $query);
-    echo $result;
+    while ($row = mysqli_fetch_assoc($result)) {
+
+    }
     return $result;
 }
 
@@ -65,7 +63,7 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $week, "</td>";
         echo "<td>", $year, "</td>";
-        echo "<td><a href='#' onclick='modal()'>", $grades[$year][$week], "</a></td>";
+        echo "<td><a href='?week=" . $week . "&year=" . $year . "' onclick='modal()'>", $grades[$year][$week], "</a></td>";
         echo "</tr>";
     } else {
         foreach ($grades as $year => $weeks) {
@@ -73,7 +71,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td><a href='#' onclick='modal()'>", $grade, "</a></td>";
+                echo "<td><a href='?week=" . $week . "&year=" . $year . "' onclick='modal()'>", $grade, "</a></td>";
                 echo "</tr>";
             }
         }
