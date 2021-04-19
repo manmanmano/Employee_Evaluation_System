@@ -103,11 +103,11 @@ if (isset($_POST['submit'])) {
         $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
     ];
 
+    print_r($attrArr);
+
     foreach ($attrArr as $attr) {
         validateRadio($attr);
     }
-
-    print_r($attrArr);
 
     $average = round(evaluateEmployee($attrArr), 1);                            
 
