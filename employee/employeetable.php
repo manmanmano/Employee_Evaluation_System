@@ -21,9 +21,8 @@ function getGrade($item, $token) {
     $query = "SELECT " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "' AND week=" . $week . " AND year=" . $year . ";";
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
-        $grade = $row[$item];
+        return $row[$item];
     }
-    return $grade;
 }
 
 function createTable($token) {
