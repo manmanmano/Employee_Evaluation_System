@@ -34,6 +34,16 @@ function evaluateEmployee($arr) {
     return array_sum($arr) / count($arr);
 }
 
+function addEval($link, $token, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize,
+    $workers, $superiors, $$dependable, $punctualAss, $punctualTime, $quality) {
+
+    $query = "INSERT INTO token_" . $token . "
+        (name, week, year, average, initiative, group_based_projects, follows_instructions,
+        leadership, focused, prioritize, communication_coworkers, communication_superiors,
+        dependable, assignments_on_time, arrives_on)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+}
+
 if ($_SESSION['title'] != 'employer') {
     die("Incorrect credentials");
 }
@@ -83,7 +93,7 @@ if (isset($_POST['submit'])) {
 
     $average = round(evaluateEmployee($attrArr), 1);                            
 
-    addEval($link, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, 
+    addEval($link, $_SESSION['token'], $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, 
         $workers, $superiors, $$dependable, $punctualAss, $punctualTime, $quality);
 
     header("refresh:0; url=employer.php");
