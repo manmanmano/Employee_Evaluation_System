@@ -35,6 +35,7 @@ function validateCredentials($link,  $email, $password) {
             echo "<h1>Something went wrong! Please retry.</h1>";
         }
     }
+    mysqli_stmt_close($stmt);
 }
 
 function redirect($title) {
