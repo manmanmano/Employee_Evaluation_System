@@ -50,7 +50,7 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $week, "</td>";
         echo "<td>", $year, "</td>";
-        echo "<td>", $grades[$year][$week], "</td>";
+        echo "<td><a onclick='modal()'>", $grades[$year][$week], "</a></td>";
         echo "</tr>";
     } else {
         foreach ($grades as $year => $weeks) {
@@ -58,7 +58,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td><script type='text/javascript'>alert('Data has been submitted to " . $grade . "');</script></td>";
+                echo "<td><a onclick='modal()'>", $grade, "</a></td>";
                 echo "</tr>";
             }
         }
