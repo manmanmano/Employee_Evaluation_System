@@ -2,40 +2,37 @@
 require_once("../sessionstart.php");
 require_once("../usersData/connect.db.php");
 
-function validateCredentials($position, $email, $password) {
-    $query = "SELECT title, name, email, password, token FROM users 
-        WHERE username=?";
+function validateCredentials($link,  $email, $password) {
+    $query = "SELECT title, name, email, password, token FROM users
+        WHERE email=?";
 
-    $passErr = "";
     if ($stmt = mysqli_prepare($link, $query)) {
-        //bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "ss", $email, $position);
-        //attempt to execute the prepared statement
+        //bind variables to the prepared statement
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        //execute the statement
         if (mysqli_stmt_execute($stmt)) {
-            //store the results locally
+            //store results locally
             mysqli_stmt_store_result($stmt);
-            //if username and title exist check password
+            //if username exists
             if (mysqli_stmt_num_rows($stmt) == 1) {
-                //bind variables
-                mysqli_stmt_bind_result($stmt, $title, $name, $username, $tPassword, $tToken);
+                //bind result to variables
+                mysqli_stmt_bind_result($stmt, $title, $name, $email, $sPassword, $token);
                 if (mysqli_stmt_fetch($stmt)) {
-                    if ($password == $tPassword) {
+                    if ($password == $sPassword) {
                         $_SESSION['name'] = $name;
                         $_SESSION['title'] = $title;
-                        $_SESSION['token'] = $tToken;
-                    } else {
-                        $passErr = "Invalid credentials";
+                        $_SESSION['token'] = $token;
                     }
+                } else {
+                    echo "Incorrect username or password!";
                 }
-
             } else {
-                $passErr = "Invalid credentials";
+                echo "Incorrect username or password!";
             }
         } else {
-            echo "Something went wrong! Please retry.";
+            echo "<h1>Something went wrong! Please retry.</h1>";
         }
     }
-    mysqli_stmt_close($stmt);
 }
 
 function redirect($title) {
