@@ -1,5 +1,6 @@
 <?php
 require_once("employeetable.php");
+echo $initiative;
 ?>
 <!DOCTYPE html>
 <html lang="en">
