@@ -34,6 +34,11 @@ require_once("employeetable.php");
             createTable($_SESSION['token']);
             ?>
         </table>
+        <script>
+            function modal() {
+                alert("Data has been submitted to");
+            }
+        </script>
         <footer>
             <h3>Contact JAM</h3>
             <p>
