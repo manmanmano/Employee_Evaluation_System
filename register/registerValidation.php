@@ -1,6 +1,8 @@
 <?php
-require_once("../sessionstart.php");
 require_once("../usersData/connect.db.php");
+session_name('sesRegister');
+session_set_cookie_params(['path' => '/~madang/Web_Technologies/icd0007_project/'])
+session_start();
 
 //check if the token is valid
 function checkToken($link, $token) {
@@ -43,8 +45,8 @@ function checkEmail($link, $email) {
                 echo "</h1>";
             }
         }
+        mysqli_stmt_close($stmt);
     }
-    mysqli_stmt_close($stmt);
 }
 
 // checks if password and cPassword match
@@ -63,7 +65,7 @@ function matching_passwords($password, $cpassword)
     return true;
 }
 
-function addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $employerToken) {
+/*function addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $employerToken) {
     //insert a new user
     $query = "INSERT INTO users (title, name, email, password, token)
         VALUES (?, ?, ?, ?, ?)";
@@ -84,8 +86,28 @@ function addUser($link, $position, $name, $email, $hashedPassword, $employeeToke
         } else {
             echo "<h1>Something went wrong! Please retry later.</h1>";
         }
+        mysqli_stmt_close($stmt);
     }
-    mysqli_stmt_close($stmt);
+}*/
+
+function addUser($link, $title, $name, $email, $password, $token, $bossToken) {
+    $query = "INSERT INTO users (title, name, email, password, token)
+        VALUES (?, ?, ?, ?, ?)";
+    if ($stmt = mysqli_prepare($link, $query)) {
+        //bind variables to parameters
+        if ($title == "employer") {
+            mysqli_stmt_bind_param($stmt, "sssss", $title, $name, $email, $password, $bossToken);
+        } else {
+            mysqli_stmt_bind_param($stmt, "sssss", $title, $name, $email, $password, $token);
+        }
+        //attempt to execute the statement
+        if (mysqli_stmt_execute($stmt)) {
+            header("refresh:0;employer.php");
+        } else {
+            echo "<h1>Something went wrong! Please retry!</h1>";
+        }
+        mysqli_stmt_close($stmt);
+    }
 }
 
 //connect to database, in case of failure give error
@@ -110,24 +132,24 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 $position = $_POST['position'];
-if (!isset($position) || empty($position)){
+if (!isset($position) || empty($position)) {
   exit("Position must be selected.");
 } else {
-  if ($position != "employee" && $position != "employer"){
+  if ($position != "employee" && $position != "employer") {
     exit("Position must be 'Employee' or 'Employer'");
   }
 }
 
 $employeeToken = $_POST['company'];
-if ($position == "employee" && empty($employeeToken)){
+if ($position == "employee" && empty($employeeToken)) {
   exit("Token is required for registering");
 }
 
 $password = $_POST['password'];
-if (empty($_POST['password'])){
+if (empty($_POST['password'])) {
     exit("Please choose a password.");
 }
-if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)){
+if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)) {
     exit("Password must have at least 8 characters and at least one number, one uppercase letter and one lowercase letter.");
 }
 
@@ -148,7 +170,8 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 //in the end add a new user
 $employerToken = $_SESSION['tokenGen'];
-addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $employerToken);
+addUser($link, $_POST['position'], $_POST['name'], $_POST['email'], 
+    $_POST['password'], $_POST['company'], $_SESSION['tokenGen']);
 
 //close the connection to the db
 mysqli_close($link);
