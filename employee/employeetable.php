@@ -22,6 +22,7 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
     mysqli_stmt_execute($query);
     mysqli_stmt_bind_result($query, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
     echo $initiative;
+    echo $query;
     mysqli_stmt_close($query);
 
 }
