@@ -16,7 +16,7 @@ function getGrade($item, $token) {
 
     $query = "SELECT " . $item . " FROM token_" . $token . "WHERE name='" . $_SESSION['name'] . "' AND week=" . $week . " AND year=" . $year . ";";
     $result = mysqli_query($link, $query);
-    print_r($result);
+    echo $result;
     return $result;
 }
 
