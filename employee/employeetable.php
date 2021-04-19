@@ -6,6 +6,7 @@ if ($_SESSION['title'] != 'employee') {
 }
 
 if (isset($_GET['week']) && isset($_GET['year'])) {
+    echo $_SESSION['name'];
     include("../usersData/connect.db.php");
     include("../usersData/sanitizeInputVar.php");
 
