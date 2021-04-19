@@ -34,6 +34,7 @@
             <input type="email" name="email" placeholder="Email" autocomplete="off" required="">
             <br><br>
             <input type="password" name="password" id="password" placeholder="Password" minlength="8" autocomplete="off" required="">
+            <?php echo $passErr ?>
             <span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
             <br><br>
             <input type="submit" value="login" name="submit">
