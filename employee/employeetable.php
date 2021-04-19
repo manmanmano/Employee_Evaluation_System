@@ -2,7 +2,7 @@
 require_once("../sessionstart.php");
 
 if ($_SESSION['title'] != 'employee') {
-    die("Incorrect credentials");
+    die("Session expired!");
 }
 
 function getGrade() {
