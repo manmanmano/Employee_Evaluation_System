@@ -1,13 +1,3 @@
-<?php 
-if (isset($_SESSION['name'])) {
-    if ($_SESSION['title'] == "employer") {
-        header("refresh:0;employer/employer.php");
-    } else if ($_SESSION['title'] == "employee") {
-        header("refresh:0;employee/employee.php");
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
