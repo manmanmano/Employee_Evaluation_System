@@ -5,7 +5,7 @@ if ($_SESSION['title'] != 'employee') {
     die("Session expired!");
 }
 
-function getGrade($token) {
+if (isset($_GET['modal'])) {
     include("../usersData/connect.db.php");
     include("../usersData/sanitizeInputVar.php");
 
@@ -63,7 +63,7 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $week, "</td>";
         echo "<td>", $year, "</td>";
-        echo "<td><a href='?week=" . $week . "&year=" . $year . "' onclick='modal()'>", $grades[$year][$week], "</a></td>";
+        echo "<td><a name='modal' href='?week=" . $week . "&year=" . $year . "' onclick='modal()'>", $grades[$year][$week], "</a></td>";
         echo "</tr>";
     } else {
         foreach ($grades as $year => $weeks) {
@@ -71,7 +71,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td><a href='?week=" . $week . "&year=" . $year . "' onclick='modal()'>", $grade, "</a></td>";
+                echo "<td><a name='modal' href='?week=" . $week . "&year=" . $year . "' onclick='modal()'>", $grade, "</a></td>";
                 echo "</tr>";
             }
         }
