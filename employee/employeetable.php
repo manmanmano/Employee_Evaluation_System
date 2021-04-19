@@ -15,11 +15,12 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
+    $name = "'" . $_SESSION['name'] . "'";
     $query = mysqli_prepare($link, "SELECT * FROM token_? WHERE name=? AND week=? AND year=?;");
-    mysqli_stmt_bind_param($query, "ssii", $token, $_SESSION['name'], $_GET['week'], $_GET['year']);
+    mysqli_stmt_bind_param($query, "ssii", $token, $name, $_GET['week'], $_GET['year']);
     mysqli_stmt_execute($query);
     mysqli_stmt_bind_result($query, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
-    echo $initiative;
+    
     mysqli_stmt_close($query);
 
 }
