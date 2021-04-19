@@ -5,7 +5,7 @@ if ($_SESSION['title'] != 'employee') {
     die("Session expired!");
 }
 
-if (isset($_GET['modal'])) {
+if (isset($_GET['week']) && isset($_GET['year'])) {
     include("../usersData/connect.db.php");
     include("../usersData/sanitizeInputVar.php");
 
