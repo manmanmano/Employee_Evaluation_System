@@ -66,7 +66,7 @@ function matching_passwords($password, $cpassword)
 function addUser($link, $position, $name, $email, $hashedPassword, $employeeToken, $employerToken) {
     //insert a new user
     $query = "INSERT INTO users (title, name, email, password, token)
-        VALUES (?, ?, ?, ?, ?)";
+        VALUES ('?', '?', '?', '?', '?')";
     if ($stmt = mysqli_prepare($link, $query)) {
         //before binding check the position of the person
         if ($position == "employer") {
