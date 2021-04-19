@@ -38,7 +38,7 @@ require_once("employeetable.php");
             function modal() {
                 var week = <?php echo $week; ?>;
                 var year = <?php echo $year; ?>;
-                window.location.replace("?week=" + week + "&year=" + year);
+                window.location.href += "?week=" + week + "&year=" + year;
                 alert("Employee shows strong initiative: " + <?php echo $initiative; ?> +  "\nEmployee works well with others in group-based projects: " + <?php echo $gbProjects; ?> + "\nEmployee takes instructions and follows leaders well: " + <?php echo $follows ?> + "\nEmployee shows good leadership skills: " + <?php echo $leadership; ?> + "\nEmployee stays focused on tasks at hand: " + <?php echo $focused; ?> + "\nEmployee knows how to prioritize tasks: " + <?php echo $prioritize; ?> + "\nEmployee has good communication with coworkers: " + <?php echo $workers; ?> + "\nEmployee has good communication with superiors: " + <?php echo $superiors; ?> + "\nEmployee is dependable: " + <?php echo $dependable; ?> + "\nEmployee gets assignments in on time: " + <?php echo $punctualAss; ?> + "\nEmployee arrives on time every day: " + <?php echo $punctualTime; ?> + "\nEmployee's work is of high quality: " + <?php echo $quality; ?> + "\n");
             }
         </script>
