@@ -34,8 +34,6 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
         $punctualTime = $row['arrives_on_time'];
         $quality = $row['quality'];
     }
-    echo $initiative;
-    echo $follows;
     mysqli_close($query);
 }
 
