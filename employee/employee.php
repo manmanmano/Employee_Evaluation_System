@@ -36,7 +36,7 @@ require_once("employeetable.php");
         </table>
         <script>
             function modal() {
-                alert("Employee shows strong initiative: " . $grade . "\nEmployee works well with others in group-based projects: "  . $grade . "\nEmployee takes instructions and follows leaders well: " . $grade . "\nEmployee shows good leadership skills: "  . $grade . "\nEmployee stays focused on tasks at hand: "  . $grade . "\nEmployee knows how to prioritize tasks: "  . $grade . "\nEmployee has good communication with coworkers: "  . $grade . "\nEmployee has good communication with superiors: "  . $grade . "\nEmployee is dependable: "  . $grade . "\nEmployee gets assignments in on time: "  . $grade . "\nEmployee arrives on time every day: "   . $grade . "\nEmployee's work is of high quality: "  . $grade . "\n");
+                alert("Employee shows strong initiative: " . getGrade(0) . "\nEmployee works well with others in group-based projects: "  . getGrade(1) . "\nEmployee takes instructions and follows leaders well: " . getGrade(2) . "\nEmployee shows good leadership skills: "  . getGrade(3) . "\nEmployee stays focused on tasks at hand: "  . getGrade(4) . "\nEmployee knows how to prioritize tasks: "  . getGrade(5) . "\nEmployee has good communication with coworkers: "  . getGrade(6) . "\nEmployee has good communication with superiors: "  . getGrade(7) . "\nEmployee is dependable: "  . getGrade(8) . "\nEmployee gets assignments in on time: "  . getGrade(9) . "\nEmployee arrives on time every day: "   . getGrade(10) . "\nEmployee's work is of high quality: "  . getGrade(11) . "\n");
             }
         </script>
         <footer>
