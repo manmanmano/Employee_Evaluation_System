@@ -16,13 +16,11 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
     }
 
     $name = "'" . $_SESSION['name'] . "'";
-    echo $name;
     $query = mysqli_prepare($link, "SELECT * FROM token_? WHERE name=? AND week=? AND year=?;");
     mysqli_stmt_bind_param($query, "ssii", $token, $name, $_GET['week'], $_GET['year']);
     mysqli_stmt_execute($query);
-    mysqli_stmt_bind_result($query, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
+    mysqli_stmt_bind_result($query, $name, $week, $year, $average, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
     echo $initiative;
-    echo $query;
     mysqli_stmt_close($query);
 
 }
