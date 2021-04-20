@@ -86,9 +86,8 @@ function updateEmail($link, $email, $oldEmail) {
         mysqli_stmt_close($stmt);
     }
 }
-        
 
-if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || $_POST['newEmail']) {                                                   
+if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || $_POST['newEmail']) {
     //connect to database, in case of failure give error
     $link = mysqli_connect($server, $user, $password, $database);
     if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
@@ -104,7 +103,7 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || $_POST['newEmai
         if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)) {
             exit("Invalid password");
         }
-    } 
+    }
 
     $cpassword = $_POST['newcPassword'];
     if (!empty($password) && isset($cpassword) && !empty($cpassword)) {
