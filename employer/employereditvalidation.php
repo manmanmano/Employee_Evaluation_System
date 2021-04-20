@@ -26,6 +26,9 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
 
     $result = mysqli_query($link, $query);
     mysqli_close($link);
+    echo $name;
+    echo $week;
+    echo $year;
     echo $query;
     header("refresh:5;url=employer.php");
 }
