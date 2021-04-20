@@ -11,9 +11,9 @@ require_once("employeetable.php");
     <body>
 		<header>
             <img class="logo" src="../img/JAMLogo.png">
-            <a href="employeeCredentials.php">User settings</a> 
 			<nav>
 				<form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
+                    <input type="submit" name="settings" value="Settings">
                     <input type="submit" name="logout" value="Log out">
                 </form>
 			</nav>
