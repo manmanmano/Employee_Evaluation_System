@@ -26,8 +26,7 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
 
     $result = mysqli_query($link, $query);
     mysqli_close($link);
-    echo $query;
-    #header("refresh:5;url=employer.php");
+    header("refresh:0;url=employer.php");
 }
 
 if ($_SESSION['title'] != 'employer') {
@@ -42,10 +41,7 @@ if (isset($_POST['submit'])) {
                                                                             
     $workerName = sanitizeInputVar($link, $_COOKIE['name']);
     $week = sanitizeInputVar($link, $_COOKIE['week']);
-    $year = sanitizeInputVar($link, $_COOKIE['year']);
-    echo $workerName;
-    echo $week;
-    echo $year;                                                                                          
+    $year = sanitizeInputVar($link, $_COOKIE['year']);                                                                                       
                                                                       
     $initiative = $_POST['initiative'];                                         
     $gbProjects = $_POST['group_based_projects'];                               
@@ -78,4 +74,3 @@ if (isset($_POST['submit'])) {
     mysqli_close($link);
 }
 ?>
-
