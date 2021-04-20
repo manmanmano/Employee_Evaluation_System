@@ -66,13 +66,7 @@ require_once("employertable.php");
             }
 
             function delete() {
-                retVal = confirm("Do you want to continue ?");
-               if(retVal == true) {
-                  document.write ("User wants to continue!");
-                  return true;
-               } else {
-                  document.write ("User does not want to continue!");
-                  return false;
+                confirm("Do you want to continue ?");
             }
         </script>
 
