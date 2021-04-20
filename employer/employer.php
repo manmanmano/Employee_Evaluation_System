@@ -38,6 +38,8 @@ require_once("employertable.php");
                 <th>Week</th>
                 <th>Year</th>
                 <th>Evaluation</th>
+                <th></th>
+                <th></th>
             </tr>
             <?php
             require_once("../sessionstart.php");
