@@ -66,7 +66,7 @@ require_once("employertable.php");
             }
 
             function delete() {
-                confirm("Do you want to continue ?");
+                alert("Do you want to continue ?");
             }
         </script>
 
