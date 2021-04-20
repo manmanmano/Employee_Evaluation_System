@@ -63,12 +63,9 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
-if (isset($_POST['submit'])) {
-                    
-    $year = intval($_GET['year']);                       
-    $week = intval($_GET['week']);                                                                         
+if (isset($_POST['submit'])) {                                                                        
                                                                             
-    $workerName = $_GET['name'];                                            
+    $workerName = $name;                                         
     if (!empty($names) && !in_array($workerName, $names)) {                     
         die("Invalid worker name set!");                                        
     }                                                                           
