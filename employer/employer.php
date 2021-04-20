@@ -46,8 +46,23 @@ require_once("employertable.php");
             ?>
         </table>
         <script>
-            function modal() {
-                alert("Employee shows strong initiative: " . getGrade(0) . "\nEmployee works well with others in group-based projects: "  . getGrade(1) . "\nEmployee takes instructions and follows leaders well: " . getGrade(2) . "\nEmployee shows good leadership skills: "  . getGrade(3) . "\nEmployee stays focused on tasks at hand: "  . getGrade(4) . "\nEmployee knows how to prioritize tasks: "  . getGrade(5) . "\nEmployee has good communication with coworkers: "  . getGrade(6) . "\nEmployee has good communication with superiors: "  . getGrade(7) . "\nEmployee is dependable: "  . getGrade(8) . "\nEmployee gets assignments in on time: "  . getGrade(9) . "\nEmployee arrives on time every day: "   . getGrade(10) . "\nEmployee's work is of high quality: "  . getGrade(11) . "\n");
+            function modal(year, week) {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("GET", "employee?week=" + week + "&year=" + year, true);
+                xmlhttp.send();
+                alert("Employee shows strong initiative: " + <?php echo $initiative; ?> 
+                + "\nEmployee works well with others in group-based projects: " 
+                + <?php echo $gbProjects; ?> + "\nEmployee takes instructions and follows leaders well: " 
+                + <?php echo $follows ?> + "\nEmployee shows good leadership skills: " 
+                + <?php echo $leadership; ?> + "\nEmployee stays focused on tasks at hand: " 
+                + <?php echo $focused; ?> + "\nEmployee knows how to prioritize tasks: " 
+                + <?php echo $prioritize; ?> + "\nEmployee has good communication with coworkers: " 
+                + <?php echo $workers; ?> + "\nEmployee has good communication with superiors: " 
+                + <?php echo $superiors; ?> + "\nEmployee is dependable: " 
+                + <?php echo $dependable; ?> + "\nEmployee gets assignments in on time: " 
+                + <?php echo $punctualAss; ?> + "\nEmployee arrives on time every day: " 
+                + <?php echo $punctualTime; ?> + "\nEmployee's work is of high quality: " 
+                + <?php echo $quality; ?> + "\n");
             }
         </script>
 
