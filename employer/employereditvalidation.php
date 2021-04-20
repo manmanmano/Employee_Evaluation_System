@@ -25,8 +25,9 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
         leadership=" . $leadership . ", focused=" . $focused . ", prioritize=" . $prioritize . ", communication_coworkers=" . $workers . ", communication_superiors=" . $superiors . ", dependable=" . $dependable . ", assignments_on_time=" . $punctualAss . ", arrives_on_time=" . $punctualTime . ", quality=" . $quality . " WHERE name=" . $name . " AND week=" . $week . " AND year=" . $year . ";";
 
     $result = mysqli_query($link, $query);
-        mysqli_close($link);
-    }
+    mysqli_close($link);
+    echo $query;
+    header("refresh:5;url=employer.php");
 }
 
 if ($_SESSION['title'] != 'employer') {
