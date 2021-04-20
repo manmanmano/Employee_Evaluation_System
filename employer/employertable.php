@@ -2,7 +2,8 @@
 require("../sessionstart.php");
 
 if ($_SESSION['title'] != 'employer') {
-    die("Session expired!");
+     header("Refresh: 7; url=../index.php");
+     die ("Your session has expired");
 }
 
 function createNames($token) {
