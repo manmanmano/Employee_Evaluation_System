@@ -145,7 +145,9 @@ table tr:hover {
   cursor: pointer;
   width: 200px;
   opacity: 0.9;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* MODAL */
