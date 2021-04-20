@@ -64,7 +64,8 @@ require_once("employertable.php");
                 + <?php echo $quality; ?> + "\n");
             }
             function delete() {
-                if(confirm('Are you sure you want to continue?')) {
+                var ret = confirm('Are you sure you want to continue?'));
+                if (ret) {
                     location.href = "employerdelete.php;
                 }
             }
