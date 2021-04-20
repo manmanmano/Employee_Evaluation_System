@@ -19,6 +19,7 @@ function createNames($token, $link) {
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($names, $row['name']);
     }
+}
 
 function validateRadio($input) {
     if (!isset($input) || empty($input)) {                            
