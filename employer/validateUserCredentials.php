@@ -28,6 +28,8 @@ function verifyPassword($link, $email, $password) {
                 if (mysqli_stmt_fetch($stmt)) {
                     //confront passwords. if they do not match error
                     if (!password_verify($password, $currentPassword)) {
+                        echo $password;
+                        echo $currentPassword;
                         exit("Invalid current password!");
                     }
                 }
