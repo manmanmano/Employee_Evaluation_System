@@ -25,6 +25,8 @@ function validateCredentials($link,  $email, $password) {
                         $_SESSION['title'] = $title;
                         $_SESSION['token'] = $token;
                         $_SESSION['email'] = $email;
+                    } else {
+                        echo "Incorrect username or password!";
                     }
                 } else {
                     echo "Incorrect username or password!";
