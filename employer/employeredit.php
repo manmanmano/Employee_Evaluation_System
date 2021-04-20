@@ -21,11 +21,11 @@ require_once("employereditvalidation.php");
         <table>
             <tr>
                 Name:
-                <?php echo $_GET['name']; ?>
+                <?php $name = $_GET['name']; echo $_GET['name']; ?>
                 Week:
-                <?php echo $_GET['week']; ?>
+                <?php $week = $_GET['week']; echo $_GET['week']; ?>
                 Year:
-                <?php echo $_GET['year']; ?>
+                <?php $year = $_GET['year']; echo $_GET['year']; ?>
             </tr>
             <tr>
                 <th>Performance</th>
