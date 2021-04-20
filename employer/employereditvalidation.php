@@ -43,10 +43,6 @@ if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 if (isset($_POST['submit'])) {     
     include_once("../usersData/sanitizeInputVar");
 
-    if (!$link) {
-        die("Connection to DB failed: " . mysqli_connect_error());
-    }
-
     $token = $_SESSION['token'];
     $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee';";
     $result = mysqli_query($link, $query);
@@ -75,9 +71,7 @@ if (isset($_POST['submit'])) {
     $punctualTime = $_POST['arrives_on_time'];                                  
     $quality = $_POST['quality'];                                               
 
-    $attrArr = [                                                                
-        $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize,  
-        $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
+    $attrArr = [$initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
     ];
 
     foreach ($attrArr as $attr) {
