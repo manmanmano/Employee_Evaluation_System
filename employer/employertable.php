@@ -84,7 +84,8 @@ function createTable($token) {
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
                 echo "<td class='evals'>", $grades[$year][$week], "</td>";
-                "<td><a href='employeredit.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Edit</a></td>";
+                echo "<td><a href='employeredit.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Edit</a></td>";
+                echo "<td><a href='employerdelete.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Delete</a></td>";
                 echo "</tr>";
             }
         }
@@ -97,7 +98,8 @@ function createTable($token) {
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
                 echo "<td class='evals'>", $grade, "</td>";
-                "<td><a href='employeredit.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Edit</a></td>";
+                echo "<td><a href='employeredit.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Edit</a></td>";
+                echo "<td><a href='employerdelete.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Delete</a></td>";
                 echo "</tr>";
             }
         }
@@ -116,6 +118,7 @@ function createTable($token) {
         echo "<td>", $year, "</td>";
         echo "<td class='evals'>", $employees[$name][$year][$week], "</td>";
         echo "<td><a href='employeredit.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Edit</a></td>";
+        echo "<td><a href='employerdelete.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Delete</a></td>";
         echo "</tr>";
     } else {
         foreach ($employees as $name => $years) {
@@ -127,6 +130,7 @@ function createTable($token) {
                     echo "<td>", $year, "</td>";
                     echo "<td class='evals'>", $grade, "</td>";
                     echo "<td><a href='employeredit.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Edit</a></td>";
+                    echo "<td><a href='employerdelete.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Delete</a></td>";
                     echo "</tr>";
                 }
             }
