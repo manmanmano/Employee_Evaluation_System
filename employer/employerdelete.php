@@ -6,6 +6,7 @@ include_once("../sanitizeInputVar.php");
 if ($_SESSION['title'] != 'employer') {
     die("Session expired!");
 }
+echo "No error";
 
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
