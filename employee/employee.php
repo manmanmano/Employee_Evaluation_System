@@ -12,8 +12,8 @@ require_once("employeetable.php");
 		<header>
             <img class="logo" src="../img/JAMLogo.png">
 			<nav>
+                <a href="employeeCredentials.php">User's credentials</a>
 				<form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
-                    <input type="submit" name="settings" value="Settings">
                     <input type="submit" name="logout" value="Log out">
                 </form>
 			</nav>
@@ -65,6 +65,7 @@ require_once("employeetable.php");
         </footer>
     </body>
 </html>
+
 <?php
 if (isset($_POST['logout'])) {
     session_unset();
