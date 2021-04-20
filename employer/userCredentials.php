@@ -45,7 +45,7 @@ require_once("validateUserCredentials.php");
     </form><br>
     <h1 style="color: red; text-align: center; padding:10px;">Delete Your company</h1>
     <div class="deleteCompBtn">
-    <input type="submit" name="delCompany" id="deleteCompany" value="Destroy company" 
+    <button type="submit" name="delCompany" id="deleteCompany" value="Destroy company" 
         onclick="deleteCompany()"> 
     </div>
     <footer id="footor" style=" margin-top: 200px; margin-bottom: 0px;">
