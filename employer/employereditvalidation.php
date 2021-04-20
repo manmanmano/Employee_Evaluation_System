@@ -80,6 +80,7 @@ if (isset($_POST['submit'])) {
         $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
 
     mysqli_close($link);
+    header("refresh:0;url=employer.php");
 }
 ?>
 
