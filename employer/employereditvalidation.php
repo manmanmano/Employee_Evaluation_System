@@ -2,10 +2,6 @@
 require_once("../sessionstart.php");
 include_once("../usersData/connect.db.php");
 
-if ($_SESSION['title'] != 'employer') {
-    die("Session expired!");
-}
-
 function validateRadio($input) {
     if (!isset($input) || empty($input)) {                            
         die("Radio button left blank!");
@@ -20,45 +16,45 @@ function evaluateEmployee($arr) {
     return array_sum($arr) / count($arr);
 }
 
-function editEval($link, $token, $name, $week, $year, $average, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality) {
+function editEval($link, $token, $name, $week, $year, $average, $initiative, $gbProjects, 
+    $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, 
+    $punctualAss, $punctualTime, $quality) {
 
-    $query = "UPDATE token_" . $token . " SET average=?, initiative=?, group_based_projects=?, follows_instructions=?, leadership=?, focused=?, prioritize=?, communication_coworkers=?, communication_superiors=?, dependable=?, assignments_on_time=?, arrives_on_time=?, quality=? WHERE name=? AND week=? AND year=?;";
+    $query = "UPDATE token_" . $token . "
+        SET average=?, initiative=?, group_based_projects=?, follows_instructions=?,
+        leadership=?, focused, prioritize=?, communication_coworkers=?, communication_superiors=?,
+        dependable=?, assignments_on_time=?, arrives_on_time=?, quality=? WHERE name=? AND week=? AND year=?;";
 
     if ($stmt = mysqli_prepare($link, $query)) {
         //bind variables to parameters
-        mysqli_stmt_bind_param($stmt, "diiiiiiiiiiiisii", $average, $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality, $name, $week, $year);
+        mysqli_stmt_bind_param($stmt, "diiiiiiiiiiiisii", $average, $initiative, 
+            $gbProjects, $follows, $leadership, $focused, $prioritize, $workers,
+            $superiors, $dependable, $punctualAss, $punctualTime, $quality, $name, $week, $year);
         //attempt to execute the statement
         if (mysqli_stmt_execute($stmt)) {
             header("refresh:0;employer.php");
         } else {
             echo "<h1>Something went wrong! Please retry.";
+            header("refresh:5;employer.php");
         }
         mysqli_stmt_close($stmt);
     }
 }
 
+if ($_SESSION['title'] != 'employer') {
+    die("Session expired!");
+}
+
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
-if (isset($_POST['submit'])) {     
-    include_once("../usersData/sanitizeInputVar");
+if (isset($_POST['submit'])) {
 
-    $token = $_SESSION['token'];
-    $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee';";
-    $result = mysqli_query($link, $query);
-    $names = array();
-    while ($row = mysqli_fetch_assoc($result)) {
-        array_push($names, $row['name']);
-    }
-
-    mysqli_close($link);                                                                   
-
-    $sanitizedweek = sanitizeInputVar($link, $week);
-    $sanitizedyear = sanitizeInputVar($link, $year);
-    $workerName = $name;                                         
-    if (!empty($names) && !in_array($workerName, $names)) {                     
-        die("Invalid worker name set!");                                        
-    }                                                                           
+    if (!isset($_POST['date'])) {                                               
+        die("No date set!");                                                    
+    }                                                                         
+                                                                            
+    $workerName = $name;                                                                                                                     
                                                                             
     $initiative = $_POST['initiative'];                                         
     $gbProjects = $_POST['group_based_projects'];                               
@@ -73,22 +69,22 @@ if (isset($_POST['submit'])) {
     $punctualTime = $_POST['arrives_on_time'];                                  
     $quality = $_POST['quality'];                                               
 
-    $attrArr = [$initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
+    $attrArr = [                                                                
+        $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize,  
+        $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
     ];
 
     foreach ($attrArr as $attr) {
         validateRadio($attr);
     }
 
-    $average = round(evaluateEmployee($attrArr), 1);
+    $average = round(evaluateEmployee($attrArr), 1);                            
 
-    $link = mysqli_connect($server, $user, $password, $database);
-if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
-
-    editEval($link, $_SESSION['token'], $workerName, $sanitizedweek, $sanitizedyear, $average, 
+    addEval($link, $_SESSION['token'], $workerName, $week, $year, $average, 
         $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, 
         $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
 
     mysqli_close($link);
 }
 ?>
+
