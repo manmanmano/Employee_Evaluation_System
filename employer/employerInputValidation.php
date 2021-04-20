@@ -61,7 +61,7 @@ function addEval($link, $token, $name, $week, $year, $average, $initiative, $gbP
 }
 
 if ($_SESSION['title'] != 'employer') {
-    die("Incorrect credentials");
+    die("Session expired!");
 }
 
 $link = mysqli_connect($server, $user, $password, $database);
