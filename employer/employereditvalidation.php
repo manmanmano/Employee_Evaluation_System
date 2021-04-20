@@ -48,11 +48,7 @@ if ($_SESSION['title'] != 'employer') {
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
-if (isset($_POST['submit'])) {
-
-    if (!isset($_POST['date'])) {                                               
-        die("No date set!");                                                    
-    }                                                                         
+if (isset($_POST['submit'])) {                                                                       
                                                                             
     $workerName = $name;                                                                                                                     
                                                                             
