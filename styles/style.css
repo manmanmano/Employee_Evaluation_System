@@ -136,12 +136,17 @@ table tr:hover {
 .error {
   color: red;
 }
-.deleteCompBtn {
+#deleteCompany {
   background-color: red;
   color: white;
   padding: 16px 20px;
-
-
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  opacity: 0.9;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* MODAL */
