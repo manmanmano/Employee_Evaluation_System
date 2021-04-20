@@ -34,7 +34,7 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
         if (mysqli_stmt_execute($stmt)) {
             header("refresh:0;employer.php");
         } else {
-            echo "<h1>Something went wrong! Please retry.";
+            echo "<h1>Something went wrong! Please retry.</h1>";
             header("refresh:5;employer.php");
         }
         mysqli_stmt_close($stmt);
@@ -73,14 +73,13 @@ if (isset($_POST['submit'])) {
     foreach ($attrArr as $attr) {
         validateRadio($attr);
     }
-
-    echo "No error";  
+ 
     $average = round(evaluateEmployee($attrArr), 1);                            
 
     addEval($link, $_SESSION['token'], $workerName, $week, $year, $average, 
         $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, 
         $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
-
+    echo "No error";
     mysqli_close($link);
 }
 ?>
