@@ -24,6 +24,7 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
         SET average=?, initiative=?, group_based_projects=?, follows_instructions=?,
         leadership=?, focused, prioritize=?, communication_coworkers=?, communication_superiors=?,
         dependable=?, assignments_on_time=?, arrives_on_time=?, quality=? WHERE name=? AND week=? AND year=?;";
+    echo "No error";
     if ($stmt = mysqli_prepare($link, $query)) {
         //bind variables to parameters
         mysqli_stmt_bind_param($stmt, "diiiiiiiiiiiisii", $average, $initiative, 
@@ -80,7 +81,6 @@ if (isset($_POST['submit'])) {
         $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality);
 
     mysqli_close($link);
-    header("refresh:0;url=employer.php");
 }
 ?>
 
