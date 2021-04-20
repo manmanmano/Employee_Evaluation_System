@@ -130,7 +130,7 @@ function createTable($token) {
                     echo "<td>", $year, "</td>";
                     echo "<td class='evals'>", $grade, "</td>";
                     echo "<td><a href='employeredit.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Edit</a></td>";
-                    echo "<td><button onclick='delete()'>Delete</button></td>";
+                    echo "<td><a onclick='delete()'>Delete</a></td>";
                     echo "</tr>";
                 }
             }
