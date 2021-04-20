@@ -9,20 +9,7 @@ require_once("validateEmployeeCredentials.php");
     <meta charset="UTF-8">
     <title>User's credentials</title>
     <link rel="stylesheet" href="../styles/style.css">
-    <script type="text/javascript">                                             
-        function showPwd(){                                                         
-            document.getElementById("newPassword").type='text';                        
-        }                                                                           
-        function hidePwd(){                                                         
-            document.getElementById("newPassword").type='password';                    
-        }                                                                           
-        function showcPwd(){
-            document.getElementById("confirmPassword").type='text';
-        }
-        function hidecPwd(){
-            document.getElementById("confirmPassword").type='password';
-        }
-    </script>
+    <script src="showHidePwd.js"></script>
 </head>
 <body>
     <header>                                                                
@@ -34,6 +21,10 @@ require_once("validateEmployeeCredentials.php");
     <h2 style="text-align:center;">Update your credentials:</h2>
     <form method="POST" method="#" style="padding: 5px;
         border: 1px solid;">
+        <label for="oldPassword"><b>Current password:</b></label>
+        <input type="password" id="oldPassword" placeholder="Password" name="oldPassword"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        <span onmouseenter="showoPwd()" onmouseleave="hideoPwd()" >?</span><br>
         <label for="newPassword"><b>Change your password:</b></label>
         <input type="password" id="newPassword" placeholder="Password" name="newPassword" 
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
