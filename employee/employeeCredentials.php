@@ -8,6 +8,14 @@ require_once("../sessionstart.php");
     <meta charset="UTF-8">
     <title>User's credentials</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <script type="text/javascript">                                             
+        function showPwd(){                                                         
+            document.getElementById("newPassword").type='text';                        
+        }                                                                           
+        function hidePwd(){                                                         
+            document.getElementById("newPassword").type='password';                    
+        }                                                                           
+    </script>
 </head>
 <body>
     <header>                                                                
@@ -24,8 +32,9 @@ require_once("../sessionstart.php");
     <form method="POST" method="validateEmployeeCredentials.php" style="padding: 5px;
         border: 1px solid;">
         <label for="newPassword"><b>Change your password:</b></label>
-        <input type="password" placeholder="Password" name="newPassword" 
+        <input type="password" id="newPassword" placeholder="Password" name="newPassword" 
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        <span onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
         <p>NB: Password must have at least 8 characters and at least one number, 
             one uppercase letter and one lowercase letter</p>
         <label for="newEmail"><b>Change your email:</b></label>
