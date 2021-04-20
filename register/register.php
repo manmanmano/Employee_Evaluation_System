@@ -10,31 +10,7 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 <head>
 	<meta charset="UTF-8">
 	<title>Registration</title>
-	<script type="text/javascript">
-	function ShowHide(){
-	var employee = document.getElementById("employee");
-	var employer = document.getElementById("employer");
-	companyGen.style.display = employee.checked ? "none" : "block";
-	haveToken.style.display = employee.checked ? "block" : "none";
-	}
-	
-	function showPwd(){
-    	document.getElementById("password").type='text';
-  	}
-
-	function hidePwd(){
-    	document.getElementById("password").type='password';
-  	}
-
-	function showcPwd(){
-    	document.getElementById("cPassword").type='text';
-  	}
-
-	function hidecPwd(){
-    	document.getElementById("cPassword").type='password';
-  	}
-
-	</script>
+	<script src="registerJS.js"></script>
 	<link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
