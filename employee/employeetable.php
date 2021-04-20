@@ -2,7 +2,8 @@
 require_once("../sessionstart.php");
 
 if ($_SESSION['title'] != 'employee') {
-    die("Session expired!");
+     header("Refresh: 7; url=../index.php");
+     die ("Your session has expired");
 }
 
 if (isset($_GET['week']) && isset($_GET['year'])) {
