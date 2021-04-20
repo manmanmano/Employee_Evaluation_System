@@ -136,7 +136,7 @@ table tr:hover {
 .error {
   color: red;
 }
-.deleteCompBtn {
+#deleteCompany {
   background-color: red;
   color: white;
   padding: 16px 20px;
