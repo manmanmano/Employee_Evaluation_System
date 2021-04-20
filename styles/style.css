@@ -136,7 +136,7 @@ table tr:hover {
 .error {
   color: red;
 }
-#deleteCompany {
+.deleteCompBtn {
   background-color: red;
   color: white;
   padding: 16px 20px;
@@ -145,9 +145,7 @@ table tr:hover {
   cursor: pointer;
   width: 200px;
   opacity: 0.9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
 /* MODAL */
