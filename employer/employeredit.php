@@ -21,11 +21,11 @@ require_once("employereditvalidation.php");
         <table>
             <tr>
                 Name:
-                <?php $name = $_GET['name']; echo $_GET['name']; ?>
+                <?php setcookie("name", $_GET['name'], "path" => "/~juprus/icd0007_project"); echo $_GET['name']; ?>
                 Week:
-                <?php $week = $_GET['week']; echo $_GET['week']; ?>
+                <?php setcookie("week", $_GET['week'], "path" => "/~juprus/icd0007_project"); echo $_GET['week']; ?>
                 Year:
-                <?php $year = $_GET['year']; echo $_GET['year']; ?>
+                <?php setcookie("year", $_GET['year'], "path" => "/~juprus/icd0007_project"); echo $_GET['year']; ?>
             </tr>
             <tr>
                 <th>Performance</th>
