@@ -12,15 +12,7 @@ session_destroy();
     <link rel="stylesheet" href="styles/style.css">
     <script src="indexValidation//dynamicAction.js" type="text/javascript"></script>
     
-    <script>
-    function showPwd(){
-        document.getElementById("password").type='text';
-    }
-
-    function hidePwd(){
-        document.getElementById("password").type='password';
-    }
-    </script>
+ 	<script src="register/registerJS.js"></script>
 </head>
 <body>
     <h1>Employee perfomance evaluation</h1>
