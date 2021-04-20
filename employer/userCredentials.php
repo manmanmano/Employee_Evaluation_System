@@ -44,8 +44,10 @@ require_once("validateUserCredentials.php");
         <input type="submit" name="newData" value="Update your data">
     </form><br>
     <h1 style="color: red; text-align: center; padding:10px;">Delete Your company</h1>
-    <button type="submit" name="delCompany" id="deleteCompany" value="Destroy company" 
+    <span style="border: 1px solid red;">
+    <input type="submit" name="delCompany" id="deleteCompany" value="Destroy company" 
         onclick="deleteCompany()"> 
+    </span> 
     
     <footer id="footor" style=" margin-top: 200px; margin-bottom: 0px;">
         <h2>Contact JAM</h2>
