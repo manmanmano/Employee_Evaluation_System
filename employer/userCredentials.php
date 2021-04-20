@@ -43,7 +43,7 @@ require_once("validateUserCredentials.php");
         <input type="email" name="newEmail" placeholder="Email"><br><br>
         <input type="submit" name="newData" value="Update your data">
     </form><br>
-    <h1 class="deleteCompBtn">Delete Your company</h1>
+    <h1 style="color: red; text-align: center; padding:10px;">Delete Your company</h1>
     <span style="border: 1px solid red;">
     <input type="submit" name="delCompany" id="deleteCompany" value="Destroy company" 
         onclick="deleteCompany()">
