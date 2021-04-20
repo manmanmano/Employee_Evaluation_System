@@ -26,6 +26,7 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
 
     $result = mysqli_query($link, $query);
     mysqli_close($link);
+    header("refresh:0;url=employer.php");
 }
 
 if ($_SESSION['title'] != 'employer') {
