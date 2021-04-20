@@ -25,16 +25,27 @@ function checkEmail($link, $email) {
             //if email does not exist exit
             if (mysqli_stmt_num_rows($stmt) == 1) {
                 echo "<h1>Email already exists!</h1>";
-                exit();
+                return false;
+            } else {
+                return true;
             }
         }
         mysqli_stmt_close($stmt);
     }
 }
 
-function updateData($link, $email, $password) {
-
+function updateEmail($link, $email, $oldEmail) {
+    $query = "UPDATE users SET email=? WHERE email=?";
+    if ($stmt = mysqli_prepare($link, $query)) {
+        //bind variables to params
+        mysqli_stmt_bind_param($stmt, "ss", $email, $oldEmail);
+        //attempt to execute the statement
+        if (!mysqli_stmt_execute($stmt)) {
+            echo "<h1>Something went wrong! Please retry!</h1>";
+        }
+    }
 }
+        
 
 if (isset($_POST['newData'])) {                                                   
     //connect to database, in case of failure give error
@@ -62,11 +73,13 @@ if (isset($_POST['newData'])) {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             exit("Invalid email");
         } else {
-            checkEmail($link, $email);
+           $bool =  checkEmail($link, $email);
+           if ($bool == true) {
+               updateEmail($link, $email, $_SESSION['email']);
+           }
         }
     }
 
-    updateData($link, $password, $email);
     mysqli_close($link);
 }
 
