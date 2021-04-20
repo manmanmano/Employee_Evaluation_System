@@ -56,7 +56,7 @@ if (isset($_POST['newData'])) {
     $oldHash = password_hash($opassword, PASSWORD_DEFAULT);
     if (isset($opassword) && !empty($opassword)) {
         if (!password_verify($opassword, $oldHash)) {
-            exit("Incorrect current password!");
+            exit("Incorrect current password!")
         }
     }
 
@@ -75,6 +75,9 @@ if (isset($_POST['newData'])) {
     }
 
     matching_passwords($password, $cpassword);
+
+    $newHash = password_hash($password, PASSWORD_DEFAULT);
+    updatePassword($link $oldHash, $newHash);
 
     $email = $_POST['newEmail'];
     if (isset($email) && !empty($email)) {
