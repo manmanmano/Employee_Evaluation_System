@@ -12,7 +12,7 @@ require_once("employeetable.php");
 		<header>
             <img class="logo" src="../img/JAMLogo.png">
 			<nav>
-                <a href="employeeCredentials.php">User's credentials</a>
+                <a href="userCredentials.php">User's credentials</a>
                 <a href="../index.php">Log out</a>
 			</nav>
 		</header>
