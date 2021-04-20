@@ -51,7 +51,7 @@ if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 if (isset($_POST['submit'])) {                                                                       
                                                                             
     $workerName = $name;                                                                                                                     
-    echo "No error";                                                                        
+                                                                      
     $initiative = $_POST['initiative'];                                         
     $gbProjects = $_POST['group_based_projects'];                               
     $follows = $_POST['follows_instructions'];                                  
@@ -74,6 +74,7 @@ if (isset($_POST['submit'])) {
         validateRadio($attr);
     }
 
+    echo "No error";  
     $average = round(evaluateEmployee($attrArr), 1);                            
 
     addEval($link, $_SESSION['token'], $workerName, $week, $year, $average, 
