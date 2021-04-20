@@ -15,8 +15,8 @@ require_once("employertable.php");
             <nav>
                 <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
                     <input type="submit" name="logout" value="Log out">
-                    <input type="submit" name="newevaluation" value="Add new evaluation">
                 </form>
+                <a href="employerInput.php">Add new evaluation</a>
             </nav>
         </header>
         <h1>Welcome <?php echo $_SESSION['name']; ?>!</h1>
@@ -82,8 +82,5 @@ if (isset($_POST['logout'])) {
     session_unset();
     session_destroy();
     header("refresh:0; url=../index.php");
-}
-if (isset($_POST['newevaluation'])) {
-    header("refresh:0; url=employerInput.php");
 }
 ?>
