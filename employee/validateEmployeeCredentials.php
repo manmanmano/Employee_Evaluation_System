@@ -11,10 +11,37 @@ function matching_passwords($password, $cpassword)
     }
 }
 
+function verifyPassword($link, $email, $password) {
+    $query = "SELECT password FROM users WHERE email=?";
+    if ($stmt = mysqli_prepare($link, $query)) {
+        //bind the email to the prepared statement
+        mysqli_stmt_bind_param($stmt, "s", $_SESSION['email']);
+        //if execution is successful check for the email
+        if (mysqli_stmt_execute($stmt)) {
+            //store the result locally
+            mysqli_stmt_store_result($stmt);
+            //if pwd exists
+            if (mysqli_stmt_num_rows($stmt) == 1) {
+                //bind result to variables
+                mysqli_stmt_bind_result($stmt, $currentPassword);
+                //fetch the results
+                if (mysqli_stmt_fetch($stmt)) {
+                    //confront passwords. if they do not match error
+                    if (!password_verify($password, $currentPassword)) {
+                        exit("Invalid current password!");
+                    }
+                }
+            }
+        } else {
+            echo "Something went wrong! Please retry.";
+        }
+        mysqli_stmt_close($stmt);
+    }
+}
+
 function checkEmail($link, $email) {
         //prepare a select statement
     $query = "SELECT email FROM users WHERE email=?";
-
     if ($stmt = mysqli_prepare($link, $query)) {
         //bind the email to the prepared statement
         mysqli_stmt_bind_param($stmt, "s", $email);
@@ -34,18 +61,6 @@ function checkEmail($link, $email) {
     }
 }
 
-function updatePassword($link, $oldHash, $newHash) {
-    $query = "UPDATE users SET password=? WHERE password=?";
-    if ($stmt = mysqli_prepare($link, $query)) {
-        //bind variables to parameters
-        mysqli_stmt_bind_param($stmt, "ss", $newHash, $oldHash);
-        //attempt to execute the statement
-        if (!mysqli_stmt_execute($stmt)) {
-            echo "<h1>Something went wrong! Please retry!</h1>";
-        }
-    }
-}
-
 function updateEmail($link, $email, $oldEmail) {
     $query = "UPDATE users SET email=? WHERE email=?";
     if ($stmt = mysqli_prepare($link, $query)) {
@@ -55,6 +70,7 @@ function updateEmail($link, $email, $oldEmail) {
         if (!mysqli_stmt_execute($stmt)) {
             echo "<h1>Something went wrong! Please retry!</h1>";
         }
+        mysqli_stmt_close($stmt);
     }
 }
         
@@ -64,16 +80,14 @@ if (isset($_POST['newData'])) {
     $link = mysqli_connect($server, $user, $password, $database);
     if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
-    $opassword = $_POST['oldPassword'];
-    $oldHash = password_hash($opassword, PASSWORD_DEFAULT);
-    if (isset($opassword) && !empty($opassword)) {
-        if (!password_verify($opassword, $oldHash)) {
-            exit("Incorrect current password!");
-        }
+    $oldPassword = $_POST['oldPassword'];
+    if (isset($oldPassword) && !empty($oldPassword)) {
+        verifyPassword($link, $_SESSION['email'], $oldPassword);
     }
+    $oldHash = password_hash($oldPassword, PASSWORD_DEFAULT);
 
     $password = $_POST['newPassword'];
-    if (!empty($opassword) && isset($password) && !empty($password)) {
+    if (!empty($oldPassword) && isset($password) && !empty($password)) {
         if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)) {
             exit("Invalid password");
         }
@@ -88,7 +102,7 @@ if (isset($_POST['newData'])) {
 
     matching_passwords($password, $cpassword);
 
-    $newHash = password_hash($password, PASSWORD_DEFAULT);
+    $newHash = password_hash($cpassword, PASSWORD_DEFAULT);
     updatePassword($link, $oldHash, $newHash);
 
     $email = $_POST['newEmail'];
