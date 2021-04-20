@@ -49,12 +49,14 @@ if (isset($_POST['submit'])) {
     $names = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($names, $row['name']);
-    }                                                                   
+    }
+
+    mysqli_close($link);                                                                   
 
     $sanitizedweek = sanitizeInputVar($link, $week);
     $sanitizedyear = sanitizeInputVar($link, $year);
-    $workerName = "'" . $name . "'";                                         
-    if (!empty($names) && !in_array($name, $names)) {                     
+    $workerName = $name;                                         
+    if (!empty($names) && !in_array($workerName, $names)) {                     
         die("Invalid worker name set!");                                        
     }                                                                           
                                                                             
@@ -79,6 +81,9 @@ if (isset($_POST['submit'])) {
     }
 
     $average = round(evaluateEmployee($attrArr), 1);
+
+    $link = mysqli_connect($server, $user, $password, $database);
+if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
     editEval($link, $_SESSION['token'], $workerName, $sanitizedweek, $sanitizedyear, $average, 
         $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize, 
