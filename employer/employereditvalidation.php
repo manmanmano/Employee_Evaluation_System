@@ -24,7 +24,6 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
         SET average=" . $average . ", initiative=" . $initiative . ", group_based_projects=" . $gbProjects . ", follows_instructions=" . $follows . ",
         leadership=" . $leadership . ", focused=" . $focused . ", prioritize=" . $prioritize . ", communication_coworkers=" . $workers . ", communication_superiors=" . $superiors . ", dependable=" . $dependable . ", assignments_on_time=" . $punctualAss . ", arrives_on_time=" . $punctualTime . ", quality=" . $quality . " WHERE name=" . $name . " AND week=" . $week . " AND year=" . $year . ";";
 
-    echo $query;
     $result = mysqli_query($link, $query);
         mysqli_close($link);
     }
