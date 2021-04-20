@@ -20,6 +20,9 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
     $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, 
     $punctualAss, $punctualTime, $quality) {
 
+    $link = mysqli_connect($server, $user, $password, $database);
+    if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
+
     $query = "UPDATE token_" . $token . "
         SET average=?, initiative=?, group_based_projects=?, follows_instructions=?,
         leadership=?, focused, prioritize=?, communication_coworkers=?, communication_superiors=?,
@@ -35,7 +38,7 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
         if (mysqli_stmt_execute($stmt)) {
             header("refresh:0;employer.php");
         } else {
-            echo "<h1>Something went wrong! Please retry.</h1>";
+            echo "<h1>Something went wrong! Please retry.";
             header("refresh:5;employer.php");
         }
         mysqli_stmt_close($stmt);
