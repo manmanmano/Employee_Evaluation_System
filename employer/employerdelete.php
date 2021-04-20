@@ -9,10 +9,11 @@ if ($_SESSION['title'] != 'employer') {
 
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
-echo "No error";
+
 $name = sanitizeInputVar($link, $_GET['name']);
 $week = sanitizeInputVar($link, $_GET['week']);
 $year = sanitizeInputVar($link, $_GET['year']);
+echo "No error";
 echo $name;
 echo $week;
 echo $year;
