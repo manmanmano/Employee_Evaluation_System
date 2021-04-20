@@ -1,6 +1,6 @@
 <?php 
 require_once("../sessionstart.php");
-require_once("validateEmployeeCredentials.php");
+require_once("validateUserCredentials.php");
 ?>
 
 <!DOCTYPE html>

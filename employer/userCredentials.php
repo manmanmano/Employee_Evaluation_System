@@ -1,6 +1,6 @@
 <?php 
 require_once("../sessionstart.php");
-require_once("validateEmployeeCredentials.php");
+require_once("validateUserCredentials.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ require_once("validateEmployeeCredentials.php");
     <header>                                                                
         <img class="logo" src="../img/JAMLogo.png">                         
         <nav>                                                               
-            <a href="employee.php">Back to user page</a>
+            <a href="employer.php">Back to user page</a>
         </nav>                                                              
     </header>
     <h1>Your credentials:</h1>
