@@ -1,7 +1,7 @@
 <?php
 require_once("../sessionstart.php");
 include_once("../usersData/connect.db.php");
-include_once("../sanitizeInputVar.php");
+include_once("../usersData/sanitizeInputVar.php");
 
 if ($_SESSION['title'] != 'employer') {
     die("Session expired!");
@@ -13,7 +13,6 @@ if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 $name = sanitizeInputVar($link, $_GET['name']);
 $week = sanitizeInputVar($link, $_GET['week']);
 $year = sanitizeInputVar($link, $_GET['year']);
-echo "No error";
 echo $name;
 echo $week;
 echo $year;
