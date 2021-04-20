@@ -64,10 +64,6 @@ require_once("employertable.php");
                 + <?php echo $punctualTime; ?> + "\nEmployee's work is of high quality: " 
                 + <?php echo $quality; ?> + "\n");
             }
-
-            function delete() {
-                alert("Do you want to continue ?");
-            }
         </script>
 
         <footer>
