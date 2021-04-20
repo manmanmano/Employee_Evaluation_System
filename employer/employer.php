@@ -62,6 +62,11 @@ require_once("employertable.php");
                 + <?php echo $punctualTime; ?> + "\nEmployee's work is of high quality: " 
                 + <?php echo $quality; ?> + "\n");
             }
+            function delete(name, week, year) {
+                if(confirm('Are you sure you want to continue?')) {
+                    location.href = "employer.delete.php?name=" + name + "&week=" + week + "&year=" + year;
+                }
+            }
         </script>
 
         <footer>
