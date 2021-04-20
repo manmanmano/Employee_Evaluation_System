@@ -23,7 +23,7 @@ require_once("validateUserCredentials.php");
     <h3>User's name: <?php echo $_SESSION['name'];?></h3>
     <h3>User's email: <?php echo $_SESSION['email'];?></h3><br>
     <h1 style="text-align:center;">Update your credentials:</h1>
-    <form method="POST" method="#" style="padding: 5px;
+    <form method="POST" method="#" style="padding: 10px;
         border: 1px solid;">
         <label for="oldPassword"><b>Current password:</b></label>
         <input type="password" id="oldPassword" placeholder="Password" name="oldPassword"
@@ -42,7 +42,12 @@ require_once("validateUserCredentials.php");
         <label for="newEmail"><b>Change your email:</b></label>
         <input type="email" name="newEmail" placeholder="Email"><br><br>
         <input type="submit" name="newData" value="Update your data">
-    </form>
+    </form><br>
+    <h1 style="color: red; text-align: center; padding:10px;">Delete an employee / company</h1>
+    <span style="border: 1px solid red;">
+    <input type="submit" name="delCompany" id="deleteCompany" value="Destroy company" 
+        onclick="deleteCompany()">
+    </span> 
     <footer id="footor" style=" margin-top: 200px; margin-bottom: 0px;">
         <h2>Contact JAM</h2>
         <p id="email">Send us an email to:<br><a href="mailto: fake@mail.com">info@JAM.com</a> </p>

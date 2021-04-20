@@ -16,3 +16,8 @@ function showoPwd(){
 function hideoPwd(){                                                    
     document.getElementById("oldPassword").type='password';             
 }
+function deleteCompany() {
+    if (confirm("Are you sure to erase all of the data related to your company?")) {
+        location.href = "removeItem.php";
+    }
+}
