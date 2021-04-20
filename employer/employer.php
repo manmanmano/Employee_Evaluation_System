@@ -64,6 +64,7 @@ require_once("employertable.php");
                 + <?php echo $quality; ?> + "\n");
             }
             function delete() {
+                console.log("This program is stupiD!");
                 var ret = confirm('Are you sure you want to continue?'));
                 if (ret) {
                     location.href = "employerdelete.php;
