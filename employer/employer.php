@@ -64,6 +64,16 @@ require_once("employertable.php");
                 + <?php echo $punctualTime; ?> + "\nEmployee's work is of high quality: " 
                 + <?php echo $quality; ?> + "\n");
             }
+
+            function delete() {
+                retVal = confirm("Do you want to continue ?");
+               if(retVal == true) {
+                  document.write ("User wants to continue!");
+                  return true;
+               } else {
+                  document.write ("User does not want to continue!");
+                  return false;
+            }
         </script>
 
         <footer>
