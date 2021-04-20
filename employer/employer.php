@@ -15,8 +15,8 @@ require_once("employertable.php");
             <nav>
                 <form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
                     <input type="submit" name="logout" value="Log out">
-                </form><br>
-                <a href="employerInput.php">Add new evaluation</a>
+                    <a href="employerInput.php">Add new evaluation</a>
+                </form>
             </nav>
         </header>
         <h1>Welcome <?php echo $_SESSION['name']; ?>!</h1>
