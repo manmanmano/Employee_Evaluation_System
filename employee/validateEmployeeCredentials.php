@@ -34,6 +34,18 @@ function checkEmail($link, $email) {
     }
 }
 
+function updatePassword($link, $oldHash, $newHash) {
+    $query = "UPDATE users SET password=? WHERE password=?";
+    if ($stmt = mysqli_prepare($link, $query)) {
+        //bind variables to parameters
+        mysqli_stmt_bind_param($stmt, "ss", $newHash, $oldHash);
+        //attempt to execute the statement
+        if (!mysqli_stmt_execute($stmt)) {
+            echo "<h1>Something went wrong! Please retry!</h1>";
+        }
+    }
+}
+
 function updateEmail($link, $email, $oldEmail) {
     $query = "UPDATE users SET email=? WHERE email=?";
     if ($stmt = mysqli_prepare($link, $query)) {
@@ -56,7 +68,7 @@ if (isset($_POST['newData'])) {
     $oldHash = password_hash($opassword, PASSWORD_DEFAULT);
     if (isset($opassword) && !empty($opassword)) {
         if (!password_verify($opassword, $oldHash)) {
-            exit("Incorrect current password!")
+            exit("Incorrect current password!");
         }
     }
 
@@ -77,7 +89,7 @@ if (isset($_POST['newData'])) {
     matching_passwords($password, $cpassword);
 
     $newHash = password_hash($password, PASSWORD_DEFAULT);
-    updatePassword($link $oldHash, $newHash);
+    updatePassword($link, $oldHash, $newHash);
 
     $email = $_POST['newEmail'];
     if (isset($email) && !empty($email)) {
@@ -95,6 +107,5 @@ if (isset($_POST['newData'])) {
     mysqli_close($link);
     header("refresh:0; updateSuccess.php");
 }
-
 
 ?>
