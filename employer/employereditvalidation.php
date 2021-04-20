@@ -20,28 +20,12 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
     $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, 
     $punctualAss, $punctualTime, $quality) {
 
-    $link = mysqli_connect($server, $user, $password, $database);
-    if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
-
     $query = "UPDATE token_" . $token . "
-        SET average=?, initiative=?, group_based_projects=?, follows_instructions=?,
-        leadership=?, focused, prioritize=?, communication_coworkers=?, communication_superiors=?,
-        dependable=?, assignments_on_time=?, arrives_on_time=?, quality=? WHERE name=? AND week=? AND year=?;";
+        SET average=" . $average . ", initiative=" . $initiative . ", group_based_projects=" . $gbProjects . ", follows_instructions=" . $follows . ",
+        leadership=" . $leadership . ", focused=" . $focused . ", prioritize=" . $prioritize . ", communication_coworkers=" . $workers . ", communication_superiors=" . $superiors . ", dependable=" . $dependable . ", assignments_on_time=" . $punctualAss . ", arrives_on_time=" . $punctualTime . ", quality=" . $quality . " WHERE name=" . $name . " AND week=" . $week . " AND year=" . $year . ";";
 
-    if ($stmt = mysqli_prepare($link, $query)) {
-        //bind variables to parameters
-        echo "No error";
-        mysqli_stmt_bind_param($stmt, "diiiiiiiiiiiisii", $average, $initiative, 
-            $gbProjects, $follows, $leadership, $focused, $prioritize, $workers,
-            $superiors, $dependable, $punctualAss, $punctualTime, $quality, $name, $week, $year);
-        //attempt to execute the statement
-        if (mysqli_stmt_execute($stmt)) {
-            header("refresh:0;employer.php");
-        } else {
-            echo "<h1>Something went wrong! Please retry.";
-            header("refresh:5;employer.php");
-        }
-        mysqli_stmt_close($stmt);
+    $result = mysqli_query($link, $query);
+        mysqli_close($link);
     }
 }
 
