@@ -63,13 +63,6 @@ require_once("employertable.php");
                 + <?php echo $punctualTime; ?> + "\nEmployee's work is of high quality: " 
                 + <?php echo $quality; ?> + "\n");
             }
-            function delete() {
-                console.log("This program is stupiD!");
-                var ret = confirm('Are you sure you want to continue?'));
-                if (ret) {
-                    location.href = "employerdelete.php;
-                }
-            }
         </script>
 
         <footer>
