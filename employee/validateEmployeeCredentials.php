@@ -76,11 +76,13 @@ if (isset($_POST['newData'])) {
            $bool =  checkEmail($link, $email);
            if ($bool == true) {
                updateEmail($link, $email, $_SESSION['email']);
+               $_SESSION['email'] = $email;
            }
         }
     }
 
     mysqli_close($link);
+    header("refresh:0; updateSuccess.php");
 }
 
 
