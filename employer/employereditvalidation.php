@@ -30,7 +30,7 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
     echo $week;
     echo $year;
     echo $query;
-    header("refresh:5;url=employer.php");
+    #header("refresh:5;url=employer.php");
 }
 
 if ($_SESSION['title'] != 'employer') {
