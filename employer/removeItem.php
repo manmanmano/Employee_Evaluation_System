@@ -18,5 +18,7 @@ mysqli_stmt_close($stmt);
 
 mysqli_close($link);
 
-header("refresh:0; ../index.php");
+exit("<h1>Your company has been successfully deleted! Thank you for choosing us
+    as your business partners! Until next time! You will be redirected to the main page.</h1>");
+header("refresh:7; ../index.php");
 ?>
