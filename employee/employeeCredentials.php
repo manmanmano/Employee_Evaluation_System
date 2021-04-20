@@ -18,7 +18,11 @@ require_once("validateEmployeeCredentials.php");
             <a href="employee.php">Back to user page</a>
         </nav>                                                              
     </header>
-    <h2 style="text-align:center;">Update your credentials:</h2>
+    <h1>Your credentials:</h1>
+    <h3>User's title: <?php echo $_SESSION['title'];?></h3>
+    <h3>User's name: <?php echo $_SESSION['name'];?></h3>
+    <h3>User's email: <?php echo $_SESSION['email'];?></h3><br>
+    <h1 style="text-align:center;">Update your credentials:</h1>
     <form method="POST" method="#" style="padding: 5px;
         border: 1px solid;">
         <label for="oldPassword"><b>Current password:</b></label>
@@ -39,10 +43,6 @@ require_once("validateEmployeeCredentials.php");
         <input type="email" name="newEmail" placeholder="Email"><br><br>
         <input type="submit" name="newData" value="Update your data">
     </form>
-    <h2>Your credentials:</h2>
-    <h4>User's title: <?php echo $_SESSION['title'];?></h4>
-    <h4>User's name: <?php echo $_SESSION['name'];?></h4>
-    <h4>User's email: <?php echo $_SESSION['email'];?></h4>
     <footer id="footor" style=" margin-top: 200px; margin-bottom: 0px;">
         <h2>Contact JAM</h2>
         <p id="email">Send us an email to:<br><a href="mailto: fake@mail.com">info@JAM.com</a> </p>

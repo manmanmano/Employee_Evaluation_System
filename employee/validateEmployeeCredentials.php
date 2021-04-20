@@ -52,12 +52,20 @@ if (isset($_POST['newData'])) {
     $link = mysqli_connect($server, $user, $password, $database);
     if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
+    $opassword = $_POST['oldPassword'];
+    $oldHash = password_hash($opassword, PASSWORD_DEFAULT);
+    if (isset($opassword) && !empty($opassword)) {
+        if (!password_verify($opassword, $oldHash)) {
+            exit("Incorrect current password!");
+        }
+    }
+
     $password = $_POST['newPassword'];
-    if (isset($password) && !empty($password)) {
+    if (!empty($opassword) && isset($password) && !empty($password)) {
         if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)) {
             exit("Invalid password");
         }
-    }
+    } 
 
     $cpassword = $_POST['newcPassword'];
     if (!empty($password) && isset($cpassword) && !empty($cpassword)) {
