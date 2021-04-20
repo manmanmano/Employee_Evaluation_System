@@ -42,7 +42,10 @@ if (isset($_POST['submit'])) {
                                                                             
     $workerName = sanitizeInputVar($link, $_COOKIE['name']);
     $week = sanitizeInputVar($link, $_COOKIE['week']);
-    $year = sanitizeInputVar($link, $_COOKIE['year']);                                                                                          
+    $year = sanitizeInputVar($link, $_COOKIE['year']);
+    echo $workerName;
+    echo $week;
+    echo $year;                                                                                          
                                                                       
     $initiative = $_POST['initiative'];                                         
     $gbProjects = $_POST['group_based_projects'];                               
