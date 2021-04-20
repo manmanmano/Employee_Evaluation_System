@@ -133,10 +133,13 @@ table tr:hover {
 .evals {
     color: red;
 }
+<<<<<<< HEAD
+=======
 .error {
   color: red;
 }
 
+>>>>>>> 99dc3aad25c64dae3b7be84d149dc819075881d2
 /* MODAL */
 /* Modal (background) */
 .modal {
