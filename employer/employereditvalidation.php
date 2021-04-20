@@ -26,9 +26,6 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
 
     $result = mysqli_query($link, $query);
     mysqli_close($link);
-    echo $name;
-    echo $week;
-    echo $year;
     echo $query;
     #header("refresh:5;url=employer.php");
 }
@@ -40,9 +37,12 @@ if ($_SESSION['title'] != 'employer') {
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 
-if (isset($_POST['submit'])) {                                                                       
+if (isset($_POST['submit'])) {         
+    require_once("../usersData/sanitizeInputVar.php");                                                              
                                                                             
-    $workerName = $name;                                                                                                                     
+    $workerName = sanitizeInputVar($link, $_COOKIE['name']);
+    $week = sanitizeInputVar($link, $_COOKIE['week']);
+    $year = sanitizeInputVar($link, $_COOKIE['year']);                                                                                          
                                                                       
     $initiative = $_POST['initiative'];                                         
     $gbProjects = $_POST['group_based_projects'];                               
