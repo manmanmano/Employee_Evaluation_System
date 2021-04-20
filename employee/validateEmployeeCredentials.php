@@ -39,6 +39,19 @@ function verifyPassword($link, $email, $password) {
     }
 }
 
+function updatePassword($link, $newHash, $email) {
+    $query = "UPDATE users SET password=? WHERE email=?";
+    if ($stmt = mysqli_prepare($link, $query)) {
+        //bind variables to params
+        mysqli_stmt_bind_param($stmt, "ss", $newHash, $email);
+        //attempt to execute the statement
+        if (!mysqli_stmt_execute($stmt)) {
+            echo "<h1>Something went wrong! Please retry!</h1>";
+        }
+        mysqli_stmt_close($stmt);
+    }
+}
+
 function checkEmail($link, $email) {
         //prepare a select statement
     $query = "SELECT email FROM users WHERE email=?";
@@ -103,7 +116,7 @@ if (isset($_POST['newData'])) {
     matching_passwords($password, $cpassword);
 
     $newHash = password_hash($cpassword, PASSWORD_DEFAULT);
-    updatePassword($link, $oldHash, $newHash);
+    updatePassword($link, $newHash, $_SESSION['email']);
 
     $email = $_POST['newEmail'];
     if (isset($email) && !empty($email)) {
