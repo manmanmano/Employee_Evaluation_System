@@ -13,9 +13,7 @@ require_once("employeetable.php");
             <img class="logo" src="../img/JAMLogo.png">
 			<nav>
                 <a href="employeeCredentials.php">User's credentials</a>
-				<form method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
-                    <input type="submit" name="logout" value="Log out">
-                </form>
+                <a href="../index.php">Log out</a>
 			</nav>
 		</header>
         <h1>Welcome <?php echo $_SESSION['name']; ?>!</h1>
@@ -65,11 +63,3 @@ require_once("employeetable.php");
         </footer>
     </body>
 </html>
-
-<?php
-if (isset($_POST['logout'])) {
-    session_unset();
-    session_destroy();
-    header("refresh:0; url=../index.php");
-}
-?>
