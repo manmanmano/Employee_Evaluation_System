@@ -18,8 +18,6 @@ require_once("employerInputValidation.php");
             </nav>
         </header>
         <form action="employerInputValidation.php" method="POST" name="updateEval">
-        <table>
-            <tr>
                 Name:
                 <select name="worker_name" required>
                     <?php
@@ -29,7 +27,7 @@ require_once("employerInputValidation.php");
                 </select>
                 Week:
                 <input type="date" name="date" id="date" required><br>
-            </tr>
+        <table>
             <tr>
                 <th>Performance</th>
                 <th>Never</th>
