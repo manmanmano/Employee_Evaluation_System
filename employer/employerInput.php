@@ -24,7 +24,7 @@ require_once("employerInputValidation.php");
                     require_once("../sessionstart.php");
                     createNames($_SESSION['token'], $link);
                     ?>
-                </select>
+                </select><br>
                 <label for="date">Week:</label>
                 <input type="date" name="date" id="date" required><br>
         <table><br>
