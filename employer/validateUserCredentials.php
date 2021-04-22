@@ -95,6 +95,8 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['
     $oldPassword = $_POST['oldPassword'];
     if (isset($oldPassword) && !empty($oldPassword)) {
         verifyPassword($link, $_SESSION['email'], $oldPassword);
+    } else {
+        exit("No old password");
     }
     $oldHash = password_hash($oldPassword, PASSWORD_DEFAULT);
 
