@@ -133,7 +133,7 @@ require_once("employerInputValidation.php");
                 <td><input type="radio" name="quality" value="5"></td>
             </tr>
         </table>
-        <td><input type="submit" name="submit"></td>
+        <input type="submit" name="submit">
         </form>
         <footer>
             <h3>Contact JAM</h3>
