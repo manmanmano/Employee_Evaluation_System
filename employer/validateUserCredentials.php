@@ -87,7 +87,7 @@ function updateEmail($link, $email, $oldEmail) {
     }
 }
 
-if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || $_POST['newEmail']) {
+if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['newEmail'])) {
     //connect to database, in case of failure give error
     $link = mysqli_connect($server, $user, $password, $database);
     if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
