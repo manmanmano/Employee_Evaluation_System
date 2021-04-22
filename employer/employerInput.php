@@ -28,7 +28,7 @@ require_once("employerInputValidation.php");
                     ?>
                 </select>
                 Week:
-                <input type="date" name="date" id="date" required>
+                <input type="date" name="date" id="date" required><br>
             </tr>
             <tr>
                 <th>Performance</th>
