@@ -18,16 +18,16 @@ require_once("employerInputValidation.php");
             </nav>
         </header>
         <form action="employerInputValidation.php" method="POST" name="updateEval">
-                Name:
+                <label for="name">Name:</label>
                 <select name="worker_name" required>
                     <?php
                     require_once("../sessionstart.php");
                     createNames($_SESSION['token'], $link);
                     ?>
                 </select>
-                Week:
+                <label for="date">Week:</label>
                 <input type="date" name="date" id="date" required><br>
-        <table>
+        <table><br>
             <tr>
                 <th>Performance</th>
                 <th>Never</th>
