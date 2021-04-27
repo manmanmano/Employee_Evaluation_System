@@ -11,18 +11,21 @@ session_destroy();
     <meta name="description" content="Main page for employee performance evaluation system">
     <title>Index</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="indexValidation//dynamicAction.js" type="text/javascript"></script>
-    
  	<script src="register/registerJS.js"></script>
 </head>
 <body>
+   <header>
+        <img class="logo" src="img/JAMLogo.png">
+        <nav>
+        </nav>
+    </header>
     <h1>Employee perfomance evaluation</h1>
     <p>
         Welcome to JAM's most precious invention: the "Employee performance evaluation" system.<br>
     </p>
     <div id= "floating-login">
         <h2>Welcome!</h2>
-        <form action="indexValidation/indexValidator.php" method="POST" name="loginForm">
+        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" name="loginForm">
             <label>Login as:</label>
             <input type="radio" name="title" value="employer" required>
             <label for="employer">Employer</label>
@@ -32,13 +35,19 @@ session_destroy();
             <input type="email" name="email" placeholder="Email" autocomplete="off" required="">
             <br><br>
             <input type="password" name="password" id="password" placeholder="Password" minlength="8" autocomplete="off" required="">
-            <?php echo $passErr ?>
+            <!--reveal password on hover-->
             <span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
             <br><br>
             <input type="submit" value="login" name="submit">
+            <!--echo error message if any-->
+            <?php echo $credentialError; ?>
+            <!--hyperlink to registration form-->
             <p>Not registered? Do it <a href="register/register.php">now</a>!</p>
         </form>
     </div>
+    <!--topFunction is used to allow the user to scrollback from the bottom of the page-->
+    <button onclick="topFunction()" id="myBtn" title="Go tot top">Top</button>
+    <script src="scrollBack.js"></script>
     <p> 
         The purpose of this website is to provide employers with an efficient and easy to use tool that evaluates the performance of their employers.<br>
         Do you want to keep track of the performance of your employees over the time or just let them know how they are doing?<br>
@@ -66,7 +75,6 @@ session_destroy();
             <li>Andre Tomingas</li>
             <li>Mariano D'Angelo</li>
         </ul>
-        <p></p>
     <footer id="foot">
         <h3>Contact JAM</h3>
         <p id="email">Send us an email to:<br><a href="mailto: fake@mail.com">info@JAM.com</a> </p>
