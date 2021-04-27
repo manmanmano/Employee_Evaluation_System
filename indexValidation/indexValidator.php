@@ -61,7 +61,7 @@ function redirect($title) {
         if ($title == "employer") {
             header("refresh:0; ../employer/employer.php");
             //if the position is employee then redirect to employee.php
-        } else if ($title == "employee") {
+        } elseif ($title == "employee") {
             header("refresh:0; ../employee/employee.php");
             //if position is corrupted than exit the code
         } else {
