@@ -1,8 +1,6 @@
 <?php
 require_once("sessionstart.php");
-if (isset($_POST['submit'])) {
-    require_once("indexValidation/indexValidator.php");
-}
+require_once("indexValidation/indexValidator.php");
 session_start();
 session_unset();
 session_destroy();
