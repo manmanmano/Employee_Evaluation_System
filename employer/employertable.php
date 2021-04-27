@@ -1,14 +1,18 @@
 <?php
+//start session
 require("../sessionstart.php");
 
+//checking user title
 if ($_SESSION['title'] != 'employer') {
      header("Refresh: 7; url=../index.php");
      die ("Your session has expired");
 }
 
+//function to create employees array
 function createNames($token) {
     include("../usersData/connect.db.php");
 
+    //connection to database
     $link = mysqli_connect($server, $user, $password, $database);
 
     if (!$link) {
@@ -18,15 +22,18 @@ function createNames($token) {
     $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee';";
     $result = mysqli_query($link, $query);
     $names = array();
+    //fill the names array with employees' names
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($names, $row['name']);
     }
     mysqli_close($link);
+    //create dynamic options for select tag
     for ($i = 0; $i < sizeof($names); $i++) {
         printf("<option value ='%s'>%s</option>", $names[$i], $names[$i]);
     }
 }
 
+//function to create dynamic array
 function createTable($token) {
     include("../usersData/connect.db.php");
 
@@ -40,9 +47,11 @@ function createTable($token) {
     $employees = array();
     $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee';";
     $result = mysqli_query($link, $query);
+    //fill the names array with employees' names
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($names, $row['name']);
     }
+    //create arrays of years for each employee
     foreach ($names as $name) {
         $years = array();
         $evaluation = array();
@@ -53,6 +62,7 @@ function createTable($token) {
                 array_push($years, $row['year']);
             }
         }
+        //adds weeks and grades to each year
         foreach ($years as $year) {
             $weeks = array();
             $query = "SELECT name, week, year, average FROM token_" . $token . ";";
@@ -69,6 +79,7 @@ function createTable($token) {
         unset($evaluation);
     }
     mysqli_close($link);
+    //user filters only date
     if (isset($_GET['search']) && !empty($_GET['date']) && empty($_GET['name'])) {
         $week = intval(date("W", strtotime($_GET['date'])));
         $month = intval(date("m", strtotime($_GET['date'])));
@@ -89,6 +100,7 @@ function createTable($token) {
                 echo "</tr>";
             }
         }
+    //user filters only name
     } elseif (isset($_GET['search']) && empty($_GET['date']) && !empty($_GET['name'])) {
         $name = $_GET['name'];
         foreach ($employees[$name] as $year => $weeks) {
@@ -103,6 +115,7 @@ function createTable($token) {
                 echo "</tr>";
             }
         }
+    //user filters both name and date
     } elseif (isset($_GET['search']) && !empty($_GET['date']) && !empty($_GET['name'])) {
         $week = intval(date("W", strtotime($_GET['date'])));
         $month = intval(date("m", strtotime($_GET['date'])));
@@ -120,6 +133,7 @@ function createTable($token) {
         echo "<td><a href='employeredit.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Edit</a></td>";
         echo "<td><a href='employerdelete.php?week=" . $week . "&year=" . $year . "&name=" . $name . "'>Delete</button></td>";
         echo "</tr>";
+    //user does not filter table
     } else {
         foreach ($employees as $name => $years) {
             foreach ($years as $year => $weeks) {
