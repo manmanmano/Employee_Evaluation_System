@@ -2,6 +2,7 @@
 require_once("../sessionstart.php");
 include_once("../usersData/connect.db.php");
 
+//check if radio buttons are valid
 function validateRadio($input) {
     if (!isset($input) || empty($input)) {                            
         die("Radio button left blank!");
@@ -12,10 +13,12 @@ function validateRadio($input) {
     } 
 }
 
+//calculate the average grade
 function evaluateEmployee($arr) {
     return array_sum($arr) / count($arr);
 }
 
+//function to change the existing evaluation
 function editEval($link, $token, $name, $week, $year, $average, $initiative, $gbProjects, 
     $follows, $leadership, $focused, $prioritize, $workers, $superiors, $dependable, 
     $punctualAss, $punctualTime, $quality) {
@@ -29,6 +32,7 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
     header("refresh:0;url=employer.php");
 }
 
+//check user title
 if ($_SESSION['title'] != 'employer') {
     die("Session expired!");
 }
@@ -56,15 +60,17 @@ if (isset($_POST['submit'])) {
     $punctualTime = $_POST['arrives_on_time'];                                  
     $quality = $_POST['quality'];                                               
 
+    //create array with all of the specific grades
     $attrArr = [                                                                
         $initiative, $gbProjects, $follows, $leadership, $focused, $prioritize,  
         $workers, $superiors, $dependable, $punctualAss, $punctualTime, $quality
     ];
 
+    //check each specific grade
     foreach ($attrArr as $attr) {
         validateRadio($attr);
     }
- 
+
     $average = round(evaluateEmployee($attrArr), 1);                            
 
     editEval($link, $_SESSION['token'], $workerName, $week, $year, $average, 
