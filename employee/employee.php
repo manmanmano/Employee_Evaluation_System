@@ -1,10 +1,12 @@
 <?php
+//required for dynamic table and names of employees
 require_once("employeetable.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <!--displays the user name in title-->
         <title><?php echo $_SESSION['name']; ?> evaluation</title>
         <link rel="stylesheet" href="../styles/style.css">
     </head>
@@ -16,7 +18,9 @@ require_once("employeetable.php");
                 <a href="../index.php">Log out</a>
 			</nav>
 		</header>
+        <!-- Welcome #username-->
         <h1>Welcome <?php echo $_SESSION['name']; ?>!</h1>
+        <!-- form for filtering the table-->
         <form method="GET" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
             <label for="date">Week:</label>
             <input type="date" id="date" name="date">
@@ -29,11 +33,13 @@ require_once("employeetable.php");
                 <th>Evaluation</th>
             </tr>
             <?php
+            //creates dynamic table
             require_once("../sessionstart.php");
             createTable($_SESSION['token']);
             ?>
         </table>
         <script>
+            //the modal box is not implemented
             function modal(year, week) {
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.open("GET", "employee?week=" + week + "&year=" + year, true);
