@@ -3,7 +3,7 @@
 require_once("../sessionstart.php");
 //contains the connection to the database
 require_once("../usersData/connect.db.php");
-
+echo "No error";
 //this function checks for the user credentials.
 function validateCredentials($link,  $email, $password, $error) {
     $query = "SELECT title, name, email, password, token FROM users
