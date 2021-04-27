@@ -121,10 +121,12 @@ tr:nth-child(even) {
 th {
     background-color: black;
     color: white;
+    text-align: center;
 }
 td {
     padding-left: 10px;
     padding-right: 10px;
+    text-align: center;
 }
 table tr:hover {
     background-color: #87ff9e;
