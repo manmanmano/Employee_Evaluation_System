@@ -1,9 +1,9 @@
 <?php
 //sessionstart contains the path and command to start the session
 require_once("../sessionstart.php");
+echo "No error";
 //contains the connection to the database
 require_once("../usersData/connect.db.php");
-echo "No error";
 //this function checks for the user credentials.
 function validateCredentials($link,  $email, $password, $error) {
     $query = "SELECT title, name, email, password, token FROM users
