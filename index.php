@@ -1,5 +1,8 @@
 <?php
 require_once("sessionstart.php");
+if (isset($_POST['submit'])) {
+    require_once("indexValidation/indexValidator.php");
+}
 session_start();
 session_unset();
 session_destroy();
@@ -41,7 +44,6 @@ session_destroy();
             <br><br>
             <input type="submit" value="login" name="submit">
             <!--echo error message if any-->
-            <?php echo $credentialError; ?>
             <!--hyperlink to registration form-->
             <p>Not registered? Do it <a href="register/register.php">now</a>!</p>
         </form>
