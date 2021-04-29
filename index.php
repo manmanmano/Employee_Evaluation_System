@@ -30,7 +30,7 @@ session_destroy();
     </p>
     <div id= "floating-login">
         <h2>Welcome!</h2>
-        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" name="loginForm">
+        <form action="indexValidation/indexValidator.php" method="POST" name="loginForm">
             <label>Login as:</label>
             <input type="radio" name="title" value="employer" required>
             <label>Employer</label>
@@ -45,6 +45,7 @@ session_destroy();
             <br><br>
             <input type="submit" value="Login" name="submit" class="registerButton">
             <!--echo error message if any-->
+            <?php echo $credentialError; ?>
             <!--hyperlink to registration form-->
             <p>Not registered? Do it <a href="register/register.php">now</a>!</p>
         </form>

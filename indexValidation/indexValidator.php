@@ -107,6 +107,8 @@ $credentialError = validateCredentials($link, $username, $password, $credentialE
 //if the credentialError string is empty than redirect the user
 if ($credentialError == "") {
     redirect($title);
+} else {
+    exit();
 }
 //close the connection to the database
 mysqli_close($link);
