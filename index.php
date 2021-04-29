@@ -61,13 +61,15 @@ session_destroy();
     <h2 id="look">How does it look like?</h2>
     <p>
         Employees will find their evaluated performance once they are logged in. <br>
-        They will also have the possibility to compare their current evaluations with older ones by just scrolling down their page.<br>
+        They will also have the possibility to compare their current evaluations with older ones by just scrolling down their page.<br> 
+        In case the employee wishes, he can sort his/her evaluations by year<br>
         Doing so employees will always have the chance to compare different results from different times and eventually work on improving themselves.
     </p>
     <img src="img/employeeTAB.png" alt="Image of employee screen" title="Look of the employee page">
     <p>
-        Employers can either analyze their employees previous performances or add new ones.<br>
+        Employers can either analyze their employees previous performances and either add new ones or remove/edit old ones.<br>
         The new performance will be added on top of the older ones, while the others will be visibile by just scrolling down the page.<br>
+        In case the employer wishes, he/she can sort his/her employees' evaluations by either year, name, or both.<br>
         This system will help employers to monitor and update their employees performances with relative ease and ina short period of time.
     </p>
     <img src="img/employerTAB.png" alt="Image of employer screen" title="Look of the employer page">
