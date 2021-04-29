@@ -99,7 +99,7 @@ if (empty($_POST['name'])){
 if(!preg_match("/^[a-zA-Z ]*$/", $name)){
     exit("Please enter full name and use Latin alphabet.");
 }
-
+// sanitizing "email"
 $email = $_POST['email'];
 if (empty($_POST['email'])) {
     exit("Please enter Your email.");
@@ -107,7 +107,7 @@ if (empty($_POST['email'])) {
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit("Please enter a valid email.");
 }
-
+// sanitizing "position"
 $position = $_POST['position'];
 if (!isset($position) || empty($position)) {
   exit("Position must be selected.");
@@ -116,12 +116,12 @@ if (!isset($position) || empty($position)) {
     exit("Position must be 'Employee' or 'Employer'");
   }
 }
-
+// checks if token is entered while position is "employee"
 $employeeToken = $_POST['company'];
 if ($position == "employee" && empty($employeeToken)) {
   exit("Token is required for registering");
 }
-
+// sanitizing "password"
 $password = $_POST['password'];
 if (empty($_POST['password'])) {
     exit("Please choose a password.");
