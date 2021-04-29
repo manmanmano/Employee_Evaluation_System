@@ -16,7 +16,7 @@ session_destroy();
 </head>
 <body>
    <header>
-        <img class="logo" src="img/JAMLogo.png">
+        <img class="logo" src="img/JAMLogo.png" alt="Logo of the company">
         <nav>
             <a href="#look">Overview</a>
             <a href="#team">About the team</a>
@@ -33,9 +33,9 @@ session_destroy();
         <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" name="loginForm">
             <label>Login as:</label>
             <input type="radio" name="title" value="employer" required>
-            <label for="employer">Employer</label>
+            <label>Employer</label>
             <input type="radio" name="title" value="employee" required>
-            <label for="employee">Employee</label>
+            <label>Employee</label>
             <br><br>
             <input type="email" name="email" placeholder="Email" autocomplete="off" required="">
             <br><br>
@@ -81,8 +81,8 @@ session_destroy();
         </ul>
     <footer id="foot">
         <h3 id="contact">Contact JAM</h3>
-        <p id="email">Send us an email to:<br><a href="mailto: madang@taltech.ee">info@JAM.com</a> </p>
-        <p id="number">Call us to:<br><a href="tel: +372 5555 5555">+372 5555 5555</a> </p>
+        <p id="email">Send us an email to:<br><a href="mailto:madang@taltech.ee">info@JAM.com</a> </p>
+        <p id="number">Call us to:<br><a href="tel:+37255555555">+372 5555 5555</a> </p>
     </footer>
 </body> 
 </html>
