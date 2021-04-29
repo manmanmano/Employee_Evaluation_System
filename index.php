@@ -1,6 +1,6 @@
 <?php
 require_once("sessionstart.php");
-require_once("indexValidation/indexValidator.php");
+session_start();
 session_unset();
 session_destroy();
 ?>
