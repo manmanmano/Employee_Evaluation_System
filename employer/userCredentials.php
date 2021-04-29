@@ -9,7 +9,8 @@ require_once("validateUserCredentials.php");
     <meta charset="UTF-8">
     <title>User's credentials</title>
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="showHidePwd.js"></script>
+    <script src="../scripts/showHidePwd.js"></script>
+    <script src="../scripts/deleteCompany.js"></script>
 </head>
 <body>
     <header>                                                                
@@ -44,11 +45,8 @@ require_once("validateUserCredentials.php");
         <input type="submit" name="newData" value="Update your data">
     </form><br>
     <h1 style="color: red; text-align: center; padding:10px;">Delete Your company</h1>
-
     <input type="submit" name="delCompany" id="deleteCompany" value="Destroy company" 
         onclick="deleteCompany()"> 
-
-    
     <footer id="footor" style=" margin-top: 200px; margin-bottom: 0px;">
         <h2>Contact JAM</h2>
         <p id="email">Send us an email to:<br><a href="mailto: fake@mail.com">info@JAM.com</a> </p>

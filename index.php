@@ -12,7 +12,7 @@ session_destroy();
     <meta name="description" content="Main page for employee performance evaluation system">
     <title>Index</title>
     <link rel="stylesheet" href="styles/style.css">
- 	<script src="register/registerJS.js"></script>
+ 	<script src="scripts/showHidePwd.js"></script>
 </head>
 <body>
    <header>
@@ -52,7 +52,7 @@ session_destroy();
     </div>
     <!--topFunction is used to allow the user to scrollback from the bottom of the page-->
     <button onclick="topFunction()" id="myBtn" title="Go tot top">Top</button>
-    <script src="scrollBack.js"></script>
+    <script src="scripts/scrollBack.js"></script>
     <p> 
         The purpose of this website is to provide employers with an efficient and easy to use tool that evaluates the performance of their employers.<br>
         Do you want to keep track of the performance of your employees over the time or just let them know how they are doing?<br>

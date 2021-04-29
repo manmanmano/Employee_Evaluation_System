@@ -1,3 +1,11 @@
+// hovering over "?" shows password as plain text
+function ShowHide(){
+var employee = document.getElementById("employee");
+var employer = document.getElementById("employer");
+companyGen.style.display = employee.checked ? "none" : "block";
+haveToken.style.display = employee.checked ? "block" : "none";
+}
+
 function showPwd(){                                                         
     document.getElementById("newPassword").type='text';                        
 }                                                                           

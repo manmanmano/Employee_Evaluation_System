@@ -10,7 +10,7 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 <head>
 	<meta charset="UTF-8">
 	<title>Registration</title>
-	<script src="registerJS.js"></script>
+	<script src="../scripts/showHidePwd.js"></script>
 	<link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
@@ -47,12 +47,12 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 
 		<label for="name">Password must have at least 8 characters and at least one number, one uppercase letter and one lowercase letter.<br></label>
 		<label for="name"><b>Password</b></label>
-		<input type="password" id="password" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+		<input type="password" id="newPassword" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
 		<span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
 		<br>
 		<br>
 		<label for="name"><b>Confirm Password</b></label>
-		<input type="password" id="cPassword" name="cPassword" placeholder="Confirm Password" required>
+		<input type="password" id="confirmPassword" name="cPassword" placeholder="Confirm Password" required>
 		<span id="reveal-pwd" onmouseenter="showcPwd()" onmouseleave="hidecPwd()" >?</span>
 		<br>
 		<br>

@@ -9,7 +9,7 @@ require_once("validateUserCredentials.php");
     <meta charset="UTF-8">
     <title>User's credentials</title>
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="showHidePwd.js"></script>
+    <script src="../scripts/showHidePwd.js"></script>
 </head>
 <body>
     <header>                                                                
