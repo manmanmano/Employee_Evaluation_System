@@ -88,7 +88,7 @@ function updateEmail($link, $email, $oldEmail) {
 }
         
 
-if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || $_POST['newEmail']) {                                                   
+if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['newEmail'])) {                                                   
     //connect to database, in case of failure give error
     $link = mysqli_connect($server, $user, $password, $database);
     if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
@@ -96,27 +96,27 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || $_POST['newEmai
     $oldPassword = $_POST['oldPassword'];
     if (isset($oldPassword) && !empty($oldPassword)) {
         verifyPassword($link, $_SESSION['email'], $oldPassword);
-    }
-    $oldHash = password_hash($oldPassword, PASSWORD_DEFAULT);
+        $oldHash = password_hash($oldPassword, PASSWORD_DEFAULT);
 
-    $password = $_POST['newPassword'];
-    if (!empty($oldPassword) && isset($password) && !empty($password)) {
-        if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)) {
-            exit("Invalid password");
+        $password = $_POST['newPassword'];
+        if (!empty($oldPassword) && isset($password) && !empty($password)) {
+            if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)) {
+                exit("Invalid password");
+            }
         }
-    } 
 
-    $cpassword = $_POST['newcPassword'];
-    if (!empty($password) && isset($cpassword) && !empty($cpassword)) {
-        if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $cpassword)) {
-            exit("Invalid password");
+        $cpassword = $_POST['newcPassword'];
+        if (!empty($password) && isset($cpassword) && !empty($cpassword)) {
+            if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $cpassword)) {
+                exit("Invalid password");
+            }
         }
+
+        matching_passwords($password, $cpassword);
+
+        $newHash = password_hash($cpassword, PASSWORD_DEFAULT);
+        updatePassword($link, $newHash, $_SESSION['email']);
     }
-
-    matching_passwords($password, $cpassword);
-
-    $newHash = password_hash($cpassword, PASSWORD_DEFAULT);
-    updatePassword($link, $newHash, $_SESSION['email']);
 
     $email = $_POST['newEmail'];
     if (isset($email) && !empty($email)) {
