@@ -39,9 +39,9 @@ header {
 }
 #floating-login {
     float: right;
-    margin-right: 30px;
-    border-style: solid;
-    padding: 10px;
+    margin-right: 80px;
+    border: 1px solid black;
+    padding: 10px 40px;
 }
 ul {
     list-style: square;

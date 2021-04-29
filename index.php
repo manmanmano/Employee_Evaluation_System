@@ -43,7 +43,7 @@ session_destroy();
             <!--reveal password on hover-->
             <span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
             <br><br>
-            <input type="submit" value="login" name="submit">
+            <input type="submit" value="Login" name="submit" class="registerButton">
             <!--echo error message if any-->
             <!--hyperlink to registration form-->
             <p>Not registered? Do it <a href="register/register.php">now</a>!</p>
