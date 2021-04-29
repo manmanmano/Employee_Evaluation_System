@@ -18,6 +18,10 @@ session_destroy();
    <header>
         <img class="logo" src="img/JAMLogo.png">
         <nav>
+            <a href="#look">Overview</a>
+            <a href="#team">About the team</a>
+            <a href="#contact">Contact us</a>
+            <a href="#floating-login">Login</a>
         </nav>
     </header>
     <h1>Employee perfomance evaluation</h1>
@@ -53,7 +57,7 @@ session_destroy();
         Do you want to keep track of the performance of your employees over the time or just let them know how they are doing?<br>
         Then the "Employee Performance Evaluation" system is what you are looking for!
     </p>
-    <h2>How does it look like?</h2>
+    <h2 id="look">How does it look like?</h2>
     <p>
         Employees will find their evaluated performance once they are logged in. <br>
         They will also have the possibility to compare their current evaluations with older ones by just scrolling down their page.<br>
@@ -66,7 +70,7 @@ session_destroy();
         This system will help employers to monitor and update their employees performances with relative ease and ina short period of time.
     </p>
     <img src="img/employerTAB.png" alt="Image of employer screen" title="Look of the employer page">
-    <h2>The team</h2>
+    <h2 id="team">The team</h2>
     <p>To make this program possible JAM put together the smartest minds on earth.<br>These people have worked day and night to
         deliver the user the perfect website: secure, fast, and efficient.<br>The team is conducted by three Cyber Security Engineering students at TalTech.</p>
     <p>The main members of the team are:</p>
@@ -76,8 +80,8 @@ session_destroy();
             <li>Mariano D'Angelo</li>
         </ul>
     <footer id="foot">
-        <h3>Contact JAM</h3>
-        <p id="email">Send us an email to:<br><a href="mailto: fake@mail.com">info@JAM.com</a> </p>
+        <h3 id="contact">Contact JAM</h3>
+        <p id="email">Send us an email to:<br><a href="mailto: madang@taltech.ee">info@JAM.com</a> </p>
         <p id="number">Call us to:<br><a href="tel: +372 5555 5555">+372 5555 5555</a> </p>
     </footer>
 </body> 

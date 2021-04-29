@@ -1,7 +1,7 @@
 <?php
 require_once("../usersData/connect.db.php");
 session_name('sesRegister');
-session_set_cookie_params(['path' => '/~juprus/icd0007_project/']);
+session_set_cookie_params(['path' => '/~madang/icd0007_project/']);
 session_start();
 
 //check if the token is valid
