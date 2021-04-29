@@ -56,11 +56,12 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 		<span id="reveal-pwd" onmouseenter="showcPwd()" onmouseleave="hidecPwd()" >?</span>
 		<br>
 		<br>
+		<!-- box to enter company token, visible by default and as "employee"-->
 		<div id="haveToken" style="display:block">
 			<label for="company"><b>Company token (token given by the employer)</b></label>
 			<input type="text" id="company" name="company">
 		</div>
-
+		<!-- box that gives the company token, visible when selecting "employer"-->
 		<div id="companyGen"  style="display:none">
 		<p><b><?php
 		echo "Give this token to employees for registering: ";
