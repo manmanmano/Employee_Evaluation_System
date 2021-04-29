@@ -95,7 +95,7 @@ $name = $_POST['name'];
 if (empty($_POST['name'])){
     exit("Please enter Your name.");
 }
-// /^[a-zA-Z ]*$/ letters and whitespace or ^[A-Za-z]+(\s[A-Za-z]+){0,2}$ Only First, First & Last(?), First, Middle and Last
+// /^[a-zA-Z ]*$/ letters and whitespace
 if(!preg_match("/^[a-zA-Z ]*$/", $name)){
     exit("Please enter full name and use Latin alphabet.");
 }
