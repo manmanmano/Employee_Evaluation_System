@@ -1,8 +1,8 @@
+<?php header("refresh:2; userCredentials.php "); ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="2; userCredentials.php" />
     <title>Registration complete</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
