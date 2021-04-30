@@ -37,16 +37,19 @@ function validateCredentials($link,  $email, $password) {
                         //if the password is wrong return an error message
                         $error =  "<p>Incorrect username or password!</p>";
                         echo $error;
+                        header("refresh:2;url=../index.php");
                     }
                 }
             } else {
                 //if the email has not been found return an error message
                 $error = "<p>Incorrect username or password!</p>";
                 echo $error;
+                header("refresh:2;url=../index.php");
             }
         } else {
             //something else went wrong
             echo "<h1>Something went wrong! Please retry.</h1>";
+            header("refresh:2;url=../index.php");
         }
     }
     //close the query
@@ -65,6 +68,7 @@ function redirect($title) {
             //if position is corrupted than exit the code
         } else {
             die("<h1>Invalid position!</h1>");
+            header("refresh:2;url=../index.php");
         }
     }
 }
