@@ -246,3 +246,6 @@ table tr:hover {
   text-align: center;
   font-size: 10px;
 }
+.evaluationTable {
+  width: 500px;
+}
