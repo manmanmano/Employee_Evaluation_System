@@ -19,7 +19,7 @@ function createNames($token) {
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
-    $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee' ORDER BY ASC;";
+    $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee' ORDER BY name ASC;";
     $result = mysqli_query($link, $query);
     $names = array();
     //fill the names array with employees' names
@@ -45,7 +45,7 @@ function createTable($token) {
     
     $names = array();
     $employees = array();
-    $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee' ORDER BY ASC;";
+    $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee' ORDER BY name ASC;";
     $result = mysqli_query($link, $query);
     //fill the names array with employees' names
     while ($row = mysqli_fetch_assoc($result)) {
