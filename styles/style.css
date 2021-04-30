@@ -242,4 +242,7 @@ table tr:hover {
   padding: 2px 5px;
   background-color: #87ff9e;
 }
-
+.footnote {
+  text-align: center;
+  font-size: 10px;
+}
