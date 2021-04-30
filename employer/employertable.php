@@ -4,8 +4,8 @@ require("../sessionstart.php");
 
 //checking user title
 if ($_SESSION['title'] != 'employer') {
-     header("Refresh: 7; url=../index.php");
-     die ("Your session has expired");
+    header("Refresh: 4; url=../index.php");
+    die ("Your session has expired");
 }
 
 //function to create employees array
