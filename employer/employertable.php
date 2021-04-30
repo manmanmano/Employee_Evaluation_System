@@ -86,7 +86,8 @@ function createTable($token) {
         $month = intval(date("m", strtotime($_GET['date'])));
         $day = intval(date("d", strtotime($_GET['date'])));
         $year = intval(date("Y", strtotime($_GET['date'])));
-        if (!checkdate($month, $day, $year)) {                                                 
+        if (!checkdate($month, $day, $year)) {
+            header("refresh:4;url=employer.php");                                                 
             die("Invalid date set!");
         }
         foreach ($employees as $name => $grades) {
@@ -122,7 +123,8 @@ function createTable($token) {
         $month = intval(date("m", strtotime($_GET['date'])));
         $day = intval(date("d", strtotime($_GET['date'])));
         $year = intval(date("Y", strtotime($_GET['date'])));
-        if (!checkdate($month, $day, $year)) {                                                 
+        if (!checkdate($month, $day, $year)) {
+            header("refresh:4;url=employer.php");                                                 
             die("Invalid date set!");
         }
         $name = $_GET['name'];
