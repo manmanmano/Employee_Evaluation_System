@@ -6,12 +6,16 @@ include_once("../usersData/sanitizeInputVar.php");
 
 //checking user title
 if ($_SESSION['title'] != 'employer') {
-    die("Session expired!");
+    header("refresh:2;url=employer.php");
+    die("<h1>Session expired!");
 }
 
 //connecting to database
 $link = mysqli_connect($server, $user, $password, $database);
-if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
+if (!$link) {
+    header("refresh:2;url=employer.php");
+    die("Connection to DB failed: " . mysqli_connect_error());
+}
 
 //getting variables to form query
 $name = sanitizeInputVar($link, $_GET['name']);
