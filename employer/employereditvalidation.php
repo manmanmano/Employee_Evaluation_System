@@ -4,11 +4,13 @@ include_once("../usersData/connect.db.php");
 
 //check if radio buttons are valid
 function validateRadio($input) {
-    if (!isset($input) || empty($input)) {                            
-        die("Radio button left blank!");
+    if (!isset($input) || empty($input)) {
+        header("refresh:2;url=employer.php");                            
+        die("<h1>Radio button left blank!");
     } else {                                                                    
-        if ($input < 1 || $input > 5) {                               
-            die("Corrupted data in radio input!");                              
+        if ($input < 1 || $input > 5) {
+            header("refresh:2;url=employer.php");                               
+            die("<h1>Corrupted data in radio input!");                              
         }                                                                       
     } 
 }
@@ -34,11 +36,15 @@ function editEval($link, $token, $name, $week, $year, $average, $initiative, $gb
 
 //check user title
 if ($_SESSION['title'] != 'employer') {
-    die("Session expired!");
+    header("refresh:2;url=employer.php");
+    die("<h1>Session expired!");
 }
 
 $link = mysqli_connect($server, $user, $password, $database);
-if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
+if (!$link) {
+    header("refresh:2;url=employer.php");
+    die("<h1>Connection to DB failed: " . mysqli_connect_error());
+}
 
 if (isset($_POST['submit'])) {         
     require_once("../usersData/sanitizeInputVar.php");                                                              
