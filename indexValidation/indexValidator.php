@@ -4,7 +4,7 @@ require_once("../sessionstart.php");
 //contains the connection to the database
 require_once("../usersData/connect.db.php");
 //this function checks for the user credentials.
-function validateCredentials($link,  $email, $password, $error) {
+function validateCredentials($link,  $email, $password) {
     $query = "SELECT title, name, email, password, token FROM users
         WHERE email=?";
     if ($stmt = mysqli_prepare($link, $query)) {
@@ -36,13 +36,13 @@ function validateCredentials($link,  $email, $password, $error) {
                     } else {
                         //if the password is wrong return an error message
                         $error =  "<p>Incorrect username or password!</p>";
-                        return $error;
+                        echo $error;
                     }
                 }
             } else {
                 //if the email has not been found return an error message
                 $error = "<p>Incorrect username or password!</p>";
-                return $error;
+                echo $error;
             }
         } else {
             //something else went wrong
