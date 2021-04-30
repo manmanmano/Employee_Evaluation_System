@@ -7,7 +7,8 @@ function matching_passwords($password, $cpassword)
 {
     if ($password != $cpassword) {
         // error matching passwords
-        exit('Your passwords do not match.');
+        header("refresh:2;url=employee.php");
+        exit('<h1>Your passwords do not match.');
     }
 }
 
@@ -33,7 +34,8 @@ function verifyPassword($link, $email, $password) {
                 }
             }
         } else {
-            echo "Something went wrong! Please retry.";
+            echo "<h1>Something went wrong! Please retry.";
+            header("refresh:2;url=employee.php");
         }
         mysqli_stmt_close($stmt);
     }
@@ -46,7 +48,8 @@ function updatePassword($link, $newHash, $email) {
         mysqli_stmt_bind_param($stmt, "ss", $newHash, $email);
         //attempt to execute the statement
         if (!mysqli_stmt_execute($stmt)) {
-            echo "<h1>Something went wrong! Please retry!</h1>";
+            echo "<h1>Something went wrong! Please retry!";
+            header("refresh:2;url=employee.php");
         }
         mysqli_stmt_close($stmt);
     }
@@ -64,7 +67,7 @@ function checkEmail($link, $email) {
             mysqli_stmt_store_result($stmt);
             //if email does not exist exit
             if (mysqli_stmt_num_rows($stmt) == 1) {
-                echo "<h1>Email already exists!</h1>";
+                echo "<h1>Email already exists!";
                 return false;
             } else {
                 return true;
@@ -83,6 +86,7 @@ function updateEmail($link, $email, $oldEmail) {
         //attempt to execute the statement
         if (!mysqli_stmt_execute($stmt)) {
             echo "<h1>Something went wrong! Please retry!</h1>";
+            header("refresh:2;url=employee.php");
         }
         //close the statement
         mysqli_stmt_close($stmt);
@@ -108,7 +112,8 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['
         //check for the validity
         if (!empty($oldPassword) && isset($password) && !empty($password)) {
             if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)) {
-                exit("Invalid password");
+                header("refresh:2;url=employee.php");
+                exit("<h1>Invalid password");
             }
         }
 
@@ -117,7 +122,8 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['
         // check for the validity
         if (!empty($password) && isset($cpassword) && !empty($cpassword)) {
             if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $cpassword)) {
-                exit("Invalid password");
+                header("refresh:2;url=employee.php");
+                exit("<h1>Invalid password");
             }
         }
         //find if the confirm password and new password match
@@ -133,7 +139,8 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['
     if (isset($email) && !empty($email)) {
         //validate the email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            exit("Invalid email");
+            header("refresh:2;url=employee.php");
+            exit("<h1>Invalid email");
         } else {
             //if the email does not exist in the table of the users than update it 
            $bool =  checkEmail($link, $email);
