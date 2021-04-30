@@ -4,8 +4,8 @@ require_once("../sessionstart.php");
 
 //checks the title of the user
 if ($_SESSION['title'] != 'employee') {
-     header("Refresh: 7; url=../index.php");
-     die ("Your session has expired");
+     header("Refresh:3; url=../index.php");
+     die ("<h1>Your session has expired");
 }
 
 //if user wants to filter the table
@@ -19,7 +19,8 @@ if (isset($_GET['week']) && isset($_GET['year'])) {
     $link = mysqli_connect($server, $user, $password, $database);
 
     if (!$link) {
-        die("Connection to DB failed: " . mysqli_connect_error());
+        header("refresh:2;url=employee.php");
+        die("<h1>Connection to DB failed: " . mysqli_connect_error());
     }
 
     //query creation
@@ -54,7 +55,8 @@ function createTable($token) {
     $link = mysqli_connect($server, $user, $password, $database);
 
     if (!$link) {
-        die("Connection to DB failed: " . mysqli_connect_error());
+        header("refresh:2;url=employee.php");
+        die("<h1>Connection to DB failed: " . mysqli_connect_error());
     }
 
     $grades = array();
@@ -86,8 +88,9 @@ function createTable($token) {
         $month = intval(date("m", strtotime($_GET['date'])));
         $day = intval(date("d", strtotime($_GET['date'])));
         $year = intval(date("Y", strtotime($_GET['date'])));
-        if (!checkdate($month, $day, $year)) {                                                 
-            die("Invalid date set!");
+        if (!checkdate($month, $day, $year)) {
+            header("refresh:2;url=employee.php");                                                 
+            die("<h1>Invalid date set!");
         }
         //if user filters the table
         echo "<tr>";
