@@ -93,7 +93,7 @@ if (!isset($title) || empty($title)) {
 $username = $_POST['email'];
 //check if the format of the email is correct, if not exit and print error message
 if (!filter_var($username, FILTER_VALIDATE_EMAIL) || empty($username)) {
-    die("<h1>Invalid email or password!</h1>");
+    die("<h1>Invalid email!</h1>");
 }
 //check for the password
 $password = $_POST['password'];
