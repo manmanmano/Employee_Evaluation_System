@@ -4,8 +4,8 @@ require("../sessionstart.php");
 
 //checking user title
 if ($_SESSION['title'] != 'employer') {
-    header("Refresh: 4; url=../index.php");
-    die ("Your session has expired");
+    header("Refresh:2; url=../index.php");
+    die ("<h1>Your session has expired");
 }
 
 //function to create employees array
@@ -17,7 +17,7 @@ function createNames($token) {
 
     if (!$link) {
         header("refresh:3;url=../index.php");
-        die("Connection to DB failed: " . mysqli_connect_error());
+        die("<h1>Connection to DB failed: " . mysqli_connect_error());
     }
 
     $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee' ORDER BY name ASC;";
@@ -41,7 +41,8 @@ function createTable($token) {
     $link = mysqli_connect($server, $user, $password, $database);
 
     if (!$link) {
-        die("Connection to DB failed: " . mysqli_connect_error());
+        header("refresh:3;url=../index.php");
+        die("<h1>Connection to DB failed: " . mysqli_connect_error());
     }
     
     $names = array();
@@ -87,8 +88,8 @@ function createTable($token) {
         $day = intval(date("d", strtotime($_GET['date'])));
         $year = intval(date("Y", strtotime($_GET['date'])));
         if (!checkdate($month, $day, $year)) {
-            header("refresh:4;url=employer.php");                                                 
-            die("Invalid date set!");
+            header("refresh:2;url=employer.php");                                                 
+            die("<h1>Invalid date set!");
         }
         foreach ($employees as $name => $grades) {
             if (!empty($grades[$year][$week])) {
@@ -124,8 +125,8 @@ function createTable($token) {
         $day = intval(date("d", strtotime($_GET['date'])));
         $year = intval(date("Y", strtotime($_GET['date'])));
         if (!checkdate($month, $day, $year)) {
-            header("refresh:4;url=employer.php");                                                 
-            die("Invalid date set!");
+            header("refresh:2;url=employer.php");                                                 
+            die("<h1>Invalid date set!");
         }
         $name = $_GET['name'];
         echo "<tr>";
