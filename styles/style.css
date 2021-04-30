@@ -247,6 +247,6 @@ table tr:hover {
   font-size: 10px;
 }
 .evaluationTable {
-  table-layout: auto;
+  table-layout: fixed;
   width: 180px;
 }
