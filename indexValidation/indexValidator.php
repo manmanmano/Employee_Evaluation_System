@@ -79,31 +79,38 @@ function redirect($title) {
 //}
 //connect to the database. If fails then show error mesage
 $link = mysqli_connect($server, $user, $password, $database);
-if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
+if (!$link) { 
+    echo "Connection to DB failed: " . mysqli_connect_error();
+    header("refresh:2;url=../index.php");
+}
 //this string will contain possible errors in input and print it on the form
 $credentialError = "";
 //check for the position
 $title = $_POST['title'];
 //if the title is not set or it is empty then exit the code
 if (!isset($title) || empty($title)) {
-    die("<h1>Radio button left blank!</h1>");
+    echo "<h1>Radio button left blank!</h1>";
+    header("refresh:2;url=../index.php");
 } else {
     //if the title is not employee nor employer than exit the code and print error
     if ($title != "employee" && $title != "employer") {
-        die("<h1>Corrupted data in radio input!</h1>");
+        echo "<h1>Corrupted data in radio input!</h1>";
+        header("refresh:2;url=../index.php");
     }
 }
 //check for the username/email
 $username = $_POST['email'];
 //check if the format of the email is correct, if not exit and print error message
 if (!filter_var($username, FILTER_VALIDATE_EMAIL) || empty($username)) {
-    die("<h1>Invalid email!</h1>");
+    echo "<h1>Invalid email!</h1>";
+    header("refresh:2;url=../index.php");
 }
 //check for the password
 $password = $_POST['password'];
 //if the password is left blank or it is less than 8 char then exit and print error message
 if (strlen($password) < 8 || empty($password)) {
-    die("<h1>Invalid password in input!</h1>");
+    echo "<h1>Invalid password in input!</h1>";
+    header("refresh:2;url=../index.php");
 }
 //this function validates the credentials inputted in the form. It returns an empty string if successful
 //and returns an error message if not
