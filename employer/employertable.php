@@ -16,6 +16,7 @@ function createNames($token) {
     $link = mysqli_connect($server, $user, $password, $database);
 
     if (!$link) {
+        header("refresh:3;url=../index.php");
         die("Connection to DB failed: " . mysqli_connect_error());
     }
 
