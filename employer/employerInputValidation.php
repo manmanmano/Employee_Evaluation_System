@@ -8,7 +8,8 @@ function createNames($token, $link) {
     include_once("../usersData/sanitizeInputVar");
 
     if (!$link) {
-        die("Connection to DB failed: " . mysqli_connect_error());
+        header("refresh:2;url=employer.php");
+        die("<h1>Connection to DB failed: " . mysqli_connect_error());
     }
 
     $query = "SELECT name FROM users WHERE token='". $token . "' AND title='employee' ORDER BY name ASC;";
@@ -24,12 +25,14 @@ function createNames($token, $link) {
 //this function sanitizes and validates all the radio buttons
 function validateRadio($input) {
     //if the button is not set or is empty left blank
-    if (!isset($input) || empty($input)) {                            
-        die("Radio button left blank!");
+    if (!isset($input) || empty($input)) {    
+        header("refresh:2;url=employer.php");                        
+        die("<h1>Radio button left blank!");
     } else {                                                                    
         //if the button has a value less than 1 and greater than 5 than it is corrupted and exit
-        if ($input < 1 && $input > 5) {                               
-            die("Corrupted data in radio input!");                              
+        if ($input < 1 && $input > 5) {       
+            header("refresh:2;url=employer.php");                        
+            die("<h1>Corrupted data in radio input!");                              
         }                                                                       
     } 
 }
@@ -60,6 +63,7 @@ function addEval($link, $token, $name, $week, $year, $average, $initiative, $gbP
         if (mysqli_stmt_execute($stmt)) {
             header("refresh:0;employer.php");
         } else {
+            header("refresh:2;url=../index.php");
             echo "<h1>Something went wrong! Please retry.";
         }
         mysqli_stmt_close($stmt);
@@ -67,7 +71,8 @@ function addEval($link, $token, $name, $week, $year, $average, $initiative, $gbP
 }
 //if the session title is not equal to employer then exit
 if ($_SESSION['title'] != 'employer') {
-    die("Session expired!");
+    header("refresh:2;url=../index.php");
+    die("<h1>Session expired!");
 }
 //try to connect to the database
 $link = mysqli_connect($server, $user, $password, $database);
@@ -75,20 +80,23 @@ if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
 //if submit is set
 if (isset($_POST['submit'])) {
 
-    if (!isset($_POST['date'])) {                                               
-        die("No date set!");                                                    
+    if (!isset($_POST['date'])) {
+        header("refresh:2;url=employer.php");                                               
+        die("<h1>No date set!");                                                    
     }
     $month = intval(date("m", strtotime($_POST['date'])));                      
     $day = intval(date("d", strtotime($_POST['date'])));                        
     $year = intval(date("Y", strtotime($_POST['date'])));                       
     $week = intval(date("W", strtotime($_POST['date'])));                       
-    if (!checkdate($month, $day, $year)) {                                          
-        die("Invalid date set!");                                               
+    if (!checkdate($month, $day, $year)) {
+        header("refresh:2;url=employer.php");                                          
+        die("<h1>Invalid date set!");                                               
     }                                                                           
     //find the worker name. If the worker name is not in the array of names of employees then exit    
     $workerName = $_POST['worker_name'];                                            
-    if (!empty($names) && !in_array($workerName, $names)) {                     
-        die("Invalid worker name set!");                                        
+    if (!empty($names) && !in_array($workerName, $names)) {
+        header("refresh:2;url=employer.php");                     
+        die("<h1>Invalid worker name set!");                                        
     }                                                                           
     //assign a variable to each of the attributes                                                                            
     $initiative = $_POST['initiative'];                                         
