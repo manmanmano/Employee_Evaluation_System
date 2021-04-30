@@ -26,6 +26,7 @@ require_once("employeetable.php");
             <input type="date" id="date" name="date">
             <input type="submit" name="search" value="Search">
         </form><br>
+        <p>* To reset the search click the search button again without entering any parameters</p><br>
         <table>
             <tr>
                 <th>Week</th>
