@@ -16,7 +16,7 @@ require_once("employereditvalidation.php");
             <nav>
                 <a href="employer.php">Back to user page</a>
             </nav>
-        </header><br>
+        </header>
         <form action="employereditvalidation.php" method="POST" name="updateEval">
         <table class="evaluationTable">
             <tr>
@@ -26,7 +26,7 @@ require_once("employereditvalidation.php");
                 <?php setcookie("week", $_GET['week'], time() + 3600, "/~madang/icd0007_project"); echo $_GET['week']; ?>
                 Year:
                 <?php setcookie("year", $_GET['year'], time() + 3600, "/~madang/icd0007_project"); echo $_GET['year']; ?>
-            </tr>
+            </tr><br>
             <tr>
                 <th>Performance</th>
                 <th>Never</th>
