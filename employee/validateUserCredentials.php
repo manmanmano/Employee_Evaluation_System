@@ -73,9 +73,10 @@ function checkEmail($link, $email) {
         mysqli_stmt_close($stmt);
     }
 }
-
+//update the email 
 function updateEmail($link, $email, $oldEmail) {
     $query = "UPDATE users SET email=? WHERE email=?";
+    //prepare the statement
     if ($stmt = mysqli_prepare($link, $query)) {
         //bind variables to params
         mysqli_stmt_bind_param($stmt, "ss", $email, $oldEmail);
@@ -83,22 +84,28 @@ function updateEmail($link, $email, $oldEmail) {
         if (!mysqli_stmt_execute($stmt)) {
             echo "<h1>Something went wrong! Please retry!</h1>";
         }
+        //close the statement
         mysqli_stmt_close($stmt);
     }
 }
         
-
+//if submit is set and at least one input field is set execute the script
 if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['newEmail'])) {                                                   
     //connect to database, in case of failure give error
     $link = mysqli_connect($server, $user, $password, $database);
     if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
-
+    
     $oldPassword = $_POST['oldPassword'];
+    //if the old password is set and it is not empty than check for the other passwords as well
     if (isset($oldPassword) && !empty($oldPassword)) {
+        //verify the password from the database. If it is correct continue
         verifyPassword($link, $_SESSION['email'], $oldPassword);
+        //hash teh old password
         $oldHash = password_hash($oldPassword, PASSWORD_DEFAULT);
 
         $password = $_POST['newPassword'];
+        //if the oldPassword is not empty and the new password is set and not empty 
+        //check for the validity
         if (!empty($oldPassword) && isset($password) && !empty($password)) {
             if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $password)) {
                 exit("Invalid password");
@@ -106,23 +113,29 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['
         }
 
         $cpassword = $_POST['newcPassword'];
+        // if the new password is not empty and the confirm password is set and not empty
+        // check for the validity
         if (!empty($password) && isset($cpassword) && !empty($cpassword)) {
             if(!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $cpassword)) {
                 exit("Invalid password");
             }
         }
-
+        //find if the confirm password and new password match
         matching_passwords($password, $cpassword);
-
+        //hash the new password
         $newHash = password_hash($cpassword, PASSWORD_DEFAULT);
+        //update the new password
         updatePassword($link, $newHash, $_SESSION['email']);
     }
 
     $email = $_POST['newEmail'];
+    //if the email is set and it is not empty
     if (isset($email) && !empty($email)) {
+        //validate the email
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             exit("Invalid email");
         } else {
+            //if the email does not exist in the table of the users than update it 
            $bool =  checkEmail($link, $email);
            if ($bool == true) {
                updateEmail($link, $email, $_SESSION['email']);
@@ -131,7 +144,9 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['
         }
     }
 
+    //close the statement
     mysqli_close($link);
+    //redirect to updateSuccess
     header("refresh:0; updateSuccess.php");
 }
 
