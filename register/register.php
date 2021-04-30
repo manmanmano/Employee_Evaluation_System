@@ -29,6 +29,7 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 		<input type="text" id="email" name="email" placeholder="Email" required>
 		<br>
 		<br>
+		<div id="positionDiv">
 		<label><b>Position:</b></label>
 			<ul>
 				<li>
@@ -44,22 +45,22 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 					</label>
 				</li>
 			</ul>
-
-		<label for="name">Password must have at least 8 characters and at least one number, one uppercase letter and one lowercase letter.<br></label>
-		<label for="name"><b>Password</b></label>
-		<input type="password" id="newPassword" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+		</div>
+		<label for="regPassword"><b>Password</b></label>
+		<input type="password" id="regPassword" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
 		<span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
 		<br>
+		<label for="name" class="pswRequirement">* Password must have at least 8 characters and at least one number, <br> one uppercase letter and one lowercase letter.<br></label>
 		<br>
-		<label for="name"><b>Confirm Password</b></label>
-		<input type="password" id="confirmPassword" name="cPassword" placeholder="Confirm Password" required>
+		<label for="regCPassword"><b>Confirm Password</b></label>
+		<input type="password" id="regCPassword" name="cPassword" placeholder="Confirm Password" required>
 		<span id="reveal-pwd" onmouseenter="showcPwd()" onmouseleave="hidecPwd()" >?</span>
 		<br>
 		<br>
 		<!-- box to enter company token, visible by default and as "employee"-->
 		<div id="haveToken" style="display:block">
-			<label for="company"><b>Company token (token given by the employer)</b></label>
-			<input type="text" id="company" name="company">
+			<label for="company"><b>Company token</b></label>
+			<input type="text" id="company" name="company" placeholder="Given by the employer">
 		</div>
 		<!-- box that gives the company token, visible when selecting "employer"-->
 		<div id="companyGen"  style="display:none">
