@@ -32,6 +32,7 @@ require_once("employertable.php");
             </select><br>
             <input type="submit" name="search" value="Search"><br>
         </form><br>
+        <p>* To reset the search click the search button again without entering any parameters</p><br>
         <table>
             <tr>
                 <th>Name</th>
