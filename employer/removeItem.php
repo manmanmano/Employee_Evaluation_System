@@ -3,7 +3,10 @@ require_once("../sessionstart.php");
 require_once("../usersData/connect.db.php");
 //connect to the database
 $link = mysqli_connect($server, $user, $password, $database);
-if (!$link) die("Connection to DB failed: " . mysqli_connect_error());
+if (!$link) {
+    header("refresh:2;url=employer.php");
+    die("<h1>Connection to DB failed: " . mysqli_connect_error());
+}
 //query to drop the table of the company
 $query = "DROP TABLE token_" . $_SESSION['token'] . ";";
 //prepare the statement
