@@ -96,8 +96,8 @@ function createTable($token) {
         echo "<tr>";
         echo "<td>", $week, "</td>";
         echo "<td>", $year, "</td>";
-        echo "<td><a class='evals'>", 
-            $grades[$year][$week], "</a></td>";
+        echo "<td>", 
+            $grades[$year][$week], "</td>";
         echo "</tr>";    
     //if the user does not filter the table
     } else {
@@ -106,7 +106,7 @@ function createTable($token) {
                 echo "<tr>";
                 echo "<td>", $week, "</td>";
                 echo "<td>", $year, "</td>";
-                echo "<td><a class='evals'>", $grade, "</a></td>";
+                echo "<td>", $grade, "</td>";
                 echo "</tr>";
             }
         }
