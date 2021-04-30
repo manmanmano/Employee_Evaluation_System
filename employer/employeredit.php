@@ -18,7 +18,7 @@ require_once("employereditvalidation.php");
             </nav>
         </header>
         <form action="employereditvalidation.php" method="POST" name="updateEval">
-        <table>
+        <table class="evaluationTable">
             <tr>
                 Name:
                 <?php setcookie("name", $_GET['name'], time() + 3600, "/~madang/icd0007_project"); echo $_GET['name']; ?>
