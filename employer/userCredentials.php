@@ -42,7 +42,7 @@ require_once("validateUserCredentials.php");
             one uppercase letter and one lowercase letter</p>
         <label for="newEmail"><b>Change your email:</b></label>
         <input type="email" id="newEmail" name="newEmail" placeholder="Email"><br><br>
-        <input type="submit" name="newData" value="Update your data">
+        <input type="submit" class="registerButton" name="newData" value="Update your data">
     </form><br>
     <h1 style="color: red; text-align: center; padding:10px;">Delete Your company</h1>
     <input type="submit" name="delCompany" id="deleteCompany" value="Destroy company" 
