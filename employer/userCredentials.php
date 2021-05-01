@@ -1,6 +1,11 @@
 <?php 
 require_once("../sessionstart.php");
 require_once("validateUserCredentials.php");
+//checking user title
+if ($_SESSION['title'] != 'employer') {
+    header("Refresh:2; url=../index.php");
+    die ("<h1>Your session has expired");
+}
 ?>
 
 <!DOCTYPE html>
