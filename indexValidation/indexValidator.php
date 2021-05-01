@@ -35,14 +35,14 @@ function validateCredentials($link,  $email, $password) {
                         return $error;
                     } else {
                         //if the password is wrong return an error message
-                        $error =  "<p>Incorrect username or password!</p>";
+                        $error =  "<h1>Incorrect username or password!</h1>";
                         echo $error;
                         header("refresh:2;url=../index.php");
                     }
                 }
             } else {
                 //if the email has not been found return an error message
-                $error = "<p>Incorrect username or password!</p>";
+                $error = "<h1>Incorrect username or password!</h1>";
                 echo $error;
                 header("refresh:2;url=../index.php");
             }
@@ -73,11 +73,6 @@ function redirect($title) {
     }
 }
 
-//if submit is not set then do not execute the code below
-//if (!isset($_POST['submit'])) {
-//    exit();
-//}
-//connect to the database. If fails then show error mesage
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) { 
     echo "Connection to DB failed: " . mysqli_connect_error();
