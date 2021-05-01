@@ -196,6 +196,9 @@ label[for=company]{
   table-layout: auto;
   width: 40%;
 }
+.evaluationTable th {
+    padding: 5px 15px;
+}
  #myBtn {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
