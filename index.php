@@ -39,7 +39,7 @@ session_destroy();
             <br><br>
             <input type="email" name="email" placeholder="Email" autocomplete="off" required="">
             <br><br>
-            <input type="password" name="password" id="password" placeholder="Password" minlength="8" autocomplete="off" required="">
+            <input type="password" name="password" id="newPassword" placeholder="Password" minlength="8" autocomplete="off" required="">
             <!--reveal password on hover-->
             <span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
             <br><br>
