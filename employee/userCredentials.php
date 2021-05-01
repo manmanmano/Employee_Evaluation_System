@@ -41,7 +41,7 @@ require_once("validateUserCredentials.php");
             one uppercase letter and one lowercase letter</p>
         <label for="newEmail"><b>Change your email:</b></label>
         <input type="email" id="newEmail" name="newEmail" placeholder="Email"><br><br>
-        <input type="submit" name="newData" value="Update your data">
+        <input type="submit" name="newData" class="registerButton" value="Update your data">
     </form>
     <footer id="footor" style=" margin-top: 200px; margin-bottom: 0px;">
         <h2>Contact JAM</h2>
