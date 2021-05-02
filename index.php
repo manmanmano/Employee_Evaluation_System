@@ -39,13 +39,11 @@ session_destroy();
             <br><br>
             <input type="email" name="email" placeholder="Email" autocomplete="off" required="">
             <br><br>
-            <input type="password" name="password" id="newPassword" placeholder="Password" minlength="8" autocomplete="off" required="">
+            <input type="password" name="password" id="indexPassword" placeholder="Password" minlength="8" autocomplete="off" required="">
             <!--reveal password on hover-->
-            <span id="reveal-pwd" onmouseenter="showPwd()" onmouseleave="hidePwd()" >?</span>
+            <span id="reveal-pwd" onmouseenter="showindexPwd()" onmouseleave="hideindexPwd()" >?</span>
             <br><br>
             <input type="submit" value="Login" name="submit" class="registerButton">
-            <!--echo error message if any-->
-            <?php echo $credentialError; ?>
             <!--hyperlink to registration form-->
             <p>Not registered? Do it <a href="register/register.php">now</a>!</p>
         </form>

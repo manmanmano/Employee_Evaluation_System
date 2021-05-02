@@ -165,6 +165,9 @@ label[for=company]{
 #regCPassword{
   margin-left: -95px;
 }
+#indexPassword {
+    margin-left: 15px;
+}
 #company{
   margin-left: -85px;
 }

@@ -13,7 +13,7 @@ function showPwd(){
 function hidePwd(){                                                         
     document.getElementById("newPassword").type ='password';                    
 }                                                                           
-//confirm password in userCredentials and login index
+//confirm password in userCredentials
 function showcPwd(){                                                    
     document.getElementById("confirmPassword").type ='text';             
 }                                                                       
@@ -40,4 +40,12 @@ function showRegCPwd() {
 }
 function hideRegCPwd() {
     document.getElementById("regCPassword").type = 'password';
+}
+
+//password in index
+function showindexPwd(){                                                         
+    document.getElementById("indexPassword").type ='text';                        
+}                                                                           
+function hideindexPwd(){                                                         
+    document.getElementById("indexPassword").type ='password';                    
 }
