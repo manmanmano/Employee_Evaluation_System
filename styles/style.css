@@ -132,44 +132,12 @@ table tr:hover {
     background-color: #87ff9e;
     border: 1px solid black;
 }
-label[for=regPassword]{
-  float: left;
-  margin-top: 13px;
-  margin-right: -770px;
-  margin-left: 770px;
-}
-label[for=regCPassword]{
-  float: left;
-  margin-top: 13px;
-  margin-right: -695px;
-  margin-left: 695px;
-}
-label[for=company]{
-  float: left;
-  margin-top: 13px;
-  margin-right: -720px;
-  margin-left: 720px;
-}
-#positionDiv{
-  margin-left: -195px;
-  margin-bottom: -100px;
-  text-align: center;
-}
 .pswRequirement {
   text-align: center;
   font-size: 13px;
 }
-#regPassword{
-  margin-left: -20px;
-}
-#regCPassword{
-  margin-left: -95px;
-}
 #indexPassword {
     margin-left: 15px;
-}
-#company{
-  margin-left: -85px;
 }
 .evals {
     color: red;
