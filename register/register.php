@@ -20,12 +20,12 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 			<a href="../index.php">Main page</a>
 		</nav>
 	</header>
-	<form method="post" id="regForm" action="registerValidation.php">
-		<label for="name"><b>Name:</b></label>
+	<form method="post" action="registerValidation.php">
+		<label for="name"><b>Name</b></label>
 		<input type="text" id="name" name="name"  placeholder="Full Name"  pattern="^[A-Za-z]+(\s[A-Za-z]+){0,2}$" required>
 		<br>
 		<br>
-		<label for="email"><b>Email:</b></label>
+		<label for="email"><b>Email</b></label>
 		<input type="text" id="email" name="email" placeholder="Email" required>
 		<br>
 		<br>
@@ -46,20 +46,20 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 				</li>
 			</ul>
 		</div>
-		<label for="regPassword"><b>Password:</b></label>
+		<label for="regPassword"><b>Password</b></label>
 		<input type="password" id="regPassword" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
 		<span id="reveal-pwd" onmouseenter="showRegPwd()" onmouseleave="hideRegPwd()" >?</span>
 		<br>
 		<label for="name" class="pswRequirement">* Password must have at least 8 characters and at least one number, <br> one uppercase letter and one lowercase letter.<br></label>
 		<br>
-		<label for="regCPassword"><b>Confirm Password:</b></label>
+		<label for="regCPassword"><b>Confirm Password</b></label>
 		<input type="password" id="regCPassword" name="cPassword" placeholder="Confirm Password" required>
 		<span id="reveal-pwd" onmouseenter="showRegCPwd()" onmouseleave="hideRegCPwd()" >?</span>
 		<br>
 		<br>
 		<!-- box to enter company token, visible by default and as "employee"-->
 		<div id="haveToken" style="display:block">
-			<label for="company"><b>Company token:</b></label>
+			<label for="company"><b>Company token</b></label>
 			<input type="text" id="company" name="company" placeholder="Given by the employer">
 		</div>
 		<!-- box that gives the company token, visible when selecting "employer"-->
