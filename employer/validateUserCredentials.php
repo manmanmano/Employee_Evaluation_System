@@ -151,7 +151,7 @@ if (isset($_POST['newData']) && !empty($_POST['oldPassword']) || !empty($_POST['
         }
     }
 
-    //close the statement
+    //close the link
     mysqli_close($link);
     //redirect to updateSuccess
     header("refresh:0; updateSuccess.php");
