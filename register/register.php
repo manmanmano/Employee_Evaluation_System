@@ -11,7 +11,7 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 	<meta charset="UTF-8">
 	<title>Registration</title>
 	<script src="../scripts/showHidePwd.js"></script>
-	<link rel="stylesheet" href="../styles/style.css">
+	<link rel="stylesheet" href="../styles/regStyle.css">
 </head>
 <body>
 	<header>
@@ -29,28 +29,16 @@ $_SESSION['tokenGen'] = bin2hex(random_bytes(15));
 		<input type="text" id="email" name="email" placeholder="Email" required>
 		<br>
 		<br>
-		<div id="positionDiv">
 		<label><b>Position:</b></label>
-			<ul>
-				<li>
-					<label>
-						<input type="radio" name="position" value="employee" id="employee" name="position" onclick="ShowHide()" checked>
-						<span>Employee</span>
-					</label>
-				</li>
-				<li>
-					<label>
-						<input type="radio" name="position" value="employer" id="employer" name="position" onclick="ShowHide()">
-						<span>Employer</span>
-					</label>
-				</li>
-			</ul>
-		</div>
-		<label for="regPassword"><b>Password</b></label>
+		<input type="radio" name="position" value="employee" id="employee" name="position" onclick="ShowHide()" checked>
+		<label style="margin-right: 25px;">Employee</label>
+		<input type="radio" name="position" value="employer" id="employer" name="position" onclick="ShowHide()">
+        <label>Employer</label><br>
+		<br><label for="regPassword"><b>Password</b></label>
 		<input type="password" id="regPassword" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
 		<span id="reveal-pwd" onmouseenter="showRegPwd()" onmouseleave="hideRegPwd()" >?</span>
 		<br>
-		<label for="name" class="pswRequirement">* Password must have at least 8 characters and at least one number, <br> one uppercase letter and one lowercase letter.<br></label>
+		<p>* Password must have at least 8 characters and at least one number, <br> one uppercase letter and one lowercase letter.<br></p>
 		<br>
 		<label for="regCPassword"><b>Confirm Password</b></label>
 		<input type="password" id="regCPassword" name="cPassword" placeholder="Confirm Password" required>
