@@ -19,6 +19,7 @@ function checkToken($link, $token) {
             //if token does not exist exit
             if (mysqli_stmt_num_rows($stmt) != 1) {
                 echo "<h1>";
+                header("refresh: 2;url=register.php");
                 die("Invalid token!");
                 echo "</h1>";
             }
@@ -41,6 +42,7 @@ function checkEmail($link, $email) {
             //if email does not exist exit
             if (mysqli_stmt_num_rows($stmt) == 1) {
                 echo "<h1>";
+                header("refresh: 2;url=register.php");
                 die("Email already exists!");
                 echo "</h1>";
             }
@@ -58,7 +60,8 @@ function matching_passwords($password, $cpassword)
     }
     else if ($password != $cpassword) {
         // error matching passwords
-        exit('Your passwords do not match.');
+        header("refresh: 2;url=register.php");
+        exit('<h1>Your passwords do not match.');
 
     }
     // passwords match
@@ -105,7 +108,8 @@ if (empty($_POST['email'])) {
     exit("Please enter Your email.");
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    exit("Please enter a valid email.");
+    header("refresh: 2;url=register.php");
+    exit("<h1>Please enter a valid email.");
 }
 // sanitizing "position"
 $position = $_POST['position'];
@@ -119,7 +123,8 @@ if (!isset($position) || empty($position)) {
 // checks if token is entered while position is "employee"
 $employeeToken = $_POST['company'];
 if ($position == "employee" && empty($employeeToken)) {
-  exit("Token is required for registering");
+    header("refresh: 2;url=register.php");
+    exit("<h1>Token is required for registering");
 }
 // sanitizing "password"
 $password = $_POST['password'];
