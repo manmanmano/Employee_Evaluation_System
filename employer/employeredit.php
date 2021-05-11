@@ -28,6 +28,7 @@ require_once("employereditvalidation.php");
                 <?php setcookie("year", $_GET['year'], time() + 3600, "/~madang/icd0007_project"); echo $_GET['year']; ?>
             </tr>
             <?php require_once("radioButtons.php") ?>
+            <td><input type="submit" name="submit"></td>
         </table>
         </form>
         <footer>

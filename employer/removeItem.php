@@ -1,6 +1,10 @@
 <?php
 require_once("../sessionstart.php");
 require_once("../usersData/connect.db.php");
+if ($_SESSION['title'] != 'employer') {
+    header("refresh:2;url=../index.php");
+    die("<h1>Your session has expired!</h1>");
+}
 //connect to the database
 $link = mysqli_connect($server, $user, $password, $database);
 if (!$link) {

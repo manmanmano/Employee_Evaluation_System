@@ -27,10 +27,11 @@ require_once("employerInputValidation.php");
                 </select><br>
                 <label for="date">Week:</label>
                 <input type="date" name="date" id="date" required><br>
+                <table class="evaluationTable"><br>
+                <?php require_once("radioButtons.php") ?>
+                <td><input type="submit" name="submit"></td>
+                </table>
         </form>
-        <table class="evaluationTable"><br>
-        <?php require_once("radioButtons.php") ?>
-        </table>
         <footer>
             <h3>Contact JAM</h3>
             <p>

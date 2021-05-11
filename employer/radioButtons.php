@@ -102,4 +102,3 @@
                 <td><input type="radio" name="quality" value="4"></td>          
                 <td><input type="radio" name="quality" value="5"></td>          
             </tr>                                                               
-            <td><input type="submit" name="submit"></td>                        
